@@ -1,0 +1,9 @@
+Initializing HSM test environment with base address 0x20085000
+Hsm test:rbg start with param:-len.
+[INFO][HSM] RBG Test Start: 2--len-16
+[INFO][HSM] Arg-[0]: -len
+[INFO][HSM] >>>>Value:16
+[INFO][HSM][1755761711ms] RBG Test: start get 64bytes!
+[INFO][HSM][1755761711ms] RBG Test: get random pass.
+[INFO][HSM] Random Bytes:
+8c177a92d190acb5e3c5c74e8226b3fb3734a38b993c0c37ae8de71466f9ebed130fd7a5d8669963d318e2c76b5badf4f06f151883eb3e13d85f9a3cb0fdeddf

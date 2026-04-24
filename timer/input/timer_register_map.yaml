@@ -1,0 +1,165 @@
+registers:
+- name: TIMER_MCR
+  address: '0x000'
+  default: '0x0000_0002'
+  fields:
+  - bit_range: '1'
+    name: MDIS
+    access: RW
+    description: 1：means all timer channel enabled; 0 means all timer channel disabled;
+- name: TIMER0_LDVAL
+  address: '0x100'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: LDVAL
+    access: RW
+    description: 'The timer starts with the value it sets. The timer will count down to 0,
+          then generate an interrupt and reload the value of this register. Writing a new 
+          value to this register does not restart the timer. Instead, the new value is loaded 
+          after the timer expires. To abort the current cycle and start a new timer cycle 
+          with a new value, you must first disable the timer and then enable it again.'
+- name: TIMER0_CVAL
+  address: '0x104'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CVAL
+    access: RO
+    description: 'Current timer counter'
+- name: TIMER0_INIT
+  address: '0x108'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '2'
+    name: LINKEN
+    access: RW
+    description: '0: the timer channel disable linker mode; 1: the timer channel enable linker mode;
+          Linker mode: ticks of timer(n) will decrease 1 untill timer(n-1) decrease to zero from LDVAL;
+          note: timer(0) can not link to other timer'
+  - bit_range: '1'
+    name: TIE
+    access: RW
+    description: '0: timer interrupt enable; 1: timer interrupt disable; If the ticks decrease to zero,
+           then the timer will trigger an interrupt if TIE=1'
+  - bit_range: '0'
+    name: TEN
+    access: RW
+    description: '1: timer start decrease from LDVAL; 0: timer stoped;'
+- name: TIMER1_LDVAL
+  address: '0x110'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: LDVAL
+    access: RW
+    description: 'The timer starts with the value it sets. The timer will count down to 0,
+          then generate an interrupt and reload the value of this register. Writing a new 
+          value to this register does not restart the timer. Instead, the new value is loaded 
+          after the timer expires. To abort the current cycle and start a new timer cycle 
+          with a new value, you must first disable the timer and then enable it again.'
+- name: TIMER1_CVAL
+  address: '0x114'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CVAL
+    access: RO
+    description: 'Current timer counter'
+- name: TIMER1_INIT
+  address: '0x118'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '2'
+    name: LINKEN
+    access: RW
+    description: '0: the timer channel disable linker mode; 1: the timer channel enable linker mode;
+          Linker mode: ticks of timer(n) will decrease 1 untill timer(n-1) decrease to zero from LDVAL;
+          note: timer(0) can not link to other timer'
+  - bit_range: '1'
+    name: TIE
+    access: RW
+    description: '0: timer interrupt enable; 1: timer interrupt disable; If the ticks decrease to zero,
+           then the timer will trigger an interrupt if TIE=1'
+  - bit_range: '0'
+    name: TEN
+    access: RW
+    description: '1: timer start decrease from LDVAL; 0: timer stoped;'
+- name: TIMER2_LDVAL
+  address: '0x120'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: LDVAL
+    access: RW
+    description: 'The timer starts with the value it sets. The timer will count down to 0,
+          then generate an interrupt and reload the value of this register. Writing a new 
+          value to this register does not restart the timer. Instead, the new value is loaded 
+          after the timer expires. To abort the current cycle and start a new timer cycle 
+          with a new value, you must first disable the timer and then enable it again.'
+- name: TIMER2_CVAL
+  address: '0x124'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CVAL
+    access: RO
+    description: 'Current timer counter'
+- name: TIMER2_INIT
+  address: '0x128'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '2'
+    name: LINKEN
+    access: RW
+    description: '0: the timer channel disable linker mode; 1: the timer channel enable linker mode;
+          Linker mode: ticks of timer(n) will decrease 1 untill timer(n-1) decrease to zero from LDVAL;
+          note: timer(0) can not link to other timer'
+  - bit_range: '1'
+    name: TIE
+    access: RW
+    description: '0: timer interrupt enable; 1: timer interrupt disable; If the ticks decrease to zero,
+           then the timer will trigger an interrupt if TIE=1'
+  - bit_range: '0'
+    name: TEN
+    access: RW
+    description: '1: timer start decrease from LDVAL; 0: timer stoped;'
+- name: TIMER3_LDVAL
+  address: '0x130'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: LDVAL
+    access: RW
+    description: 'The timer starts with the value it sets. The timer will count down to 0,
+          then generate an interrupt and reload the value of this register. Writing a new 
+          value to this register does not restart the timer. Instead, the new value is loaded 
+          after the timer expires. To abort the current cycle and start a new timer cycle 
+          with a new value, you must first disable the timer and then enable it again.'
+- name: TIMER3_CVAL
+  address: '0x134'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CVAL
+    access: RO
+    description: 'Current timer counter'
+- name: TIMER3_INIT
+  address: '0x138'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '2'
+    name: LINKEN
+    access: RW
+    description: '0: the timer channel disable linker mode; 1: the timer channel enable linker mode;
+          Linker mode: ticks of timer(n) will decrease 1 untill timer(n-1) decrease to zero from LDVAL;
+          note: timer(0) can not link to other timer'
+  - bit_range: '1'
+    name: TIE
+    access: RW
+    description: '0: timer interrupt enable; 1: timer interrupt disable; If the ticks decrease to zero,
+           then the timer will trigger an interrupt if TIE=1'
+  - bit_range: '0'
+    name: TEN
+    access: RW
+    description: '1: timer start decrease from LDVAL; 0: timer stoped;'

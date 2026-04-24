@@ -1,0 +1,559 @@
+registers:
+- name: FMUKR
+  address: '0x2000'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEYUNLK
+    access: RW
+    description: Unlock the writting protection of the eflash control registers. The
+      eflash control registers are indicated to be not locked when bit is 0 and is
+      locked when FMGSR [LOCK] bit is 1. Sequential write 0x00ac7805 & 0x01234567
+      to unlock the flash register, then the control registers can be written again.
+- name: FMGSR
+  address: '0x2004'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '3'
+    name: WAKEUP_EN
+    access: RO
+    description: '1''b1: Flash control is awakened from stop mode. 1''b0: Flash control
+      is not awakened from stop mode.'
+  - bit_range: '2'
+    name: FMRPRT
+    access: RO
+    description: '1''b1: protected. 1''b0: not protected.'
+  - bit_range: '1'
+    name: BUSY
+    access: RO
+    description: '1''b1: busy. 1''b0: not busy.'
+  - bit_range: '0'
+    name: LOCK
+    access: RO
+    description: '1''b1: lock. 1''b0: not lock.'
+- name: FMGCR
+  address: '0x2008'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '27:26'
+    name: FLASH_RD_LATENCY
+    access: RW
+    description: '2''b11: 130MHz < sys_clk ≤ 170MHz. 2''b10: 100MHz < sys_clk ≤ 130MHz.
+      2''b01: 50MHz < sys_clk ≤ 100MHz. 2''b00: sys_clk ≤ 50MHz. 系统时钟频率由低切到高时,需要先将FLASH_RD_LATENCY配置到对应的档位再切时钟频率；系统时钟频率由高切到低时,需要先切时钟频率,再配置FLASH_RD_LATENCY。'
+  - bit_range: '25'
+    name: PF_AUTOVRF_OFF
+    access: RW
+    description: '1''b1: skip. 1''b0: not skip.'
+  - bit_range: '24'
+    name: DF_AUTOVRF_OFF
+    access: RW
+    description: '1''b1: skip. 1''b0: not skip.'
+  - bit_range: '23'
+    name: FREQ_LOCK
+    access: RW
+    description: '1''b1: lock. 1''b0: not lock.'
+  - bit_range: '22:16'
+    name: FREQ
+    access: RW
+    description: flash frequency
+  - bit_range: '11'
+    name: PF_ECC_EN
+    access: RW
+    description: '1''b1: enable. 1''b0: disable.'
+  - bit_range: '10'
+    name: DF_ECC_EN
+    access: RW
+    description: '1''b1: enable. 1''b0: disable.'
+  - bit_range: '9'
+    name: PF_CACHE_EN
+    access: RW
+    description: '1''b1: enable. 1''b0: disable.'
+  - bit_range: '8'
+    name: DF_CACHE_EN
+    access: RW
+    description: '1''b1: enable. 1''b0: disable.'
+  - bit_range: '0'
+    name: HDFEN
+    access: RW
+    description: '1''b1: enable. 1''b0: disable.'
+- name: FMCSR
+  address: '0x200C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '21'
+    name: FMCCF
+    access: RW
+    description: '1''b1: Flash command completion detected. 1''b0: Command completion not detected.'
+  - bit_range: '20'
+    name: FMCCFTF
+    access: RW
+    description: '1''b1: Command conflict detected. 1''b0: No command conflict detected.'
+  - bit_range: '19'
+    name: HSMRVIOF
+    access: RW
+    description: '1''b1: Option byte DATAx verification error. 1''b0: Option byte DATAx verification no error.'
+  - bit_range: '18'
+    name: OPTDWERR
+    access: RW
+    description: '1''b1: Option byte D_WPRT_EN verification error. 1''b0: Option byte D_WPRT_EN verification no error.'
+  - bit_range: '17'
+    name: OPTPWERR
+    access: RW
+    description: '1''b1: Option byte P_WPRT_EN verification error. 1''b0: Option byte P_WPRT_EN verification no error.'
+  - bit_range: '16'
+    name: OPTRERR
+    access: RW
+    description: '1''b1: Option byte RDP verification error. 1''b0: Option byte RDP verification no error.'
+  - bit_range: '15:14'
+    name: DECCSTA
+    access: RW
+    description: '2''b00: No ecc error detected for Dflash. 2''b01: 2-bit ecc error detected for Dflash. 2''b1x: 1-bit ecc error detected for Dflash.'
+  - bit_range: '13:12'
+    name: PECCSTA
+    access: RW
+    description: '2''b00: No ecc error detected for Pflash. 2''b01: 2-bit ecc error detected for Pflash. 2''b1x: 1-bit ecc error detected for Pflash.'
+  - bit_range: '11'
+    name: ACCERR
+    access: RW
+    description: '1''b1: The address in EFLASH_CAR is detected to be illegal. 1''b0: The address error in EFLASH_CAR is not detected.'
+  - bit_range: '9'
+    name: PGMERR
+    access: RW
+    description: '1''b1: There is an error in the programming command because the program address is illegal or the verification operation 
+                  before the program command is abnormal. 1''b0: There is no error in the programming command.'
+  - bit_range: '8'
+    name: VRFERR
+    access: RW
+    description: '1''b1: There is an error in data verification. 1''b0: There is no error in data verification.'
+  - bit_range: '6'
+    name: RVIO
+    access: RW1C
+    description: '1''b1: Read protection rule violated in Pflash & Dflash; 1''b0: Read protection rule not violated in Pflash & Dflash.'
+  - bit_range: '5'
+    name: DWVIO
+    access: RW
+    description: '1''b1: Write protection rule violated in Dflash; 1''b0: Write protection rule not violated in Dflash.'
+  - bit_range: '4'
+    name: PWVIO
+    access: RW
+    description: '1''b1: Write protection rule violated in Pflash; 1''b0: Write protection rule not violated in Pflash.'
+  - bit_range: '2'
+    name: DBUFLST
+    access: RW
+    description: '1''b1: Indicates that the command operation has reached the end of the data buffer. 1''b0: Indicates that the command operation has not reached the end of the data buffer.'
+  - bit_range: '1'
+    name: DBUFRDY
+    access: RW
+    description: '1''b1: DAT_BUF is ready to write. 1''b0: DAT_BUF is not ready to write.'
+  - bit_range: '0'
+    name: CMDBUSY
+    access: RW
+    description: '1''b1: FLash is busy. 1''b0: No operation in current flash.'
+- name: FMCCR
+  address: '0x2010'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '23:12'
+    name: CMD_LEN
+    access: RW
+    description: 'Program Page, Program Option Page or Verify Page CMD length, unit
+      is 8 Bytes. Note: Max length can not exceed flash memory boundary.'
+  - bit_range: '11:4'
+    name: CMD_TYPE
+    access: RW
+    description: '0x01: page erase. 0x02: option page erase. 0x03: mass erase. 0x04:
+      reference cell erase(不对客户开发). 0x11: page program. 0x12: option page program.
+      0x21: page verify. 0x22: mass verify.'
+  - bit_range: '2'
+    name: CMD_OPTEN
+    access: RW
+    description: '1''b1: enable. 1''b0: disbale.'
+  - bit_range: '1'
+    name: CMD_ABORT
+    access: RW
+    description: '1''b1: valid. 1''b0: invalid.'
+  - bit_range: '0'
+    name: CMD_START
+    access: RW
+    description: '1''b1: valid. 1''b0: invalid. If the command processing is completed, this bit will be automatically cleared'
+- name: FMADDR
+  address: '0x2014'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMADDR
+    access: RW
+    description: 'Command address buffer. Note: should 8 byte align'
+- name: FMDATA0
+  address: '0x2018'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMDATA0
+    access: RW
+    description: Program data. FMDATA0 is the lower 32bit
+- name: FMDATA1
+  address: '0x201C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMDATA0
+    access: RW
+    description: Program data. FMDATA0 is the upper 32bit; Note: Write to this register with any data will set FMCSR.DBUFRDY = 0
+- name: FMPFWPR0
+  address: '0x2020'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMPFWPR0
+    access: RW
+    description: 'This register and FMPFWPR1 will divides PFlash into 64 equal regins.
+      After the MCU is powered on, the corresponding 64bit will be load from the flash
+      info memory. The register can be read and written, and it will take effect immediately
+      after being rewritten. If the write protection area is erased or programed,
+      it may trigger write protect violation flag(FMCSR[PFWVIOF]). 1''b1: no write
+      protection. 1''b0: write protection.'
+- name: FMPFWPR1
+  address: '0x2024'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMPFWPR1
+    access: RW
+    description: 'This register and FMPFWPR0 will divides PFlash into 64 equal regins.
+      After the MCU is powered on, the corresponding 64bit will be load from the flash
+      info memory. The register can be read and written, and it will take effect immediately
+      after being rewritten. If the write protection area is erased or programed,
+      it may trigger write protect violation flag(FMCSR[PFWVIOF]). 1''b1: no write
+      protection. 1''b0: write protection.'
+- name: FMDFWPR0
+  address: '0x2028'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMDFWPR0
+    access: RW
+    description: 'This register and FMDFWPR1 will divides DFlash into 64 equal regins.
+      After the MCU is powered on, the corresponding 64bit will be load from the flash
+      info memory. The register can be read and written, and it will take effect immediately
+      after being rewritten. If the write protection area is erased or programed,
+      it may trigger write protect violation flag(FMCSR[DFWVIOF]). 1''b1: no write
+      protection. 1''b0: write protection.'
+- name: FMDFWPR1
+  address: '0x202C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMDFWPR1
+    access: RW
+    description: 'This register and FMDFWPR0 will divides DFlash into 64 equal regins.
+      After the MCU is powered on, the corresponding 64bit will be load from the flash
+      info memory. The register can be read and written, and it will take effect immediately
+      after being rewritten. If the write protection area is erased or programed,
+      it may trigger write protect violation flag(FMCSR[DFWVIOF]). 1''b1: no write
+      protection. 1''b0: write protection.'
+- name: FMPFECADR
+  address: '0x2030'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMPFECADR
+    access: RW1C
+    description: ECC 2-bit error address,write 1 clear
+- name: FMDFECADR
+  address: '0x2034'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMDFECADR
+    access: RW1C
+    description: ECC 2-bit error address,write 1 clear
+- name: FMPFEIM0
+  address: '0x2040'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMPFEIM0
+    access: RW
+    description: this register act on PFlash DOUT[31:0]. FMPFEIM0[i] = 1, DOUT[i]
+      = ~ DOUT[i]
+- name: FMPFEIM1
+  address: '0x2044'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMPFEIM1
+    access: RW
+    description: this register act on PFlash DOUT[63:32]. FMPFEIM1[i] = 1, DOUT[i]
+      = ~ DOUT[i]
+- name: FMDFEIM0
+  address: '0x2050'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMDFEIM0
+    access: RW
+    description: this register act on DFlash DOUT[31:0]. FMDFEIM0[i] = 1, DOUT[i]
+      = ~ DOUT[i]
+- name: FMDFEIM1
+  address: '0x2054'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMPFEIM1
+    access: RW
+    description: this register act on DFlash DOUT[63:32]. FMDFEIM1[i] = 1, DOUT[i]
+      = ~ DOUT[i]
+- name: FMLVD
+  address: '0x2060'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '1'
+    name: LVD_WRN
+    access: RW
+    description: Programmable Low voltage detector (LVD) warning status. If the LVDMODE_EN
+      is enabled and the IC power voltage is less than programmed voltage value, this
+      status will be 1'b1 until the power voltage more than the programmed voltage
+      value again.
+  - bit_range: '0'
+    name: LVDMODE_EN
+    access: RW
+    description: '1''b1: enable. 1''b0: disbale.'
+- name: FMKEY
+  address: '0x2064'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '5'
+    name: KEYTRVSE
+    access: RW
+    description: '1''b1: trigger key area traverse. 1''b0: don''t trigger key area
+      traverse.'
+  - bit_range: '4'
+    name: KEYRDERR
+    access: RW1C
+    description: '1''b1: error. 1''b0: no error.'
+  - bit_range: '3'
+    name: KEYPGERR
+    access: RO
+    description: '1''b1: error. 1''b0: no error.'
+  - bit_range: '2:1'
+    name: KEYPGVLD
+    access: RO
+    description: '2''b00: has no valid key area. 2''b01: only key area0 valid. 2''b10:
+      inly key area1 valid. 2''b11: key area0 and key area1 are all valid.'
+  - bit_range: '0'
+    name: KEYTRVSST
+    access: RO
+    description: Key traverse complete status
+- name: FMCNR
+  address: '0x2070'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '23:0'
+    name: CHIP_NAME
+    access: RO
+    description: Chip name
+- name: FMCIR0
+  address: '0x2074'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMCIR0
+    access: RO
+    description: Chip UUID byte0~3
+- name: FMCIR1
+  address: '0x2078'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMCIR1
+    access: RO
+    description: Chip UUID byte4~7
+- name: FMCIR2
+  address: '0x2080'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMCIR1
+    access: RO
+    description: Chip UUID byte8~11
+- name: FMPKG
+  address: '0x2084'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '7:0'
+    name: PKG_INFO
+    access: RO
+    description: PACKAGE information
+- name: FMINFO_MJST
+  address: '0x2088'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMINFO_MJST
+    access: RO
+    description: Flash Memory INFO Major Register
+- name: FMDBG
+  address: '0x208C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '4'
+    name: DBG_LOCK
+    access: RW
+    description: TESTBUS_SEL Debug controller register lock
+  - bit_range: '3:0'
+    name: TESTBUS_SEL
+    access: RW
+    description: '4''b0000: testbus = 16''h0. 4''b0001: pflash test signal. 4''b0010:
+      dflash test signal. default: testbus = 16''h0'
+- name: FMSPCLK
+  address: '0x2090'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: FMSPCLCK
+    access: RW
+    description: "Flash special lock. Before write this register, correct unlock sequence\
+      \ should be write into FMUKR. write sequence : write sequence : 32'h0123_4567\
+      \ -> 32'heedd_ccbb will unlock PF_SMWSETTING_CFG/PF_SMWSETTING3_CFG/DF_SMWSETTING_CFG/DF_SMWSETTING3_CFG\
+      \ register;\n write sequence : write sequence : 32'h1234_7805 -> 32'hddcc_bbaa\
+      \ will unlock PF_SMPWHV0/PF_SMPWHV1/PF_SMEWHV0/PF_SMEWHV1 register\n write sequence\
+      \ : write sequence : 32'h6789_7805 -> 32'h1122_3344 will unlock DF_SMPWHV0/DF_SMPWHV1/DF_SMEWHV0/DF_SMEWHV1\
+      \ register\n write sequence : 32'h3322 1100 -> 32'hffee ddcc will enable reference\
+      \ cell erase command"
+- name: FMPF_SMWTIME
+  address: '0x20A0'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '22:19'
+    name: smw_extra_pluse
+    access: RW
+    description: NA
+  - bit_range: '18:14'
+    name: smw_max_prog
+    access: RW
+    description: NA
+  - bit_range: '13:5'
+    name: smw_max_erase
+    access: RW
+    description: NA
+  - bit_range: '4:3'
+    name: smw_tpgm
+    access: RW
+    description: NA
+  - bit_range: '2:0'
+    name: smw_ters
+    access: RW
+    description: NA
+- name: FMPF_SMWCNT
+  address: '0x20A4'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '16:8'
+    name: hem_nmax_eras
+    access: RW
+    description: NA
+  - bit_range: '7:0'
+    name: hem_whv_count
+    access: RW
+    description: NA
+- name: FMDF_SMWTIME
+  address: '0x20A8'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '22:19'
+    name: smw_extra_pluse
+    access: RW
+    description: NA
+  - bit_range: '18:14'
+    name: smw_max_prog
+    access: RW
+    description: NA
+  - bit_range: '13:5'
+    name: smw_max_erase
+    access: RW
+    description: NA
+  - bit_range: '4:3'
+    name: smw_tpgm
+    access: RW
+    description: NA
+  - bit_range: '2:0'
+    name: smw_ters
+    access: RW
+    description: NA
+- name: FMDF_SMWCNT
+  address: '0x20AC'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '16:8'
+    name: hem_nmax_eras
+    access: RW
+    description: NA
+  - bit_range: '7:0'
+    name: hem_whv_count
+    access: RW
+    description: NA
+- name: FMPF_SMPWHV0
+  address: '0x20B0'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: PF_SMP_WHV0
+    access: RW
+    description: PFlash smp_whv[31:0]
+- name: FMPF_SMPWHV1
+  address: '0x20B4'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: PF_SMP_WHV0
+    access: RW
+    description: PFlash smp_whv[63:32]
+- name: FMPF_SMEWHV0
+  address: '0x20B8'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: PF_SME_WHV0
+    access: RW
+    description: PFlash sme_whv[31:0]
+- name: FMPF_SMEWHV1
+  address: '0x20BC'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: PF_SME_WHV1
+    access: RW
+    description: PFlash sme_whv[63:32]
+- name: FMDF_SMPWHV0
+  address: '0x20C0'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: DF_SMP_WHV0
+    access: RW
+    description: DFlash smp_whv[31:0]
+- name: FMDF_SMPWHV1
+  address: '0x20C4'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: DF_SMP_WHV0
+    access: RW
+    description: DFlash smp_whv[63:32]
+- name: FMDF_SMEWHV0
+  address: '0x20C8'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: DF_SME_WHV0
+    access: RW
+    description: DFlash sme_whv[31:0]
+- name: FMDF_SMEWHV1
+  address: '0x20CC'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: DF_SME_WHV1
+    access: RW
+    description: DFlash sme_whv[63:32]

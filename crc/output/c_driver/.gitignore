@@ -1,0 +1,15 @@
+# Ignore build artifacts
+build/
+*.o
+*.a
+*.so
+*.exe
+
+# Ignore editor temporary files
+*~
+.*.swp
+.*.swo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db

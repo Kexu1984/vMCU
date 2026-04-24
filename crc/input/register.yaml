@@ -1,0 +1,192 @@
+registers:
+- name: CtxMode
+  address: '0x000'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '0'
+    name: CRC_MODE
+    access: RW
+    description: 'CRC Mode of operation: 0: CRC16; 1: CRC32.'
+  - bit_range: '1'
+    name: ACC_MS_BIT
+    access: RW
+    description: 'Accumulate MS Bit first: 0: MS bit last; 1: MS bit first.'
+  - bit_range: '2'
+    name: ACC_MS_BYTE
+    access: RW
+    description: |
+      0: MS byte last
+      1: MS byte first
+        For 1-byte and 2-byte bus writes, CRC is computed in byte size
+        (byte by byte calculation). For 4-byte bus writes, CRC is
+        computed in word size.
+        For 4-byte bus writes with ACC_MS_BYTE set to zero, data must
+        be written with LSB byte first in calculation since CRC
+        calculation starts serially from D[31] bit.
+  - bit_range: '3'
+    name: OUT_MS_BIT
+    access: RW
+    description: |
+      Output MS Bit first
+      0: MS bit last
+      1: MS bit First
+  - bit_range: '4'
+    name: OUT_MS_BYTE
+    access: RW
+    description: |
+      Output MS Byte first
+      0: MS byte last
+      1: MS byte first
+  - bit_range: '5'
+    name: OUT_INV
+    access: RW
+    description: |
+      Invert Output
+        0: Output Not Inverted
+        1: Output Inverted.
+
+- name: CRC_IVAL
+  address: '0x004'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CRC_IVAL
+    access: RW
+    description: 'Initial value for CRC calculation.'
+
+- name: CRC_DATA
+  address: '0x008'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CRC_DATA
+    access: RW
+    description: 'Data written to the CRC Engine'
+
+- name: CtxMode
+  address: '0x020'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '0'
+    name: CRC_MODE
+    access: RW
+    description: 'CRC Mode of operation: 0: CRC16; 1: CRC32.'
+  - bit_range: '1'
+    name: ACC_MS_BIT
+    access: RW
+    description: 'Accumulate MS Bit first: 0: MS bit last; 1: MS bit first.'
+  - bit_range: '2'
+    name: ACC_MS_BYTE
+    access: RW
+    description: |
+      0: MS byte last
+      1: MS byte first
+        For 1-byte and 2-byte bus writes, CRC is computed in byte size
+        (byte by byte calculation). For 4-byte bus writes, CRC is
+        computed in word size.
+        For 4-byte bus writes with ACC_MS_BYTE set to zero, data must
+        be written with LSB byte first in calculation since CRC
+        calculation starts serially from D[31] bit.
+  - bit_range: '3'
+    name: OUT_MS_BIT
+    access: RW
+    description: |
+      Output MS Bit first
+      0: MS bit last
+      1: MS bit First
+  - bit_range: '4'
+    name: OUT_MS_BYTE
+    access: RW
+    description: |
+      Output MS Byte first
+      0: MS byte last
+      1: MS byte first
+  - bit_range: '5'
+    name: OUT_INV
+    access: RW
+    description: |
+      Invert Output
+        0: Output Not Inverted
+        1: Output Inverted.
+
+- name: CRC_IVAL
+  address: '0x024'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CRC_IVAL
+    access: RW
+    description: 'Initial value for CRC calculation.'
+
+- name: CRC_DATA
+  address: '0x028'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CRC_DATA
+    access: RW
+    description: 'Data written to the CRC Engine'
+
+- name: CtxMode
+  address: '0x040'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '0'
+    name: CRC_MODE
+    access: RW
+    description: 'CRC Mode of operation: 0: CRC16; 1: CRC32.'
+  - bit_range: '1'
+    name: ACC_MS_BIT
+    access: RW
+    description: 'Accumulate MS Bit first: 0: MS bit last; 1: MS bit first.'
+  - bit_range: '2'
+    name: ACC_MS_BYTE
+    access: RW
+    description: |
+      0: MS byte last
+      1: MS byte first
+        For 1-byte and 2-byte bus writes, CRC is computed in byte size
+        (byte by byte calculation). For 4-byte bus writes, CRC is
+        computed in word size.
+        For 4-byte bus writes with ACC_MS_BYTE set to zero, data must
+        be written with LSB byte first in calculation since CRC
+        calculation starts serially from D[31] bit.
+  - bit_range: '3'
+    name: OUT_MS_BIT
+    access: RW
+    description: |
+      Output MS Bit first
+      0: MS bit last
+      1: MS bit First
+  - bit_range: '4'
+    name: OUT_MS_BYTE
+    access: RW
+    description: |
+      Output MS Byte first
+      0: MS byte last
+      1: MS byte first
+  - bit_range: '5'
+    name: OUT_INV
+    access: RW
+    description: |
+      Invert Output
+        0: Output Not Inverted
+        1: Output Inverted.
+
+- name: CRC_IVAL
+  address: '0x044'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CRC_IVAL
+    access: RW
+    description: 'Initial value for CRC calculation.'
+
+- name: CRC_DATA
+  address: '0x048'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: CRC_DATA
+    access: RW
+    description: 'Data written to the CRC Engine'

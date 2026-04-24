@@ -1,0 +1,3623 @@
+
+build/eflash_unicorn_test.elf:     file format elf32-littlearm
+build/eflash_unicorn_test.elf
+architecture: armv7e-m, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00000001
+
+Program Header:
+    LOAD off    0x00010000 vaddr 0x00000000 paddr 0x00000000 align 2**16
+         filesz 0x000084a0 memsz 0x000084a0 flags rwx
+private flags = 0x5000400: [Version5 EABI] [hard-float ABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00001928  00000000  00000000  00010000  2**6
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .isr_vector   00000440  00001928  00001928  00011928  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .rodata       00000b00  00001d68  00001d68  00011d68  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .init_array   00000008  00002868  00002868  00012868  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .fini_array   00000004  00002870  00002870  00012870  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  5 .data         000004dc  00002878  00002878  00012878  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .bss          0000014c  00002d54  00002d54  00012d54  2**2
+                  ALLOC
+  7 ._user_heap_stack 00000600  00002ea0  00002ea0  00012d54  2**0
+                  ALLOC
+  8 .stack        00004000  000034a0  000034a0  000134a0  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  9 .heap         00001000  000074a0  000074a0  000174a0  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 10 .ARM.attributes 0000002e  00000000  00000000  000184a0  2**0
+                  CONTENTS, READONLY
+ 11 .comment      00000033  00000000  00000000  000184ce  2**0
+                  CONTENTS, READONLY
+ 12 .debug_line   00003c8b  00000000  00000000  00018501  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 13 .debug_info   00008a74  00000000  00000000  0001c18c  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 14 .debug_abbrev 00001e01  00000000  00000000  00024c00  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 15 .debug_aranges 00000340  00000000  00000000  00026a08  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 16 .debug_str    000017b6  00000000  00000000  00026d48  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 17 .debug_ranges 00000928  00000000  00000000  00028500  2**3
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 18 .debug_loc    00003e88  00000000  00000000  00028e28  2**0
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+ 19 .debug_frame  00000788  00000000  00000000  0002ccb0  2**2
+                  CONTENTS, READONLY, DEBUGGING, OCTETS
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00001928 l    d  .isr_vector	00000000 .isr_vector
+00001d68 l    d  .rodata	00000000 .rodata
+00002868 l    d  .init_array	00000000 .init_array
+00002870 l    d  .fini_array	00000000 .fini_array
+00002878 l    d  .data	00000000 .data
+00002d54 l    d  .bss	00000000 .bss
+00002ea0 l    d  ._user_heap_stack	00000000 ._user_heap_stack
+000034a0 l    d  .stack	00000000 .stack
+000074a0 l    d  .heap	00000000 .heap
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    df *ABS*	00000000 start.o
+00002000 l       *ABS*	00000000 STACK_SIZE
+00001928 l     O .isr_vector	00000440 g_pfnVectors
+00000898 l       .text	00000002 Default_Handler
+00000020 l       .text	00000000 LoopFillZerobss
+0000001a l       .text	00000000 FillZerobss
+0000002a l       .text	00000000 InfiniteLoop
+00000898 l       .text	00000000 Infinite_Loop
+00002000 l       *ABS*	00000000 Stack_Size
+00000000 l       *ABS*	00000000 Heap_Size
+00000000 l    df *ABS*	00000000 crtstuff.c
+00001910 l     O .text	00000000 __EH_FRAME_BEGIN__
+0000003c l     F .text	00000000 deregister_tm_clones
+00000058 l     F .text	00000000 register_tm_clones
+0000007c l     F .text	00000000 __do_global_dtors_aux
+00002d54 l       .bss	00000001 completed.1
+00002870 l     O .fini_array	00000000 __do_global_dtors_aux_fini_array_entry
+000000a4 l     F .text	00000000 frame_dummy
+00002d58 l       .bss	00000018 object.0
+0000286c l     O .init_array	00000000 __frame_dummy_init_array_entry
+00000000 l    df *ABS*	00000000 atexit.c
+00000000 l    df *ABS*	00000000 atoi.c
+00000000 l    df *ABS*	00000000 fini.c
+00000000 l    df *ABS*	00000000 memset.c
+00000000 l    df *ABS*	00000000 rand.c
+00000000 l    df *ABS*	00000000 lib_a-strcmp.o
+00000000 l    df *ABS*	00000000 strcpy.c
+00000000 l    df *ABS*	00000000 lib_a-strlen.o
+00000000 l    df *ABS*	00000000 strtol.c
+0000069c l     F .text	00000120 _strtol_l.part.0
+00000000 l    df *ABS*	00000000 __atexit.c
+00000000 l    df *ABS*	00000000 errno.c
+00000000 l    df *ABS*	00000000 printf_support.c
+0000089c l     F .text	00000062 uint_to_str.part.0
+00002d70 l     O .bss	00000100 print_buffer
+00000000 l    df *ABS*	00000000 ac780x_eflash.c
+00000b34 l     F .text	0000005c FLASH_StartCmdSequence
+00000b90 l     F .text	0000004c EFLASH_OptionPageErase.part.0
+00000bdc l     F .text	000000fc EFLASH_OptionPageProgram.part.0
+00000cd8 l     F .text	0000016c EFLASH_PageProgramUnit.part.0
+00000000 l    df *ABS*	00000000 multitask_eflash_unicorn.c
+000014ac l     F .text	00000064 Str2Hex.isra.0
+00000000 l    df *ABS*	00000000 __call_atexit.c
+000018fc l     F .text	00000014 register_fini
+00000000 l    df *ABS*	00000000 crti.o
+00000000 l    df *ABS*	00000000 crtn.o
+00000000 l    df *ABS*	00000000 impure.c
+00002880 l     O .data	00000428 impure_data
+00000000 l    df *ABS*	00000000 ctype_.c
+00000000 l    df *ABS*	00000000 
+00002874 l       .fini_array	00000000 __fini_array_end
+00002870 l       .fini_array	00000000 __fini_array_start
+00002870 l       .init_array	00000000 __init_array_end
+00002868 l       .init_array	00000000 __preinit_array_end
+00002868 l       .init_array	00000000 __init_array_start
+00002868 l       .init_array	00000000 __preinit_array_start
+000074a0 g       .heap	00000000 __HeapBase
+000004dc g     F .text	000000ba strcpy
+00001760 g     F .text	000000fc FLASH_ReadTest
+00000898  w    F .text	00000002 DebugMon_Handler
+00001588 g     F .text	00000140 FLASH_ProgramTest
+0000091c g     F .text	00000218 printf
+00002e98 g     O .bss	00000001 g_onlyDFlash
+00000898  w    F .text	00000002 HardFault_Handler
+00000400 g       *ABS*	00000000 _Min_Stack_Size
+00000898  w    F .text	00000002 SysTick_Handler
+00000898  w    F .text	00000002 PendSV_Handler
+00000898  w    F .text	00000002 NMI_Handler
+00002868 g       .init_array	00000000 __exidx_end
+0000088c g     F .text	0000000c __errno
+00001928 g       .text	00000000 _etext
+000074a0 g       .heap	00000000 _sheap
+00002d54 g       .bss	00000000 _sbss
+000012e8 g     F .text	000001c4 FLASH_OTTest
+00002d54 g     O .data	00000000 .hidden __TMC_END__
+00002ca8 g     O .data	00000004 g_flashLogFreq
+00000900 g     F .text	0000001c puts
+00000898  w    F .text	00000002 UsageFault_Handler
+000027c8 g     O .rodata	000000a0 g_eflashTestMenu
+000084a0 g       .heap	00000000 __HeapLimit
+00002d54 g       .bss	00000000 __bss_start__
+00000f98 g     F .text	000001b4 EFLASH_PageProgram
+00002878 g       .data	00000000 _sdata
+00002868 g       .init_array	00000000 __exidx_start
+00001d78 g     O .rodata	00000004 _global_impure_ptr
+000007d4 g     F .text	00000028 strtol_l
+00002d50 g     O .data	00000004 looptCount
+00001910 g     F .text	00000000 _init
+000007fc g     F .text	00000028 strtol
+00002e94 g     O .bss	00000004 g_flashSize
+000000e0 g     F .text	0000002c __libc_fini_array
+00002ea0 g       .bss	00000000 _ebss
+00000000  w    F .text	0000002c Reset_Handler
+0000114c g     F .text	0000008c EFLASH_PFSetWriteProtection
+000000d8 g     F .text	00000008 _atoi_r
+00002ea0 g       .bss	00000000 __bss_end__
+00000200 g       *ABS*	00000000 _Min_Heap_Size
+000001c0 g     F .text	0000003c rand
+00000824 g     F .text	00000068 __register_exitproc
+00001264 g     F .text	00000034 EFLASH_SetWriteProtectionByReg
+00000e44 g     F .text	00000054 EFLASH_UnlockCtrl
+00002e74 g     O .bss	00000020 g_flashBuffer
+0000010c g     F .text	000000a4 memset
+00000898  w    F .text	00000002 MemManage_Handler
+0000185c g     F .text	000000a0 main
+000001b0 g     F .text	00000010 srand
+00000f24 g     F .text	00000074 EFLASH_PageErase
+00000898  w    F .text	00000002 SVC_Handler
+000007bc g     F .text	00000018 _strtol_r
+00000208 g     F .text	000002dc strcmp
+00001298 g     F .text	00000002 FLASH_Stop
+00000eb0 g     F .text	00000074 EFLASH_Read
+0000191c g     F .text	00000000 _fini
+000034a0 g       .stack	00000000 _sstack
+000000c4 g     F .text	0000000c atexit
+000074a0 g       .stack	00000000 __StackTop
+00002878 g     O .data	00000004 _impure_ptr
+000016c8 g     F .text	00000098 FLASH_EraseTask
+000054a0 g       .stack	00000000 _estack
+000084a0 g       .heap	00000000 _eheap
+000011d8 g     F .text	0000008c EFLASH_DFSetWriteProtection
+00002d54 g       .data	00000000 _edata
+00002e9c g     O .bss	00000004 g_otTimes
+0000129c g     F .text	0000004c FLASH_LogTest
+000054a0 g       .stack	00002000 __StackLimit
+000000d0 g     F .text	00000008 atoi
+00001d7c g     O .rodata	00000101 _ctype_
+00002cb0 g     O .data	000000a0 g_testEnv
+00000898  w    F .text	00000002 BusFault_Handler
+000005c0 g     F .text	000000dc strlen
+00001510 g     F .text	00000078 FLASH_WriteProtectTest
+00000e98 g     F .text	00000018 EFLASH_LockCtrl
+00002e70 g     O .bss	00000004 g_flashAddr
+00002cac g     O .data	00000001 g_flashLogPrintFormat
+
+
+
+Disassembly of section .text:
+
+00000000 <Reset_Handler>:
+    .weak   Reset_Handler
+    .type   Reset_Handler, %function
+
+Reset_Handler:
+    /* Set stack pointer */
+    ldr     sp, =_estack
+       0:	f8df d028 	ldr.w	sp, [pc, #40]	; 2c <InfiniteLoop+0x2>
+
+    /* Enable FPU if available */
+#ifdef __VFP_FP__
+    /* CPACR is located at address 0xE000ED88 */
+    ldr     r0, =0xE000ED88
+       4:	480a      	ldr	r0, [pc, #40]	; (30 <InfiniteLoop+0x6>)
+    ldr     r1, [r0]
+       6:	6801      	ldr	r1, [r0, #0]
+    /* Enable CP10 and CP11 coprocessors (bits 20-23) */
+    orr     r1, r1, #(0xF << 20)
+       8:	f441 0170 	orr.w	r1, r1, #15728640	; 0xf00000
+    str     r1, [r0]
+       c:	6001      	str	r1, [r0, #0]
+    dsb
+       e:	f3bf 8f4f 	dsb	sy
+    isb
+      12:	f3bf 8f6f 	isb	sy
+#endif
+
+    /* Since everything is in continuous memory space, no need to copy data */
+    /* Just zero fill the bss segment */
+    ldr     r2, =_sbss
+      16:	4a07      	ldr	r2, [pc, #28]	; (34 <InfiniteLoop+0xa>)
+    b       LoopFillZerobss
+      18:	e002      	b.n	20 <LoopFillZerobss>
+
+0000001a <FillZerobss>:
+
+/* Zero fill the bss segment */
+FillZerobss:
+    movs    r3, #0
+      1a:	2300      	movs	r3, #0
+    str     r3, [r2], #4
+      1c:	f842 3b04 	str.w	r3, [r2], #4
+
+00000020 <LoopFillZerobss>:
+
+LoopFillZerobss:
+    ldr     r3, = _ebss
+      20:	4b05      	ldr	r3, [pc, #20]	; (38 <InfiniteLoop+0xe>)
+    cmp     r2, r3
+      22:	429a      	cmp	r2, r3
+    bcc     FillZerobss
+      24:	d3f9      	bcc.n	1a <FillZerobss>
+
+    /* Initialize system clock and peripherals */
+    //bl      SystemInit
+
+    /* Call the main function */
+    bl      main
+      26:	f001 fc19 	bl	185c <main>
+
+0000002a <InfiniteLoop>:
+
+    /* Infinite loop if main returns */
+InfiniteLoop:
+    b       InfiniteLoop
+      2a:	e7fe      	b.n	2a <InfiniteLoop>
+    ldr     sp, =_estack
+      2c:	000054a0 	.word	0x000054a0
+    ldr     r0, =0xE000ED88
+      30:	e000ed88 	.word	0xe000ed88
+    ldr     r2, =_sbss
+      34:	00002d54 	.word	0x00002d54
+    ldr     r3, = _ebss
+      38:	00002ea0 	.word	0x00002ea0
+
+0000003c <deregister_tm_clones>:
+      3c:	4803      	ldr	r0, [pc, #12]	; (4c <deregister_tm_clones+0x10>)
+      3e:	4b04      	ldr	r3, [pc, #16]	; (50 <deregister_tm_clones+0x14>)
+      40:	4283      	cmp	r3, r0
+      42:	d002      	beq.n	4a <deregister_tm_clones+0xe>
+      44:	4b03      	ldr	r3, [pc, #12]	; (54 <deregister_tm_clones+0x18>)
+      46:	b103      	cbz	r3, 4a <deregister_tm_clones+0xe>
+      48:	4718      	bx	r3
+      4a:	4770      	bx	lr
+      4c:	00002d54 	.word	0x00002d54
+      50:	00002d54 	.word	0x00002d54
+      54:	00000000 	.word	0x00000000
+
+00000058 <register_tm_clones>:
+      58:	4805      	ldr	r0, [pc, #20]	; (70 <register_tm_clones+0x18>)
+      5a:	4906      	ldr	r1, [pc, #24]	; (74 <register_tm_clones+0x1c>)
+      5c:	1a0b      	subs	r3, r1, r0
+      5e:	0fd9      	lsrs	r1, r3, #31
+      60:	eb01 01a3 	add.w	r1, r1, r3, asr #2
+      64:	1049      	asrs	r1, r1, #1
+      66:	d002      	beq.n	6e <register_tm_clones+0x16>
+      68:	4b03      	ldr	r3, [pc, #12]	; (78 <register_tm_clones+0x20>)
+      6a:	b103      	cbz	r3, 6e <register_tm_clones+0x16>
+      6c:	4718      	bx	r3
+      6e:	4770      	bx	lr
+      70:	00002d54 	.word	0x00002d54
+      74:	00002d54 	.word	0x00002d54
+      78:	00000000 	.word	0x00000000
+
+0000007c <__do_global_dtors_aux>:
+      7c:	b510      	push	{r4, lr}
+      7e:	4c06      	ldr	r4, [pc, #24]	; (98 <__do_global_dtors_aux+0x1c>)
+      80:	7823      	ldrb	r3, [r4, #0]
+      82:	b943      	cbnz	r3, 96 <__do_global_dtors_aux+0x1a>
+      84:	f7ff ffda 	bl	3c <deregister_tm_clones>
+      88:	4b04      	ldr	r3, [pc, #16]	; (9c <__do_global_dtors_aux+0x20>)
+      8a:	b113      	cbz	r3, 92 <__do_global_dtors_aux+0x16>
+      8c:	4804      	ldr	r0, [pc, #16]	; (a0 <__do_global_dtors_aux+0x24>)
+      8e:	f3af 8000 	nop.w
+      92:	2301      	movs	r3, #1
+      94:	7023      	strb	r3, [r4, #0]
+      96:	bd10      	pop	{r4, pc}
+      98:	00002d54 	.word	0x00002d54
+      9c:	00000000 	.word	0x00000000
+      a0:	00001910 	.word	0x00001910
+
+000000a4 <frame_dummy>:
+      a4:	b508      	push	{r3, lr}
+      a6:	4b04      	ldr	r3, [pc, #16]	; (b8 <frame_dummy+0x14>)
+      a8:	b11b      	cbz	r3, b2 <frame_dummy+0xe>
+      aa:	4904      	ldr	r1, [pc, #16]	; (bc <frame_dummy+0x18>)
+      ac:	4804      	ldr	r0, [pc, #16]	; (c0 <frame_dummy+0x1c>)
+      ae:	f3af 8000 	nop.w
+      b2:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+      b6:	e7cf      	b.n	58 <register_tm_clones>
+      b8:	00000000 	.word	0x00000000
+      bc:	00002d58 	.word	0x00002d58
+      c0:	00001910 	.word	0x00001910
+
+000000c4 <atexit>:
+      c4:	2300      	movs	r3, #0
+      c6:	4601      	mov	r1, r0
+      c8:	461a      	mov	r2, r3
+      ca:	4618      	mov	r0, r3
+      cc:	f000 bbaa 	b.w	824 <__register_exitproc>
+
+000000d0 <atoi>:
+      d0:	220a      	movs	r2, #10
+      d2:	2100      	movs	r1, #0
+      d4:	f000 bb92 	b.w	7fc <strtol>
+
+000000d8 <_atoi_r>:
+      d8:	230a      	movs	r3, #10
+      da:	2200      	movs	r2, #0
+      dc:	f000 bb6e 	b.w	7bc <_strtol_r>
+
+000000e0 <__libc_fini_array>:
+      e0:	b538      	push	{r3, r4, r5, lr}
+      e2:	4b08      	ldr	r3, [pc, #32]	; (104 <__libc_fini_array+0x24>)
+      e4:	4d08      	ldr	r5, [pc, #32]	; (108 <__libc_fini_array+0x28>)
+      e6:	1b5b      	subs	r3, r3, r5
+      e8:	109c      	asrs	r4, r3, #2
+      ea:	d007      	beq.n	fc <__libc_fini_array+0x1c>
+      ec:	3b04      	subs	r3, #4
+      ee:	441d      	add	r5, r3
+      f0:	3c01      	subs	r4, #1
+      f2:	f855 3904 	ldr.w	r3, [r5], #-4
+      f6:	4798      	blx	r3
+      f8:	2c00      	cmp	r4, #0
+      fa:	d1f9      	bne.n	f0 <__libc_fini_array+0x10>
+      fc:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
+     100:	f001 bc0c 	b.w	191c <_fini>
+     104:	00002874 	.word	0x00002874
+     108:	00002870 	.word	0x00002870
+
+0000010c <memset>:
+     10c:	0783      	lsls	r3, r0, #30
+     10e:	b530      	push	{r4, r5, lr}
+     110:	d048      	beq.n	1a4 <memset+0x98>
+     112:	1e54      	subs	r4, r2, #1
+     114:	2a00      	cmp	r2, #0
+     116:	d03f      	beq.n	198 <memset+0x8c>
+     118:	b2ca      	uxtb	r2, r1
+     11a:	4603      	mov	r3, r0
+     11c:	e001      	b.n	122 <memset+0x16>
+     11e:	3c01      	subs	r4, #1
+     120:	d33a      	bcc.n	198 <memset+0x8c>
+     122:	f803 2b01 	strb.w	r2, [r3], #1
+     126:	079d      	lsls	r5, r3, #30
+     128:	d1f9      	bne.n	11e <memset+0x12>
+     12a:	2c03      	cmp	r4, #3
+     12c:	d92d      	bls.n	18a <memset+0x7e>
+     12e:	b2cd      	uxtb	r5, r1
+     130:	ea45 2505 	orr.w	r5, r5, r5, lsl #8
+     134:	2c0f      	cmp	r4, #15
+     136:	ea45 4505 	orr.w	r5, r5, r5, lsl #16
+     13a:	d936      	bls.n	1aa <memset+0x9e>
+     13c:	f1a4 0210 	sub.w	r2, r4, #16
+     140:	f022 0c0f 	bic.w	ip, r2, #15
+     144:	f103 0e20 	add.w	lr, r3, #32
+     148:	44e6      	add	lr, ip
+     14a:	ea4f 1c12 	mov.w	ip, r2, lsr #4
+     14e:	f103 0210 	add.w	r2, r3, #16
+     152:	e942 5504 	strd	r5, r5, [r2, #-16]
+     156:	e942 5502 	strd	r5, r5, [r2, #-8]
+     15a:	3210      	adds	r2, #16
+     15c:	4572      	cmp	r2, lr
+     15e:	d1f8      	bne.n	152 <memset+0x46>
+     160:	f10c 0201 	add.w	r2, ip, #1
+     164:	f014 0f0c 	tst.w	r4, #12
+     168:	eb03 1202 	add.w	r2, r3, r2, lsl #4
+     16c:	f004 0c0f 	and.w	ip, r4, #15
+     170:	d013      	beq.n	19a <memset+0x8e>
+     172:	f1ac 0304 	sub.w	r3, ip, #4
+     176:	f023 0303 	bic.w	r3, r3, #3
+     17a:	3304      	adds	r3, #4
+     17c:	4413      	add	r3, r2
+     17e:	f842 5b04 	str.w	r5, [r2], #4
+     182:	4293      	cmp	r3, r2
+     184:	d1fb      	bne.n	17e <memset+0x72>
+     186:	f00c 0403 	and.w	r4, ip, #3
+     18a:	b12c      	cbz	r4, 198 <memset+0x8c>
+     18c:	b2ca      	uxtb	r2, r1
+     18e:	441c      	add	r4, r3
+     190:	f803 2b01 	strb.w	r2, [r3], #1
+     194:	429c      	cmp	r4, r3
+     196:	d1fb      	bne.n	190 <memset+0x84>
+     198:	bd30      	pop	{r4, r5, pc}
+     19a:	4664      	mov	r4, ip
+     19c:	4613      	mov	r3, r2
+     19e:	2c00      	cmp	r4, #0
+     1a0:	d1f4      	bne.n	18c <memset+0x80>
+     1a2:	e7f9      	b.n	198 <memset+0x8c>
+     1a4:	4603      	mov	r3, r0
+     1a6:	4614      	mov	r4, r2
+     1a8:	e7bf      	b.n	12a <memset+0x1e>
+     1aa:	461a      	mov	r2, r3
+     1ac:	46a4      	mov	ip, r4
+     1ae:	e7e0      	b.n	172 <memset+0x66>
+
+000001b0 <srand>:
+     1b0:	4b02      	ldr	r3, [pc, #8]	; (1bc <srand+0xc>)
+     1b2:	681b      	ldr	r3, [r3, #0]
+     1b4:	2200      	movs	r2, #0
+     1b6:	e9c3 022a 	strd	r0, r2, [r3, #168]	; 0xa8
+     1ba:	4770      	bx	lr
+     1bc:	00002878 	.word	0x00002878
+
+000001c0 <rand>:
+     1c0:	4a0b      	ldr	r2, [pc, #44]	; (1f0 <rand+0x30>)
+     1c2:	490c      	ldr	r1, [pc, #48]	; (1f4 <rand+0x34>)
+     1c4:	b410      	push	{r4}
+     1c6:	6814      	ldr	r4, [r2, #0]
+     1c8:	4a0b      	ldr	r2, [pc, #44]	; (1f8 <rand+0x38>)
+     1ca:	e9d4 032a 	ldrd	r0, r3, [r4, #168]	; 0xa8
+     1ce:	fb00 f202 	mul.w	r2, r0, r2
+     1d2:	fb01 2203 	mla	r2, r1, r3, r2
+     1d6:	fba0 0101 	umull	r0, r1, r0, r1
+     1da:	1c43      	adds	r3, r0, #1
+     1dc:	eb42 0001 	adc.w	r0, r2, r1
+     1e0:	e9c4 302a 	strd	r3, r0, [r4, #168]	; 0xa8
+     1e4:	f020 4000 	bic.w	r0, r0, #2147483648	; 0x80000000
+     1e8:	f85d 4b04 	ldr.w	r4, [sp], #4
+     1ec:	4770      	bx	lr
+     1ee:	bf00      	nop
+     1f0:	00002878 	.word	0x00002878
+     1f4:	4c957f2d 	.word	0x4c957f2d
+     1f8:	5851f42d 	.word	0x5851f42d
+     1fc:	00000000 	.word	0x00000000
+     200:	eba2 0003 	sub.w	r0, r2, r3
+     204:	4770      	bx	lr
+     206:	bf00      	nop
+
+00000208 <strcmp>:
+     208:	7802      	ldrb	r2, [r0, #0]
+     20a:	780b      	ldrb	r3, [r1, #0]
+     20c:	2a01      	cmp	r2, #1
+     20e:	bf28      	it	cs
+     210:	429a      	cmpcs	r2, r3
+     212:	d1f5      	bne.n	200 <_Min_Heap_Size>
+     214:	e96d 4504 	strd	r4, r5, [sp, #-16]!
+     218:	ea40 0401 	orr.w	r4, r0, r1
+     21c:	e9cd 6702 	strd	r6, r7, [sp, #8]
+     220:	f06f 0c00 	mvn.w	ip, #0
+     224:	ea4f 7244 	mov.w	r2, r4, lsl #29
+     228:	b312      	cbz	r2, 270 <strcmp+0x68>
+     22a:	ea80 0401 	eor.w	r4, r0, r1
+     22e:	f014 0f07 	tst.w	r4, #7
+     232:	d16a      	bne.n	30a <strcmp+0x102>
+     234:	f000 0407 	and.w	r4, r0, #7
+     238:	f020 0007 	bic.w	r0, r0, #7
+     23c:	f004 0503 	and.w	r5, r4, #3
+     240:	f021 0107 	bic.w	r1, r1, #7
+     244:	ea4f 05c5 	mov.w	r5, r5, lsl #3
+     248:	e8f0 2304 	ldrd	r2, r3, [r0], #16
+     24c:	f014 0f04 	tst.w	r4, #4
+     250:	e8f1 6704 	ldrd	r6, r7, [r1], #16
+     254:	fa0c f405 	lsl.w	r4, ip, r5
+     258:	ea62 0204 	orn	r2, r2, r4
+     25c:	ea66 0604 	orn	r6, r6, r4
+     260:	d00a      	beq.n	278 <strcmp+0x70>
+     262:	ea63 0304 	orn	r3, r3, r4
+     266:	4662      	mov	r2, ip
+     268:	ea67 0704 	orn	r7, r7, r4
+     26c:	4666      	mov	r6, ip
+     26e:	e003      	b.n	278 <strcmp+0x70>
+     270:	e8f0 2304 	ldrd	r2, r3, [r0], #16
+     274:	e8f1 6704 	ldrd	r6, r7, [r1], #16
+     278:	fa82 f54c 	uadd8	r5, r2, ip
+     27c:	ea82 0406 	eor.w	r4, r2, r6
+     280:	faa4 f48c 	sel	r4, r4, ip
+     284:	bb6c      	cbnz	r4, 2e2 <strcmp+0xda>
+     286:	fa83 f54c 	uadd8	r5, r3, ip
+     28a:	ea83 0507 	eor.w	r5, r3, r7
+     28e:	faa5 f58c 	sel	r5, r5, ip
+     292:	b995      	cbnz	r5, 2ba <strcmp+0xb2>
+     294:	e950 2302 	ldrd	r2, r3, [r0, #-8]
+     298:	e951 6702 	ldrd	r6, r7, [r1, #-8]
+     29c:	fa82 f54c 	uadd8	r5, r2, ip
+     2a0:	ea82 0406 	eor.w	r4, r2, r6
+     2a4:	faa4 f48c 	sel	r4, r4, ip
+     2a8:	fa83 f54c 	uadd8	r5, r3, ip
+     2ac:	ea83 0507 	eor.w	r5, r3, r7
+     2b0:	faa5 f58c 	sel	r5, r5, ip
+     2b4:	4325      	orrs	r5, r4
+     2b6:	d0db      	beq.n	270 <strcmp+0x68>
+     2b8:	b99c      	cbnz	r4, 2e2 <strcmp+0xda>
+     2ba:	ba2d      	rev	r5, r5
+     2bc:	fab5 f485 	clz	r4, r5
+     2c0:	f024 0407 	bic.w	r4, r4, #7
+     2c4:	fa27 f104 	lsr.w	r1, r7, r4
+     2c8:	e9dd 6702 	ldrd	r6, r7, [sp, #8]
+     2cc:	fa23 f304 	lsr.w	r3, r3, r4
+     2d0:	f003 00ff 	and.w	r0, r3, #255	; 0xff
+     2d4:	f001 01ff 	and.w	r1, r1, #255	; 0xff
+     2d8:	e8fd 4504 	ldrd	r4, r5, [sp], #16
+     2dc:	eba0 0001 	sub.w	r0, r0, r1
+     2e0:	4770      	bx	lr
+     2e2:	ba24      	rev	r4, r4
+     2e4:	fab4 f484 	clz	r4, r4
+     2e8:	f024 0407 	bic.w	r4, r4, #7
+     2ec:	fa26 f104 	lsr.w	r1, r6, r4
+     2f0:	e9dd 6702 	ldrd	r6, r7, [sp, #8]
+     2f4:	fa22 f204 	lsr.w	r2, r2, r4
+     2f8:	f002 00ff 	and.w	r0, r2, #255	; 0xff
+     2fc:	f001 01ff 	and.w	r1, r1, #255	; 0xff
+     300:	e8fd 4504 	ldrd	r4, r5, [sp], #16
+     304:	eba0 0001 	sub.w	r0, r0, r1
+     308:	4770      	bx	lr
+     30a:	f014 0f03 	tst.w	r4, #3
+     30e:	d13c      	bne.n	38a <strcmp+0x182>
+     310:	f010 0403 	ands.w	r4, r0, #3
+     314:	d128      	bne.n	368 <strcmp+0x160>
+     316:	f850 2b08 	ldr.w	r2, [r0], #8
+     31a:	f851 3b08 	ldr.w	r3, [r1], #8
+     31e:	fa82 f54c 	uadd8	r5, r2, ip
+     322:	ea82 0503 	eor.w	r5, r2, r3
+     326:	faa5 f58c 	sel	r5, r5, ip
+     32a:	b95d      	cbnz	r5, 344 <strcmp+0x13c>
+     32c:	f850 2c04 	ldr.w	r2, [r0, #-4]
+     330:	f851 3c04 	ldr.w	r3, [r1, #-4]
+     334:	fa82 f54c 	uadd8	r5, r2, ip
+     338:	ea82 0503 	eor.w	r5, r2, r3
+     33c:	faa5 f58c 	sel	r5, r5, ip
+     340:	2d00      	cmp	r5, #0
+     342:	d0e8      	beq.n	316 <strcmp+0x10e>
+     344:	ba2d      	rev	r5, r5
+     346:	fab5 f485 	clz	r4, r5
+     34a:	f024 0407 	bic.w	r4, r4, #7
+     34e:	fa23 f104 	lsr.w	r1, r3, r4
+     352:	fa22 f204 	lsr.w	r2, r2, r4
+     356:	f002 00ff 	and.w	r0, r2, #255	; 0xff
+     35a:	f001 01ff 	and.w	r1, r1, #255	; 0xff
+     35e:	e8fd 4504 	ldrd	r4, r5, [sp], #16
+     362:	eba0 0001 	sub.w	r0, r0, r1
+     366:	4770      	bx	lr
+     368:	ea4f 04c4 	mov.w	r4, r4, lsl #3
+     36c:	f020 0003 	bic.w	r0, r0, #3
+     370:	f850 2b08 	ldr.w	r2, [r0], #8
+     374:	f021 0103 	bic.w	r1, r1, #3
+     378:	f851 3b08 	ldr.w	r3, [r1], #8
+     37c:	fa0c f404 	lsl.w	r4, ip, r4
+     380:	ea62 0204 	orn	r2, r2, r4
+     384:	ea63 0304 	orn	r3, r3, r4
+     388:	e7c9      	b.n	31e <strcmp+0x116>
+     38a:	f010 0403 	ands.w	r4, r0, #3
+     38e:	d01a      	beq.n	3c6 <strcmp+0x1be>
+     390:	eba1 0104 	sub.w	r1, r1, r4
+     394:	f020 0003 	bic.w	r0, r0, #3
+     398:	07e4      	lsls	r4, r4, #31
+     39a:	f850 2b04 	ldr.w	r2, [r0], #4
+     39e:	d006      	beq.n	3ae <strcmp+0x1a6>
+     3a0:	d20f      	bcs.n	3c2 <strcmp+0x1ba>
+     3a2:	788b      	ldrb	r3, [r1, #2]
+     3a4:	fa5f f4a2 	uxtb.w	r4, r2, ror #16
+     3a8:	1ae4      	subs	r4, r4, r3
+     3aa:	d106      	bne.n	3ba <strcmp+0x1b2>
+     3ac:	b12b      	cbz	r3, 3ba <strcmp+0x1b2>
+     3ae:	78cb      	ldrb	r3, [r1, #3]
+     3b0:	fa5f f4b2 	uxtb.w	r4, r2, ror #24
+     3b4:	1ae4      	subs	r4, r4, r3
+     3b6:	d100      	bne.n	3ba <strcmp+0x1b2>
+     3b8:	b91b      	cbnz	r3, 3c2 <strcmp+0x1ba>
+     3ba:	4620      	mov	r0, r4
+     3bc:	f85d 4b10 	ldr.w	r4, [sp], #16
+     3c0:	4770      	bx	lr
+     3c2:	f101 0104 	add.w	r1, r1, #4
+     3c6:	f850 2b04 	ldr.w	r2, [r0], #4
+     3ca:	07cc      	lsls	r4, r1, #31
+     3cc:	f021 0103 	bic.w	r1, r1, #3
+     3d0:	f851 3b04 	ldr.w	r3, [r1], #4
+     3d4:	d848      	bhi.n	468 <_Min_Stack_Size+0x68>
+     3d6:	d224      	bcs.n	422 <_Min_Stack_Size+0x22>
+     3d8:	f022 447f 	bic.w	r4, r2, #4278190080	; 0xff000000
+     3dc:	fa82 f54c 	uadd8	r5, r2, ip
+     3e0:	ea94 2513 	eors.w	r5, r4, r3, lsr #8
+     3e4:	faa5 f58c 	sel	r5, r5, ip
+     3e8:	d10a      	bne.n	400 <_Min_Stack_Size>
+     3ea:	b965      	cbnz	r5, 406 <_Min_Stack_Size+0x6>
+     3ec:	f851 3b04 	ldr.w	r3, [r1], #4
+     3f0:	ea84 0402 	eor.w	r4, r4, r2
+     3f4:	ebb4 6f03 	cmp.w	r4, r3, lsl #24
+     3f8:	d10e      	bne.n	418 <_Min_Stack_Size+0x18>
+     3fa:	f850 2b04 	ldr.w	r2, [r0], #4
+     3fe:	e7eb      	b.n	3d8 <strcmp+0x1d0>
+     400:	ea4f 2313 	mov.w	r3, r3, lsr #8
+     404:	e055      	b.n	4b2 <_Min_Stack_Size+0xb2>
+     406:	f035 457f 	bics.w	r5, r5, #4278190080	; 0xff000000
+     40a:	d14d      	bne.n	4a8 <_Min_Stack_Size+0xa8>
+     40c:	7808      	ldrb	r0, [r1, #0]
+     40e:	e8fd 4504 	ldrd	r4, r5, [sp], #16
+     412:	f1c0 0000 	rsb	r0, r0, #0
+     416:	4770      	bx	lr
+     418:	ea4f 6212 	mov.w	r2, r2, lsr #24
+     41c:	f003 03ff 	and.w	r3, r3, #255	; 0xff
+     420:	e047      	b.n	4b2 <_Min_Stack_Size+0xb2>
+     422:	ea02 441c 	and.w	r4, r2, ip, lsr #16
+     426:	fa82 f54c 	uadd8	r5, r2, ip
+     42a:	ea94 4513 	eors.w	r5, r4, r3, lsr #16
+     42e:	faa5 f58c 	sel	r5, r5, ip
+     432:	d10a      	bne.n	44a <_Min_Stack_Size+0x4a>
+     434:	b965      	cbnz	r5, 450 <_Min_Stack_Size+0x50>
+     436:	f851 3b04 	ldr.w	r3, [r1], #4
+     43a:	ea84 0402 	eor.w	r4, r4, r2
+     43e:	ebb4 4f03 	cmp.w	r4, r3, lsl #16
+     442:	d10c      	bne.n	45e <_Min_Stack_Size+0x5e>
+     444:	f850 2b04 	ldr.w	r2, [r0], #4
+     448:	e7eb      	b.n	422 <_Min_Stack_Size+0x22>
+     44a:	ea4f 4313 	mov.w	r3, r3, lsr #16
+     44e:	e030      	b.n	4b2 <_Min_Stack_Size+0xb2>
+     450:	ea15 451c 	ands.w	r5, r5, ip, lsr #16
+     454:	d128      	bne.n	4a8 <_Min_Stack_Size+0xa8>
+     456:	880b      	ldrh	r3, [r1, #0]
+     458:	ea4f 4212 	mov.w	r2, r2, lsr #16
+     45c:	e029      	b.n	4b2 <_Min_Stack_Size+0xb2>
+     45e:	ea4f 4212 	mov.w	r2, r2, lsr #16
+     462:	ea03 431c 	and.w	r3, r3, ip, lsr #16
+     466:	e024      	b.n	4b2 <_Min_Stack_Size+0xb2>
+     468:	f002 04ff 	and.w	r4, r2, #255	; 0xff
+     46c:	fa82 f54c 	uadd8	r5, r2, ip
+     470:	ea94 6513 	eors.w	r5, r4, r3, lsr #24
+     474:	faa5 f58c 	sel	r5, r5, ip
+     478:	d10a      	bne.n	490 <_Min_Stack_Size+0x90>
+     47a:	b965      	cbnz	r5, 496 <_Min_Stack_Size+0x96>
+     47c:	f851 3b04 	ldr.w	r3, [r1], #4
+     480:	ea84 0402 	eor.w	r4, r4, r2
+     484:	ebb4 2f03 	cmp.w	r4, r3, lsl #8
+     488:	d109      	bne.n	49e <_Min_Stack_Size+0x9e>
+     48a:	f850 2b04 	ldr.w	r2, [r0], #4
+     48e:	e7eb      	b.n	468 <_Min_Stack_Size+0x68>
+     490:	ea4f 6313 	mov.w	r3, r3, lsr #24
+     494:	e00d      	b.n	4b2 <_Min_Stack_Size+0xb2>
+     496:	f015 0fff 	tst.w	r5, #255	; 0xff
+     49a:	d105      	bne.n	4a8 <_Min_Stack_Size+0xa8>
+     49c:	680b      	ldr	r3, [r1, #0]
+     49e:	ea4f 2212 	mov.w	r2, r2, lsr #8
+     4a2:	f023 437f 	bic.w	r3, r3, #4278190080	; 0xff000000
+     4a6:	e004      	b.n	4b2 <_Min_Stack_Size+0xb2>
+     4a8:	f04f 0000 	mov.w	r0, #0
+     4ac:	e8fd 4504 	ldrd	r4, r5, [sp], #16
+     4b0:	4770      	bx	lr
+     4b2:	ba12      	rev	r2, r2
+     4b4:	ba1b      	rev	r3, r3
+     4b6:	fa82 f44c 	uadd8	r4, r2, ip
+     4ba:	ea82 0403 	eor.w	r4, r2, r3
+     4be:	faa4 f58c 	sel	r5, r4, ip
+     4c2:	fab5 f485 	clz	r4, r5
+     4c6:	fa02 f204 	lsl.w	r2, r2, r4
+     4ca:	fa03 f304 	lsl.w	r3, r3, r4
+     4ce:	ea4f 6012 	mov.w	r0, r2, lsr #24
+     4d2:	e8fd 4504 	ldrd	r4, r5, [sp], #16
+     4d6:	eba0 6013 	sub.w	r0, r0, r3, lsr #24
+     4da:	4770      	bx	lr
+
+000004dc <strcpy>:
+     4dc:	ea80 0201 	eor.w	r2, r0, r1
+     4e0:	4684      	mov	ip, r0
+     4e2:	f012 0f03 	tst.w	r2, #3
+     4e6:	d14f      	bne.n	588 <strcpy+0xac>
+     4e8:	f011 0f03 	tst.w	r1, #3
+     4ec:	d132      	bne.n	554 <strcpy+0x78>
+     4ee:	f84d 4d04 	str.w	r4, [sp, #-4]!
+     4f2:	f011 0f04 	tst.w	r1, #4
+     4f6:	f851 3b04 	ldr.w	r3, [r1], #4
+     4fa:	d00b      	beq.n	514 <strcpy+0x38>
+     4fc:	f1a3 3201 	sub.w	r2, r3, #16843009	; 0x1010101
+     500:	439a      	bics	r2, r3
+     502:	f012 3f80 	tst.w	r2, #2155905152	; 0x80808080
+     506:	bf04      	itt	eq
+     508:	f84c 3b04 	streq.w	r3, [ip], #4
+     50c:	f851 3b04 	ldreq.w	r3, [r1], #4
+     510:	d116      	bne.n	540 <strcpy+0x64>
+     512:	bf00      	nop
+     514:	f851 4b04 	ldr.w	r4, [r1], #4
+     518:	f1a3 3201 	sub.w	r2, r3, #16843009	; 0x1010101
+     51c:	439a      	bics	r2, r3
+     51e:	f012 3f80 	tst.w	r2, #2155905152	; 0x80808080
+     522:	f1a4 3201 	sub.w	r2, r4, #16843009	; 0x1010101
+     526:	d10b      	bne.n	540 <strcpy+0x64>
+     528:	f84c 3b04 	str.w	r3, [ip], #4
+     52c:	43a2      	bics	r2, r4
+     52e:	f012 3f80 	tst.w	r2, #2155905152	; 0x80808080
+     532:	bf04      	itt	eq
+     534:	f851 3b04 	ldreq.w	r3, [r1], #4
+     538:	f84c 4b04 	streq.w	r4, [ip], #4
+     53c:	d0ea      	beq.n	514 <strcpy+0x38>
+     53e:	4623      	mov	r3, r4
+     540:	f80c 3b01 	strb.w	r3, [ip], #1
+     544:	f013 0fff 	tst.w	r3, #255	; 0xff
+     548:	ea4f 2333 	mov.w	r3, r3, ror #8
+     54c:	d1f8      	bne.n	540 <strcpy+0x64>
+     54e:	f85d 4b04 	ldr.w	r4, [sp], #4
+     552:	4770      	bx	lr
+     554:	f011 0f01 	tst.w	r1, #1
+     558:	d006      	beq.n	568 <strcpy+0x8c>
+     55a:	f811 2b01 	ldrb.w	r2, [r1], #1
+     55e:	f80c 2b01 	strb.w	r2, [ip], #1
+     562:	2a00      	cmp	r2, #0
+     564:	bf08      	it	eq
+     566:	4770      	bxeq	lr
+     568:	f011 0f02 	tst.w	r1, #2
+     56c:	d0bf      	beq.n	4ee <strcpy+0x12>
+     56e:	f831 2b02 	ldrh.w	r2, [r1], #2
+     572:	f012 0fff 	tst.w	r2, #255	; 0xff
+     576:	bf16      	itet	ne
+     578:	f82c 2b02 	strhne.w	r2, [ip], #2
+     57c:	f88c 2000 	strbeq.w	r2, [ip]
+     580:	f412 4f7f 	tstne.w	r2, #65280	; 0xff00
+     584:	d1b3      	bne.n	4ee <strcpy+0x12>
+     586:	4770      	bx	lr
+     588:	f811 2b01 	ldrb.w	r2, [r1], #1
+     58c:	f80c 2b01 	strb.w	r2, [ip], #1
+     590:	2a00      	cmp	r2, #0
+     592:	d1f9      	bne.n	588 <strcpy+0xac>
+     594:	4770      	bx	lr
+     596:	bf00      	nop
+	...
+
+000005c0 <strlen>:
+     5c0:	f890 f000 	pld	[r0]
+     5c4:	e96d 4502 	strd	r4, r5, [sp, #-8]!
+     5c8:	f020 0107 	bic.w	r1, r0, #7
+     5cc:	f06f 0c00 	mvn.w	ip, #0
+     5d0:	f010 0407 	ands.w	r4, r0, #7
+     5d4:	f891 f020 	pld	[r1, #32]
+     5d8:	f040 8049 	bne.w	66e <strlen+0xae>
+     5dc:	f04f 0400 	mov.w	r4, #0
+     5e0:	f06f 0007 	mvn.w	r0, #7
+     5e4:	e9d1 2300 	ldrd	r2, r3, [r1]
+     5e8:	f891 f040 	pld	[r1, #64]	; 0x40
+     5ec:	f100 0008 	add.w	r0, r0, #8
+     5f0:	fa82 f24c 	uadd8	r2, r2, ip
+     5f4:	faa4 f28c 	sel	r2, r4, ip
+     5f8:	fa83 f34c 	uadd8	r3, r3, ip
+     5fc:	faa2 f38c 	sel	r3, r2, ip
+     600:	bb4b      	cbnz	r3, 656 <strlen+0x96>
+     602:	e9d1 2302 	ldrd	r2, r3, [r1, #8]
+     606:	fa82 f24c 	uadd8	r2, r2, ip
+     60a:	f100 0008 	add.w	r0, r0, #8
+     60e:	faa4 f28c 	sel	r2, r4, ip
+     612:	fa83 f34c 	uadd8	r3, r3, ip
+     616:	faa2 f38c 	sel	r3, r2, ip
+     61a:	b9e3      	cbnz	r3, 656 <strlen+0x96>
+     61c:	e9d1 2304 	ldrd	r2, r3, [r1, #16]
+     620:	fa82 f24c 	uadd8	r2, r2, ip
+     624:	f100 0008 	add.w	r0, r0, #8
+     628:	faa4 f28c 	sel	r2, r4, ip
+     62c:	fa83 f34c 	uadd8	r3, r3, ip
+     630:	faa2 f38c 	sel	r3, r2, ip
+     634:	b97b      	cbnz	r3, 656 <strlen+0x96>
+     636:	e9d1 2306 	ldrd	r2, r3, [r1, #24]
+     63a:	f101 0120 	add.w	r1, r1, #32
+     63e:	fa82 f24c 	uadd8	r2, r2, ip
+     642:	f100 0008 	add.w	r0, r0, #8
+     646:	faa4 f28c 	sel	r2, r4, ip
+     64a:	fa83 f34c 	uadd8	r3, r3, ip
+     64e:	faa2 f38c 	sel	r3, r2, ip
+     652:	2b00      	cmp	r3, #0
+     654:	d0c6      	beq.n	5e4 <strlen+0x24>
+     656:	2a00      	cmp	r2, #0
+     658:	bf04      	itt	eq
+     65a:	3004      	addeq	r0, #4
+     65c:	461a      	moveq	r2, r3
+     65e:	ba12      	rev	r2, r2
+     660:	fab2 f282 	clz	r2, r2
+     664:	e8fd 4502 	ldrd	r4, r5, [sp], #8
+     668:	eb00 00d2 	add.w	r0, r0, r2, lsr #3
+     66c:	4770      	bx	lr
+     66e:	e9d1 2300 	ldrd	r2, r3, [r1]
+     672:	f004 0503 	and.w	r5, r4, #3
+     676:	f1c4 0000 	rsb	r0, r4, #0
+     67a:	ea4f 05c5 	mov.w	r5, r5, lsl #3
+     67e:	f014 0f04 	tst.w	r4, #4
+     682:	f891 f040 	pld	[r1, #64]	; 0x40
+     686:	fa0c f505 	lsl.w	r5, ip, r5
+     68a:	ea62 0205 	orn	r2, r2, r5
+     68e:	bf1c      	itt	ne
+     690:	ea63 0305 	ornne	r3, r3, r5
+     694:	4662      	movne	r2, ip
+     696:	f04f 0400 	mov.w	r4, #0
+     69a:	e7a9      	b.n	5f0 <strlen+0x30>
+
+0000069c <_strtol_l.part.0>:
+     69c:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     6a0:	4681      	mov	r9, r0
+     6a2:	4845      	ldr	r0, [pc, #276]	; (7b8 <_strtol_l.part.0+0x11c>)
+     6a4:	468e      	mov	lr, r1
+     6a6:	4675      	mov	r5, lr
+     6a8:	f81e cb01 	ldrb.w	ip, [lr], #1
+     6ac:	f810 400c 	ldrb.w	r4, [r0, ip]
+     6b0:	f014 0408 	ands.w	r4, r4, #8
+     6b4:	d1f7      	bne.n	6a6 <_strtol_l.part.0+0xa>
+     6b6:	f1bc 0f2d 	cmp.w	ip, #45	; 0x2d
+     6ba:	46e3      	mov	fp, ip
+     6bc:	d054      	beq.n	768 <_strtol_l.part.0+0xcc>
+     6be:	f1bc 0f2b 	cmp.w	ip, #43	; 0x2b
+     6c2:	bf08      	it	eq
+     6c4:	f89e b000 	ldrbeq.w	fp, [lr]
+     6c8:	f06f 4800 	mvn.w	r8, #2147483648	; 0x80000000
+     6cc:	bf08      	it	eq
+     6ce:	f105 0e02 	addeq.w	lr, r5, #2
+     6d2:	b11b      	cbz	r3, 6dc <_strtol_l.part.0+0x40>
+     6d4:	2b10      	cmp	r3, #16
+     6d6:	d04f      	beq.n	778 <_strtol_l.part.0+0xdc>
+     6d8:	461f      	mov	r7, r3
+     6da:	e004      	b.n	6e6 <_strtol_l.part.0+0x4a>
+     6dc:	f1bb 0f30 	cmp.w	fp, #48	; 0x30
+     6e0:	d055      	beq.n	78e <_strtol_l.part.0+0xf2>
+     6e2:	230a      	movs	r3, #10
+     6e4:	461f      	mov	r7, r3
+     6e6:	2500      	movs	r5, #0
+     6e8:	fbb8 f6f7 	udiv	r6, r8, r7
+     6ec:	4628      	mov	r0, r5
+     6ee:	fb07 8a16 	mls	sl, r7, r6, r8
+     6f2:	e007      	b.n	704 <_strtol_l.part.0+0x68>
+     6f4:	4286      	cmp	r6, r0
+     6f6:	d315      	bcc.n	724 <_strtol_l.part.0+0x88>
+     6f8:	d029      	beq.n	74e <_strtol_l.part.0+0xb2>
+     6fa:	fb07 c000 	mla	r0, r7, r0, ip
+     6fe:	2501      	movs	r5, #1
+     700:	f81e bb01 	ldrb.w	fp, [lr], #1
+     704:	f1ab 0c30 	sub.w	ip, fp, #48	; 0x30
+     708:	f1bc 0f09 	cmp.w	ip, #9
+     70c:	d906      	bls.n	71c <_strtol_l.part.0+0x80>
+     70e:	f1ab 0c41 	sub.w	ip, fp, #65	; 0x41
+     712:	f1bc 0f19 	cmp.w	ip, #25
+     716:	d808      	bhi.n	72a <_strtol_l.part.0+0x8e>
+     718:	f1ab 0c37 	sub.w	ip, fp, #55	; 0x37
+     71c:	4563      	cmp	r3, ip
+     71e:	dd0d      	ble.n	73c <_strtol_l.part.0+0xa0>
+     720:	2d00      	cmp	r5, #0
+     722:	dae7      	bge.n	6f4 <_strtol_l.part.0+0x58>
+     724:	f04f 35ff 	mov.w	r5, #4294967295	; 0xffffffff
+     728:	e7ea      	b.n	700 <_strtol_l.part.0+0x64>
+     72a:	f1ab 0c61 	sub.w	ip, fp, #97	; 0x61
+     72e:	f1bc 0f19 	cmp.w	ip, #25
+     732:	d803      	bhi.n	73c <_strtol_l.part.0+0xa0>
+     734:	f1ab 0c57 	sub.w	ip, fp, #87	; 0x57
+     738:	4563      	cmp	r3, ip
+     73a:	dcf1      	bgt.n	720 <_strtol_l.part.0+0x84>
+     73c:	2d00      	cmp	r5, #0
+     73e:	db0b      	blt.n	758 <_strtol_l.part.0+0xbc>
+     740:	b104      	cbz	r4, 744 <_strtol_l.part.0+0xa8>
+     742:	4240      	negs	r0, r0
+     744:	b10a      	cbz	r2, 74a <_strtol_l.part.0+0xae>
+     746:	bb95      	cbnz	r5, 7ae <_strtol_l.part.0+0x112>
+     748:	6011      	str	r1, [r2, #0]
+     74a:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     74e:	45e2      	cmp	sl, ip
+     750:	dad3      	bge.n	6fa <_strtol_l.part.0+0x5e>
+     752:	f04f 35ff 	mov.w	r5, #4294967295	; 0xffffffff
+     756:	e7d3      	b.n	700 <_strtol_l.part.0+0x64>
+     758:	2322      	movs	r3, #34	; 0x22
+     75a:	f8c9 3000 	str.w	r3, [r9]
+     75e:	b31a      	cbz	r2, 7a8 <_strtol_l.part.0+0x10c>
+     760:	f10e 31ff 	add.w	r1, lr, #4294967295	; 0xffffffff
+     764:	4640      	mov	r0, r8
+     766:	e7ef      	b.n	748 <_strtol_l.part.0+0xac>
+     768:	f89e b000 	ldrb.w	fp, [lr]
+     76c:	f04f 4800 	mov.w	r8, #2147483648	; 0x80000000
+     770:	f105 0e02 	add.w	lr, r5, #2
+     774:	2401      	movs	r4, #1
+     776:	e7ac      	b.n	6d2 <_strtol_l.part.0+0x36>
+     778:	f1bb 0f30 	cmp.w	fp, #48	; 0x30
+     77c:	d1ac      	bne.n	6d8 <_strtol_l.part.0+0x3c>
+     77e:	f89e 0000 	ldrb.w	r0, [lr]
+     782:	f000 00df 	and.w	r0, r0, #223	; 0xdf
+     786:	2858      	cmp	r0, #88	; 0x58
+     788:	d007      	beq.n	79a <_strtol_l.part.0+0xfe>
+     78a:	461f      	mov	r7, r3
+     78c:	e7ab      	b.n	6e6 <_strtol_l.part.0+0x4a>
+     78e:	f89e 3000 	ldrb.w	r3, [lr]
+     792:	f003 03df 	and.w	r3, r3, #223	; 0xdf
+     796:	2b58      	cmp	r3, #88	; 0x58
+     798:	d10b      	bne.n	7b2 <_strtol_l.part.0+0x116>
+     79a:	2710      	movs	r7, #16
+     79c:	f89e b001 	ldrb.w	fp, [lr, #1]
+     7a0:	463b      	mov	r3, r7
+     7a2:	f10e 0e02 	add.w	lr, lr, #2
+     7a6:	e79e      	b.n	6e6 <_strtol_l.part.0+0x4a>
+     7a8:	4640      	mov	r0, r8
+     7aa:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     7ae:	4680      	mov	r8, r0
+     7b0:	e7d6      	b.n	760 <_strtol_l.part.0+0xc4>
+     7b2:	2308      	movs	r3, #8
+     7b4:	461f      	mov	r7, r3
+     7b6:	e796      	b.n	6e6 <_strtol_l.part.0+0x4a>
+     7b8:	00001d7d 	.word	0x00001d7d
+
+000007bc <_strtol_r>:
+     7bc:	2b01      	cmp	r3, #1
+     7be:	d002      	beq.n	7c6 <_strtol_r+0xa>
+     7c0:	2b24      	cmp	r3, #36	; 0x24
+     7c2:	d800      	bhi.n	7c6 <_strtol_r+0xa>
+     7c4:	e76a      	b.n	69c <_strtol_l.part.0>
+     7c6:	b510      	push	{r4, lr}
+     7c8:	f000 f860 	bl	88c <__errno>
+     7cc:	2316      	movs	r3, #22
+     7ce:	6003      	str	r3, [r0, #0]
+     7d0:	2000      	movs	r0, #0
+     7d2:	bd10      	pop	{r4, pc}
+
+000007d4 <strtol_l>:
+     7d4:	2a01      	cmp	r2, #1
+     7d6:	d008      	beq.n	7ea <strtol_l+0x16>
+     7d8:	2a24      	cmp	r2, #36	; 0x24
+     7da:	d806      	bhi.n	7ea <strtol_l+0x16>
+     7dc:	4684      	mov	ip, r0
+     7de:	4806      	ldr	r0, [pc, #24]	; (7f8 <strtol_l+0x24>)
+     7e0:	4613      	mov	r3, r2
+     7e2:	6800      	ldr	r0, [r0, #0]
+     7e4:	460a      	mov	r2, r1
+     7e6:	4661      	mov	r1, ip
+     7e8:	e758      	b.n	69c <_strtol_l.part.0>
+     7ea:	b510      	push	{r4, lr}
+     7ec:	f000 f84e 	bl	88c <__errno>
+     7f0:	2316      	movs	r3, #22
+     7f2:	6003      	str	r3, [r0, #0]
+     7f4:	2000      	movs	r0, #0
+     7f6:	bd10      	pop	{r4, pc}
+     7f8:	00002878 	.word	0x00002878
+
+000007fc <strtol>:
+     7fc:	2a01      	cmp	r2, #1
+     7fe:	d008      	beq.n	812 <strtol+0x16>
+     800:	2a24      	cmp	r2, #36	; 0x24
+     802:	d806      	bhi.n	812 <strtol+0x16>
+     804:	4684      	mov	ip, r0
+     806:	4806      	ldr	r0, [pc, #24]	; (820 <strtol+0x24>)
+     808:	4613      	mov	r3, r2
+     80a:	6800      	ldr	r0, [r0, #0]
+     80c:	460a      	mov	r2, r1
+     80e:	4661      	mov	r1, ip
+     810:	e744      	b.n	69c <_strtol_l.part.0>
+     812:	b510      	push	{r4, lr}
+     814:	f000 f83a 	bl	88c <__errno>
+     818:	2316      	movs	r3, #22
+     81a:	6003      	str	r3, [r0, #0]
+     81c:	2000      	movs	r0, #0
+     81e:	bd10      	pop	{r4, pc}
+     820:	00002878 	.word	0x00002878
+
+00000824 <__register_exitproc>:
+     824:	b470      	push	{r4, r5, r6}
+     826:	4c18      	ldr	r4, [pc, #96]	; (888 <__register_exitproc+0x64>)
+     828:	6825      	ldr	r5, [r4, #0]
+     82a:	f8d5 4148 	ldr.w	r4, [r5, #328]	; 0x148
+     82e:	b31c      	cbz	r4, 878 <__register_exitproc+0x54>
+     830:	6865      	ldr	r5, [r4, #4]
+     832:	2d1f      	cmp	r5, #31
+     834:	dc25      	bgt.n	882 <__register_exitproc+0x5e>
+     836:	b938      	cbnz	r0, 848 <__register_exitproc+0x24>
+     838:	1cab      	adds	r3, r5, #2
+     83a:	3501      	adds	r5, #1
+     83c:	6065      	str	r5, [r4, #4]
+     83e:	f844 1023 	str.w	r1, [r4, r3, lsl #2]
+     842:	2000      	movs	r0, #0
+     844:	bc70      	pop	{r4, r5, r6}
+     846:	4770      	bx	lr
+     848:	eb04 0c85 	add.w	ip, r4, r5, lsl #2
+     84c:	2802      	cmp	r0, #2
+     84e:	f8cc 2088 	str.w	r2, [ip, #136]	; 0x88
+     852:	f8d4 6188 	ldr.w	r6, [r4, #392]	; 0x188
+     856:	f04f 0201 	mov.w	r2, #1
+     85a:	fa02 f205 	lsl.w	r2, r2, r5
+     85e:	ea46 0602 	orr.w	r6, r6, r2
+     862:	f8c4 6188 	str.w	r6, [r4, #392]	; 0x188
+     866:	f8cc 3108 	str.w	r3, [ip, #264]	; 0x108
+     86a:	d1e5      	bne.n	838 <__register_exitproc+0x14>
+     86c:	f8d4 318c 	ldr.w	r3, [r4, #396]	; 0x18c
+     870:	4313      	orrs	r3, r2
+     872:	f8c4 318c 	str.w	r3, [r4, #396]	; 0x18c
+     876:	e7df      	b.n	838 <__register_exitproc+0x14>
+     878:	f505 74a6 	add.w	r4, r5, #332	; 0x14c
+     87c:	f8c5 4148 	str.w	r4, [r5, #328]	; 0x148
+     880:	e7d6      	b.n	830 <__register_exitproc+0xc>
+     882:	f04f 30ff 	mov.w	r0, #4294967295	; 0xffffffff
+     886:	e7dd      	b.n	844 <__register_exitproc+0x20>
+     888:	00001d78 	.word	0x00001d78
+
+0000088c <__errno>:
+     88c:	4b01      	ldr	r3, [pc, #4]	; (894 <__errno+0x8>)
+     88e:	6818      	ldr	r0, [r3, #0]
+     890:	4770      	bx	lr
+     892:	bf00      	nop
+     894:	00002878 	.word	0x00002878
+
+00000898 <BusFault_Handler>:
+
+/* Default exception handlers */
+    .section .text.Default_Handler,"ax",%progbits
+Default_Handler:
+Infinite_Loop:
+    b       Infinite_Loop
+     898:	e7fe      	b.n	898 <BusFault_Handler>
+	...
+
+0000089c <uint_to_str.part.0>:
+        str[0] = '0';
+        str[1] = '\0';
+        return 1;
+    }
+
+    while (value > 0)
+     89c:	b360      	cbz	r0, 8f8 <uint_to_str.part.0+0x5c>
+static int uint_to_str(unsigned int value, char* str, int base)
+     89e:	b530      	push	{r4, r5, lr}
+     8a0:	b089      	sub	sp, #36	; 0x24
+    int i = 0;
+     8a2:	2400      	movs	r4, #0
+     8a4:	466d      	mov	r5, sp
+     8a6:	e000      	b.n	8aa <uint_to_str.part.0+0xe>
+    {
+        int digit = value % base;
+        temp[i++] = (digit < 10) ? ('0' + digit) : ('A' + digit - 10);
+     8a8:	4664      	mov	r4, ip
+        int digit = value % base;
+     8aa:	fbb0 fef2 	udiv	lr, r0, r2
+     8ae:	fb02 0c1e 	mls	ip, r2, lr, r0
+        temp[i++] = (digit < 10) ? ('0' + digit) : ('A' + digit - 10);
+     8b2:	f1bc 0f09 	cmp.w	ip, #9
+     8b6:	f10c 0337 	add.w	r3, ip, #55	; 0x37
+     8ba:	f10c 0c30 	add.w	ip, ip, #48	; 0x30
+     8be:	b2db      	uxtb	r3, r3
+     8c0:	bf98      	it	ls
+     8c2:	fa5f f38c 	uxtbls.w	r3, ip
+    while (value > 0)
+     8c6:	4282      	cmp	r2, r0
+        temp[i++] = (digit < 10) ? ('0' + digit) : ('A' + digit - 10);
+     8c8:	f104 0c01 	add.w	ip, r4, #1
+        value /= base;
+     8cc:	4670      	mov	r0, lr
+        temp[i++] = (digit < 10) ? ('0' + digit) : ('A' + digit - 10);
+     8ce:	f805 3b01 	strb.w	r3, [r5], #1
+    while (value > 0)
+     8d2:	d9e9      	bls.n	8a8 <uint_to_str.part.0+0xc>
+     8d4:	3c01      	subs	r4, #1
+     8d6:	1e4a      	subs	r2, r1, #1
+     8d8:	446c      	add	r4, sp
+     8da:	eb02 000c 	add.w	r0, r2, ip
+     8de:	e001      	b.n	8e4 <uint_to_str.part.0+0x48>
+    }
+
+    /* Reverse the string */
+    while (i > 0)
+    {
+        str[len++] = temp[--i];
+     8e0:	f814 3901 	ldrb.w	r3, [r4], #-1
+     8e4:	f802 3f01 	strb.w	r3, [r2, #1]!
+    while (i > 0)
+     8e8:	4282      	cmp	r2, r0
+     8ea:	d1f9      	bne.n	8e0 <uint_to_str.part.0+0x44>
+    }
+
+    str[len] = '\0';
+     8ec:	4461      	add	r1, ip
+     8ee:	2300      	movs	r3, #0
+    return len;
+}
+     8f0:	4660      	mov	r0, ip
+    str[len] = '\0';
+     8f2:	700b      	strb	r3, [r1, #0]
+}
+     8f4:	b009      	add	sp, #36	; 0x24
+     8f6:	bd30      	pop	{r4, r5, pc}
+    str[len] = '\0';
+     8f8:	2300      	movs	r3, #0
+     8fa:	700b      	strb	r3, [r1, #0]
+}
+     8fc:	4770      	bx	lr
+     8fe:	bf00      	nop
+
+00000900 <puts>:
+    while (*str)
+     900:	7803      	ldrb	r3, [r0, #0]
+     902:	b133      	cbz	r3, 912 <puts+0x12>
+    ITM_STIM0 = (uint8_t)c;
+     904:	f04f 4260 	mov.w	r2, #3758096384	; 0xe0000000
+     908:	6013      	str	r3, [r2, #0]
+    while (*str)
+     90a:	f810 3f01 	ldrb.w	r3, [r0, #1]!
+     90e:	2b00      	cmp	r3, #0
+     910:	d1fa      	bne.n	908 <puts+0x8>
+    ITM_STIM0 = (uint8_t)c;
+     912:	f04f 4360 	mov.w	r3, #3758096384	; 0xe0000000
+     916:	220a      	movs	r2, #10
+     918:	601a      	str	r2, [r3, #0]
+}
+     91a:	4770      	bx	lr
+
+0000091c <printf>:
+ * @param[in] format Format string
+ * @param[in] ... Variable arguments
+ * @return Number of characters printed
+ */
+int printf(const char* format, ...)
+{
+     91c:	b40f      	push	{r0, r1, r2, r3}
+     91e:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     922:	b093      	sub	sp, #76	; 0x4c
+     924:	aa1c      	add	r2, sp, #112	; 0x70
+     926:	f852 1b04 	ldr.w	r1, [r2], #4
+    char* buf_ptr = print_buffer;
+    int printed = 0;
+
+    va_start(args, format);
+
+    for (p = format; *p != '\0'; p++)
+     92a:	780b      	ldrb	r3, [r1, #0]
+    va_start(args, format);
+     92c:	9201      	str	r2, [sp, #4]
+    for (p = format; *p != '\0'; p++)
+     92e:	2b00      	cmp	r3, #0
+     930:	f000 80f6 	beq.w	b20 <printf+0x204>
+    char* buf_ptr = print_buffer;
+     934:	4e7c      	ldr	r6, [pc, #496]	; (b28 <printf+0x20c>)
+    int printed = 0;
+     936:	2500      	movs	r5, #0
+
+            case 's':
+            {
+                char* str = va_arg(args, char*);
+                if (str == NULL)
+                    str = "(null)";
+     938:	4f7c      	ldr	r7, [pc, #496]	; (b2c <printf+0x210>)
+    char* buf_ptr = print_buffer;
+     93a:	4634      	mov	r4, r6
+     93c:	e008      	b.n	950 <printf+0x34>
+            printed++;
+     93e:	3501      	adds	r5, #1
+            continue;
+     940:	4688      	mov	r8, r1
+            *buf_ptr++ = *p;
+     942:	f804 3b01 	strb.w	r3, [r4], #1
+    for (p = format; *p != '\0'; p++)
+     946:	f898 3001 	ldrb.w	r3, [r8, #1]
+     94a:	f108 0101 	add.w	r1, r8, #1
+     94e:	b37b      	cbz	r3, 9b0 <printf+0x94>
+        if (*p != '%')
+     950:	2b25      	cmp	r3, #37	; 0x25
+     952:	d1f4      	bne.n	93e <printf+0x22>
+        switch (*p)
+     954:	784a      	ldrb	r2, [r1, #1]
+        p++; /* Skip '%' */
+     956:	f101 0801 	add.w	r8, r1, #1
+        switch (*p)
+     95a:	2a25      	cmp	r2, #37	; 0x25
+     95c:	f000 80b9 	beq.w	ad2 <printf+0x1b6>
+     960:	f1a2 0358 	sub.w	r3, r2, #88	; 0x58
+     964:	b2da      	uxtb	r2, r3
+     966:	2a20      	cmp	r2, #32
+     968:	d814      	bhi.n	994 <printf+0x78>
+     96a:	2b20      	cmp	r3, #32
+     96c:	d812      	bhi.n	994 <printf+0x78>
+     96e:	e8df f003 	tbb	[pc, r3]
+     972:	1173      	.short	0x1173
+     974:	11111111 	.word	0x11111111
+     978:	11111111 	.word	0x11111111
+     97c:	11308111 	.word	0x11308111
+     980:	30111111 	.word	0x30111111
+     984:	11111111 	.word	0x11111111
+     988:	11111111 	.word	0x11111111
+     98c:	89119c11 	.word	0x89119c11
+     990:	1111      	.short	0x1111
+     992:	73          	.byte	0x73
+     993:	00          	.byte	0x00
+                break;
+            }
+
+            default:
+            {
+                *buf_ptr++ = '%';
+     994:	4623      	mov	r3, r4
+     996:	2225      	movs	r2, #37	; 0x25
+                *buf_ptr++ = *p;
+                printed += 2;
+     998:	3502      	adds	r5, #2
+                *buf_ptr++ = '%';
+     99a:	f803 2b02 	strb.w	r2, [r3], #2
+                *buf_ptr++ = *p;
+     99e:	784a      	ldrb	r2, [r1, #1]
+    for (p = format; *p != '\0'; p++)
+     9a0:	f108 0101 	add.w	r1, r8, #1
+                *buf_ptr++ = *p;
+     9a4:	7062      	strb	r2, [r4, #1]
+     9a6:	461c      	mov	r4, r3
+    for (p = format; *p != '\0'; p++)
+     9a8:	f898 3001 	ldrb.w	r3, [r8, #1]
+     9ac:	2b00      	cmp	r3, #0
+     9ae:	d1cf      	bne.n	950 <printf+0x34>
+    }
+
+    va_end(args);
+
+    /* Null terminate and output */
+    *buf_ptr = '\0';
+     9b0:	7023      	strb	r3, [r4, #0]
+
+    /* Send the buffer via ITM */
+    for (int i = 0; i < printed; i++)
+     9b2:	b145      	cbz	r5, 9c6 <printf+0xaa>
+     9b4:	4b5c      	ldr	r3, [pc, #368]	; (b28 <printf+0x20c>)
+     9b6:	442e      	add	r6, r5
+    ITM_STIM0 = (uint8_t)c;
+     9b8:	f04f 4160 	mov.w	r1, #3758096384	; 0xe0000000
+    {
+        itm_putchar(print_buffer[i]);
+     9bc:	f813 2b01 	ldrb.w	r2, [r3], #1
+    for (int i = 0; i < printed; i++)
+     9c0:	429e      	cmp	r6, r3
+    ITM_STIM0 = (uint8_t)c;
+     9c2:	600a      	str	r2, [r1, #0]
+    for (int i = 0; i < printed; i++)
+     9c4:	d1fa      	bne.n	9bc <printf+0xa0>
+    }
+
+    return printed;
+}
+     9c6:	4628      	mov	r0, r5
+     9c8:	b013      	add	sp, #76	; 0x4c
+     9ca:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     9ce:	b004      	add	sp, #16
+     9d0:	4770      	bx	lr
+                int value = va_arg(args, int);
+     9d2:	9b01      	ldr	r3, [sp, #4]
+     9d4:	f8d3 b000 	ldr.w	fp, [r3]
+     9d8:	1d1a      	adds	r2, r3, #4
+    if (value == 0)
+     9da:	f1bb 0f00 	cmp.w	fp, #0
+                int value = va_arg(args, int);
+     9de:	9201      	str	r2, [sp, #4]
+    if (value == 0)
+     9e0:	f000 8086 	beq.w	af0 <printf+0x1d4>
+    if (value < 0 && base == 10)
+     9e4:	f2c0 8093 	blt.w	b0e <printf+0x1f2>
+    int is_negative = 0;
+     9e8:	f04f 0e00 	mov.w	lr, #0
+    while (value > 0)
+     9ec:	f10d 0928 	add.w	r9, sp, #40	; 0x28
+    char* buf_ptr = print_buffer;
+     9f0:	f04f 0c00 	mov.w	ip, #0
+        int digit = value % base;
+     9f4:	f8df a138 	ldr.w	sl, [pc, #312]	; b30 <printf+0x214>
+    char* buf_ptr = print_buffer;
+     9f8:	4649      	mov	r1, r9
+        int digit = value % base;
+     9fa:	fbaa 320b 	umull	r3, r2, sl, fp
+     9fe:	4660      	mov	r0, ip
+        temp[i++] = (digit < 10) ? ('0' + digit) : ('A' + digit - 10);
+     a00:	f10c 0c01 	add.w	ip, ip, #1
+        int digit = value % base;
+     a04:	08d2      	lsrs	r2, r2, #3
+     a06:	eb02 0382 	add.w	r3, r2, r2, lsl #2
+     a0a:	ebab 0343 	sub.w	r3, fp, r3, lsl #1
+    while (value > 0)
+     a0e:	4693      	mov	fp, r2
+        temp[i++] = (digit < 10) ? ('0' + digit) : ('A' + digit - 10);
+     a10:	3330      	adds	r3, #48	; 0x30
+     a12:	b2db      	uxtb	r3, r3
+     a14:	f801 3b01 	strb.w	r3, [r1], #1
+    while (value > 0)
+     a18:	2a00      	cmp	r2, #0
+     a1a:	d1ee      	bne.n	9fa <printf+0xde>
+    if (is_negative)
+     a1c:	f1be 0f00 	cmp.w	lr, #0
+     a20:	d002      	beq.n	a28 <printf+0x10c>
+        str[len++] = '-';
+     a22:	222d      	movs	r2, #45	; 0x2d
+     a24:	f88d 2008 	strb.w	r2, [sp, #8]
+    while (i > 0)
+     a28:	a902      	add	r1, sp, #8
+     a2a:	f10e 3cff 	add.w	ip, lr, #4294967295	; 0xffffffff
+     a2e:	eb09 0200 	add.w	r2, r9, r0
+     a32:	448c      	add	ip, r1
+     a34:	e001      	b.n	a3a <printf+0x11e>
+        str[len++] = temp[--i];
+     a36:	f812 3d01 	ldrb.w	r3, [r2, #-1]!
+    while (i > 0)
+     a3a:	454a      	cmp	r2, r9
+        str[len++] = temp[--i];
+     a3c:	f80c 3f01 	strb.w	r3, [ip, #1]!
+    while (i > 0)
+     a40:	d1f9      	bne.n	a36 <printf+0x11a>
+     a42:	f10e 0e01 	add.w	lr, lr, #1
+    str[len] = '\0';
+     a46:	2200      	movs	r2, #0
+        str[len++] = temp[--i];
+     a48:	4470      	add	r0, lr
+    str[len] = '\0';
+     a4a:	f100 0348 	add.w	r3, r0, #72	; 0x48
+     a4e:	4681      	mov	r9, r0
+     a50:	446b      	add	r3, sp
+     a52:	f803 2c40 	strb.w	r2, [r3, #-64]
+    return len;
+     a56:	e054      	b.n	b02 <printf+0x1e6>
+                unsigned int value = va_arg(args, unsigned int);
+     a58:	9b01      	ldr	r3, [sp, #4]
+     a5a:	1d1a      	adds	r2, r3, #4
+     a5c:	6818      	ldr	r0, [r3, #0]
+     a5e:	9201      	str	r2, [sp, #4]
+    if (value == 0)
+     a60:	2800      	cmp	r0, #0
+     a62:	d03a      	beq.n	ada <printf+0x1be>
+     a64:	f10d 0928 	add.w	r9, sp, #40	; 0x28
+     a68:	2210      	movs	r2, #16
+     a6a:	4649      	mov	r1, r9
+     a6c:	f7ff ff16 	bl	89c <uint_to_str.part.0>
+                buf_ptr += len;
+     a70:	4682      	mov	sl, r0
+     a72:	e013      	b.n	a9c <printf+0x180>
+                char c = (char)va_arg(args, int);
+     a74:	9b01      	ldr	r3, [sp, #4]
+                printed++;
+     a76:	3501      	adds	r5, #1
+                char c = (char)va_arg(args, int);
+     a78:	1d1a      	adds	r2, r3, #4
+     a7a:	681b      	ldr	r3, [r3, #0]
+     a7c:	9201      	str	r2, [sp, #4]
+     a7e:	f804 3b01 	strb.w	r3, [r4], #1
+                break;
+     a82:	e760      	b.n	946 <printf+0x2a>
+                unsigned int value = va_arg(args, unsigned int);
+     a84:	9b01      	ldr	r3, [sp, #4]
+     a86:	1d1a      	adds	r2, r3, #4
+     a88:	6818      	ldr	r0, [r3, #0]
+     a8a:	9201      	str	r2, [sp, #4]
+    if (value == 0)
+     a8c:	b328      	cbz	r0, ada <printf+0x1be>
+     a8e:	f10d 0928 	add.w	r9, sp, #40	; 0x28
+     a92:	220a      	movs	r2, #10
+     a94:	4649      	mov	r1, r9
+     a96:	f7ff ff01 	bl	89c <uint_to_str.part.0>
+                buf_ptr += len;
+     a9a:	4682      	mov	sl, r0
+                printed += len;
+     a9c:	4405      	add	r5, r0
+                strcpy(buf_ptr, temp);
+     a9e:	4649      	mov	r1, r9
+     aa0:	4620      	mov	r0, r4
+                buf_ptr += len;
+     aa2:	4454      	add	r4, sl
+                strcpy(buf_ptr, temp);
+     aa4:	f7ff fd1a 	bl	4dc <strcpy>
+                break;
+     aa8:	e74d      	b.n	946 <printf+0x2a>
+                char* str = va_arg(args, char*);
+     aaa:	9b01      	ldr	r3, [sp, #4]
+     aac:	1d1a      	adds	r2, r3, #4
+     aae:	f8d3 a000 	ldr.w	sl, [r3]
+     ab2:	9201      	str	r2, [sp, #4]
+                if (str == NULL)
+     ab4:	f1ba 0f00 	cmp.w	sl, #0
+     ab8:	d02e      	beq.n	b18 <printf+0x1fc>
+                int len = strlen(str);
+     aba:	4650      	mov	r0, sl
+     abc:	f7ff fd80 	bl	5c0 <strlen>
+     ac0:	4681      	mov	r9, r0
+     ac2:	4603      	mov	r3, r0
+                strcpy(buf_ptr, str);
+     ac4:	4620      	mov	r0, r4
+     ac6:	4651      	mov	r1, sl
+                printed += len;
+     ac8:	441d      	add	r5, r3
+                buf_ptr += len;
+     aca:	444c      	add	r4, r9
+                strcpy(buf_ptr, str);
+     acc:	f7ff fd06 	bl	4dc <strcpy>
+                break;
+     ad0:	e739      	b.n	946 <printf+0x2a>
+                printed++;
+     ad2:	3501      	adds	r5, #1
+                *buf_ptr++ = '%';
+     ad4:	f804 3b01 	strb.w	r3, [r4], #1
+                break;
+     ad8:	e735      	b.n	946 <printf+0x2a>
+        str[0] = '0';
+     ada:	2330      	movs	r3, #48	; 0x30
+        return 1;
+     adc:	f04f 0a01 	mov.w	sl, #1
+        str[1] = '\0';
+     ae0:	f88d 0029 	strb.w	r0, [sp, #41]	; 0x29
+     ae4:	f10d 0928 	add.w	r9, sp, #40	; 0x28
+        return 1;
+     ae8:	4650      	mov	r0, sl
+        str[0] = '0';
+     aea:	f88d 3028 	strb.w	r3, [sp, #40]	; 0x28
+        return 1;
+     aee:	e7d5      	b.n	a9c <printf+0x180>
+        return 1;
+     af0:	f04f 0901 	mov.w	r9, #1
+        str[0] = '0';
+     af4:	2330      	movs	r3, #48	; 0x30
+     af6:	a902      	add	r1, sp, #8
+        str[1] = '\0';
+     af8:	f88d b009 	strb.w	fp, [sp, #9]
+        return 1;
+     afc:	4648      	mov	r0, r9
+        str[0] = '0';
+     afe:	f88d 3008 	strb.w	r3, [sp, #8]
+                printed += len;
+     b02:	4405      	add	r5, r0
+                strcpy(buf_ptr, temp);
+     b04:	4620      	mov	r0, r4
+     b06:	f7ff fce9 	bl	4dc <strcpy>
+                buf_ptr += len;
+     b0a:	444c      	add	r4, r9
+                break;
+     b0c:	e71b      	b.n	946 <printf+0x2a>
+        value = -value;
+     b0e:	f1cb 0b00 	rsb	fp, fp, #0
+        is_negative = 1;
+     b12:	f04f 0e01 	mov.w	lr, #1
+     b16:	e769      	b.n	9ec <printf+0xd0>
+     b18:	2306      	movs	r3, #6
+                    str = "(null)";
+     b1a:	46ba      	mov	sl, r7
+     b1c:	4699      	mov	r9, r3
+     b1e:	e7d1      	b.n	ac4 <printf+0x1a8>
+    *buf_ptr = '\0';
+     b20:	4a01      	ldr	r2, [pc, #4]	; (b28 <printf+0x20c>)
+    int printed = 0;
+     b22:	461d      	mov	r5, r3
+    *buf_ptr = '\0';
+     b24:	7013      	strb	r3, [r2, #0]
+    for (int i = 0; i < printed; i++)
+     b26:	e74e      	b.n	9c6 <printf+0xaa>
+     b28:	00002d70 	.word	0x00002d70
+     b2c:	00001e80 	.word	0x00001e80
+     b30:	cccccccd 	.word	0xcccccccd
+
+00000b34 <FLASH_StartCmdSequence>:
+ * @param[in] none
+ * @return none
+ */
+__STATIC_INLINE void EFLASH_ClearPCache(void)
+{
+    EFLASH->GCR |= (EFLASH_GCR_PCACHECLR_Msk);
+     b34:	4a15      	ldr	r2, [pc, #84]	; (b8c <FLASH_StartCmdSequence+0x58>)
+     b36:	6893      	ldr	r3, [r2, #8]
+     b38:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+     b3c:	6093      	str	r3, [r2, #8]
+    EFLASH->GCR |= (EFLASH_GCR_DCACHECLR_Msk);
+     b3e:	6893      	ldr	r3, [r2, #8]
+     b40:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+     b44:	6093      	str	r3, [r2, #8]
+    EFLASH->CCR |= EFLASH_CCR_START_Msk;
+     b46:	6913      	ldr	r3, [r2, #16]
+     b48:	f043 0301 	orr.w	r3, r3, #1
+     b4c:	6113      	str	r3, [r2, #16]
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     b4e:	6e13      	ldr	r3, [r2, #96]	; 0x60
+    EFLASH_ClearDCache();
+    /* trigger command execute */
+    EFLASH_TrigCtrlCmdReg();
+    EnableInterrupts;
+
+    if(EFLASH_GetLVDWarningReg() != 0U)
+     b50:	079b      	lsls	r3, r3, #30
+     b52:	d419      	bmi.n	b88 <FLASH_StartCmdSequence+0x54>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     b54:	68d3      	ldr	r3, [r2, #12]
+{
+     b56:	b082      	sub	sp, #8
+        ret = STATUS_ERROR;
+    }
+    else
+    {
+        /* Wait till busy bit is cleared */
+        while (0U != EFLASH_GetCmdBusyStatus())
+     b58:	07d9      	lsls	r1, r3, #31
+     b5a:	d50c      	bpl.n	b76 <FLASH_StartCmdSequence+0x42>
+        {
+            tempDelay = FLASH_GET_BUSY_STATUS_DELAY;
+     b5c:	2103      	movs	r1, #3
+     b5e:	9101      	str	r1, [sp, #4]
+            while (tempDelay > 0U)
+     b60:	9b01      	ldr	r3, [sp, #4]
+     b62:	b12b      	cbz	r3, b70 <FLASH_StartCmdSequence+0x3c>
+            {
+                tempDelay--; /* for delay. */
+     b64:	9b01      	ldr	r3, [sp, #4]
+     b66:	3b01      	subs	r3, #1
+     b68:	9301      	str	r3, [sp, #4]
+            while (tempDelay > 0U)
+     b6a:	9b01      	ldr	r3, [sp, #4]
+     b6c:	2b00      	cmp	r3, #0
+     b6e:	d1f9      	bne.n	b64 <FLASH_StartCmdSequence+0x30>
+     b70:	68d3      	ldr	r3, [r2, #12]
+        while (0U != EFLASH_GetCmdBusyStatus())
+     b72:	07db      	lsls	r3, r3, #31
+     b74:	d4f3      	bmi.n	b5e <FLASH_StartCmdSequence+0x2a>
+    return (EFLASH->CSR & EFLASH_MAIN_STAT_ERROR_BITS);
+     b76:	4b05      	ldr	r3, [pc, #20]	; (b8c <FLASH_StartCmdSequence+0x58>)
+     b78:	68db      	ldr	r3, [r3, #12]
+            }
+        };
+
+        /* Check command execute error status */
+        if (0U != EFLASH_GetStatusReg())
+     b7a:	f413 6f77 	tst.w	r3, #3952	; 0xf70
+     b7e:	bf14      	ite	ne
+     b80:	2001      	movne	r0, #1
+     b82:	2000      	moveq	r0, #0
+            ret = STATUS_ERROR;
+        }
+    }
+
+    return ret;
+}
+     b84:	b002      	add	sp, #8
+     b86:	4770      	bx	lr
+        ret = STATUS_ERROR;
+     b88:	2001      	movs	r0, #1
+}
+     b8a:	4770      	bx	lr
+     b8c:	40002000 	.word	0x40002000
+
+00000b90 <EFLASH_OptionPageErase.part.0>:
+ * @brief Option page erase.
+ *
+ * @param[in] addr: option addrees to erase (should be 8-aligned)
+ * @return EFLASH STATUS: eflash operation status
+ */
+static status_t EFLASH_OptionPageErase(uint32_t addr)
+     b90:	b508      	push	{r3, lr}
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     b92:	4b11      	ldr	r3, [pc, #68]	; (bd8 <EFLASH_OptionPageErase.part.0+0x48>)
+     b94:	68da      	ldr	r2, [r3, #12]
+    /* Check option byte address */
+    DEVICE_ASSERT(OPTION_BASE <= addr);
+    DEVICE_ASSERT(OPTION_END > addr);
+
+    /* Wait for last operation to be completed */
+    if (0U != EFLASH_GetCmdBusyStatus())
+     b96:	07d1      	lsls	r1, r2, #31
+     b98:	d41b      	bmi.n	bd2 <EFLASH_OptionPageErase.part.0+0x42>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     b9a:	6e1a      	ldr	r2, [r3, #96]	; 0x60
+    {
+        statusRes = STATUS_BUSY;
+    }
+    else if (EFLASH_GetLVDWarningReg() != 0U)
+     b9c:	0792      	lsls	r2, r2, #30
+     b9e:	d506      	bpl.n	bae <EFLASH_OptionPageErase.part.0+0x1e>
+    {
+        statusRes = STATUS_ERROR;
+     ba0:	2001      	movs	r0, #1
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_OPTEN_Msk, EFLASH_CCR_OPTEN_Pos, enable);
+     ba2:	4a0d      	ldr	r2, [pc, #52]	; (bd8 <EFLASH_OptionPageErase.part.0+0x48>)
+     ba4:	6913      	ldr	r3, [r2, #16]
+     ba6:	f023 0304 	bic.w	r3, r3, #4
+     baa:	6113      	str	r3, [r2, #16]
+    }
+    /* Disable option byte area operation */
+    EFLASH_EnableOptionReg(DISABLE);
+
+    return statusRes;
+}
+     bac:	bd08      	pop	{r3, pc}
+        EFLASH_CLEAR_STAT_ERROR_BITS();
+     bae:	68da      	ldr	r2, [r3, #12]
+     bb0:	f042 0270 	orr.w	r2, r2, #112	; 0x70
+     bb4:	60da      	str	r2, [r3, #12]
+    EFLASH->CAR = startAddress;
+     bb6:	6158      	str	r0, [r3, #20]
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_CMD_Msk, EFLASH_CCR_CMD_Pos, cmd);
+     bb8:	691a      	ldr	r2, [r3, #16]
+     bba:	f422 627f 	bic.w	r2, r2, #4080	; 0xff0
+     bbe:	f042 0220 	orr.w	r2, r2, #32
+     bc2:	611a      	str	r2, [r3, #16]
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_OPTEN_Msk, EFLASH_CCR_OPTEN_Pos, enable);
+     bc4:	691a      	ldr	r2, [r3, #16]
+     bc6:	f042 0204 	orr.w	r2, r2, #4
+     bca:	611a      	str	r2, [r3, #16]
+        statusRes = FLASH_StartCmdSequence();
+     bcc:	f7ff ffb2 	bl	b34 <FLASH_StartCmdSequence>
+     bd0:	e7e7      	b.n	ba2 <EFLASH_OptionPageErase.part.0+0x12>
+        statusRes = STATUS_BUSY;
+     bd2:	2002      	movs	r0, #2
+     bd4:	e7e5      	b.n	ba2 <EFLASH_OptionPageErase.part.0+0x12>
+     bd6:	bf00      	nop
+     bd8:	40002000 	.word	0x40002000
+
+00000bdc <EFLASH_OptionPageProgram.part.0>:
+ * @param[in] addr: option addrees (should be 8-aligned)
+ * @param[in] buffer: Point to the data bufffer to be programed
+ * @param[in] len: Data length to be programed (the unit is 32-bit, should be 2-aligned)
+ * @return EFLASH STATUS: eflash operation status
+ */
+static status_t EFLASH_OptionPageProgram(uint32_t addr, uint32_t *buffer, uint32_t len)
+     bdc:	b410      	push	{r4}
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     bde:	4c3c      	ldr	r4, [pc, #240]	; (cd0 <EFLASH_OptionPageProgram.part.0+0xf4>)
+     be0:	b083      	sub	sp, #12
+     be2:	68e3      	ldr	r3, [r4, #12]
+    DEVICE_ASSERT(OPTION_END > addr);
+    DEVICE_ASSERT(NULL != buffer);
+    DEVICE_ASSERT((len != 0U) && (len % 2U == 0U));
+
+    /* Wait for last operation to be completed */
+    if (0U != EFLASH_GetCmdBusyStatus())
+     be4:	07db      	lsls	r3, r3, #31
+     be6:	d44a      	bmi.n	c7e <EFLASH_OptionPageProgram.part.0+0xa2>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     be8:	6e23      	ldr	r3, [r4, #96]	; 0x60
+    {
+        statusRes = STATUS_BUSY;
+    }
+    else if (EFLASH_GetLVDWarningReg() != 0U)
+     bea:	f3c3 0c40 	ubfx	ip, r3, #1, #1
+     bee:	079b      	lsls	r3, r3, #30
+     bf0:	d44f      	bmi.n	c92 <EFLASH_OptionPageProgram.part.0+0xb6>
+    {
+        statusRes = STATUS_ERROR;
+    }
+    else
+    {
+        EFLASH_CLEAR_STAT_ERROR_BITS();
+     bf2:	68e3      	ldr	r3, [r4, #12]
+     bf4:	f043 0370 	orr.w	r3, r3, #112	; 0x70
+     bf8:	60e3      	str	r3, [r4, #12]
+    EFLASH->CAR = startAddress;
+     bfa:	6160      	str	r0, [r4, #20]
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_LEN_Msk, EFLASH_CCR_LEN_Pos, len);
+     bfc:	4b35      	ldr	r3, [pc, #212]	; (cd4 <EFLASH_OptionPageProgram.part.0+0xf8>)
+     bfe:	6920      	ldr	r0, [r4, #16]
+     c00:	4003      	ands	r3, r0
+        /* Configure start address */
+        EFLASH_SetStartAddressReg(addr);
+        /* Configure length (unit is 64-bit) */
+        EFLASH_SetLengthReg(len / 2U);
+     c02:	0850      	lsrs	r0, r2, #1
+     c04:	ea43 3300 	orr.w	r3, r3, r0, lsl #12
+            {
+                break;
+            }
+            else
+            {
+                for (delayI = 6U; delayI > 0U; )
+     c08:	2006      	movs	r0, #6
+     c0a:	6123      	str	r3, [r4, #16]
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_CMD_Msk, EFLASH_CCR_CMD_Pos, cmd);
+     c0c:	6923      	ldr	r3, [r4, #16]
+     c0e:	f423 637f 	bic.w	r3, r3, #4080	; 0xff0
+     c12:	f443 7390 	orr.w	r3, r3, #288	; 0x120
+     c16:	6123      	str	r3, [r4, #16]
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_OPTEN_Msk, EFLASH_CCR_OPTEN_Pos, enable);
+     c18:	6923      	ldr	r3, [r4, #16]
+     c1a:	f043 0304 	orr.w	r3, r3, #4
+     c1e:	6123      	str	r3, [r4, #16]
+    EFLASH->CCR |= EFLASH_CCR_START_Msk;
+     c20:	6923      	ldr	r3, [r4, #16]
+     c22:	f043 0301 	orr.w	r3, r3, #1
+     c26:	6123      	str	r3, [r4, #16]
+        while (dataCount < len)
+     c28:	e00e      	b.n	c48 <EFLASH_OptionPageProgram.part.0+0x6c>
+    return (EFLASH->CSR & EFLASH_MAIN_STAT_ERROR_BITS);
+     c2a:	68e3      	ldr	r3, [r4, #12]
+            if ((EFLASH_GetDataBufferReg() != 0U) && (EFLASH_GetStatusReg() == 0U))
+     c2c:	f413 6f77 	tst.w	r3, #3952	; 0xf70
+     c30:	d10d      	bne.n	c4e <EFLASH_OptionPageProgram.part.0+0x72>
+                EFLASH_SetDataReg0(buffer[dataCount]);
+     c32:	f851 302c 	ldr.w	r3, [r1, ip, lsl #2]
+    EFLASH->CDR0 = data;
+     c36:	61a3      	str	r3, [r4, #24]
+                EFLASH_SetDataReg1(buffer[dataCount]);
+     c38:	eb01 038c 	add.w	r3, r1, ip, lsl #2
+     c3c:	f10c 0c02 	add.w	ip, ip, #2
+     c40:	685b      	ldr	r3, [r3, #4]
+    EFLASH->CDR1 = data;
+     c42:	61e3      	str	r3, [r4, #28]
+        while (dataCount < len)
+     c44:	4562      	cmp	r2, ip
+     c46:	d926      	bls.n	c96 <EFLASH_OptionPageProgram.part.0+0xba>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_DBUFRDY_Msk) >> EFLASH_CSR_DBUFRDY_Pos);
+     c48:	68e3      	ldr	r3, [r4, #12]
+            if ((EFLASH_GetDataBufferReg() != 0U) && (EFLASH_GetStatusReg() == 0U))
+     c4a:	079b      	lsls	r3, r3, #30
+     c4c:	d4ed      	bmi.n	c2a <EFLASH_OptionPageProgram.part.0+0x4e>
+    return (EFLASH->CSR & EFLASH_MAIN_STAT_ERROR_BITS);
+     c4e:	68e3      	ldr	r3, [r4, #12]
+            else if ((EFLASH_GetStatusReg() != 0U) || (EFLASH_GetLVDWarningReg() != 0U))
+     c50:	f413 6f77 	tst.w	r3, #3952	; 0xf70
+     c54:	d11f      	bne.n	c96 <EFLASH_OptionPageProgram.part.0+0xba>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     c56:	6e23      	ldr	r3, [r4, #96]	; 0x60
+     c58:	079b      	lsls	r3, r3, #30
+     c5a:	d41c      	bmi.n	c96 <EFLASH_OptionPageProgram.part.0+0xba>
+                for (delayI = 6U; delayI > 0U; )
+     c5c:	f88d 0003 	strb.w	r0, [sp, #3]
+     c60:	f89d 3003 	ldrb.w	r3, [sp, #3]
+     c64:	2b00      	cmp	r3, #0
+     c66:	d0ed      	beq.n	c44 <EFLASH_OptionPageProgram.part.0+0x68>
+                {
+                    delayI--; /* for delay. */
+     c68:	f89d 3003 	ldrb.w	r3, [sp, #3]
+     c6c:	3b01      	subs	r3, #1
+     c6e:	b2db      	uxtb	r3, r3
+     c70:	f88d 3003 	strb.w	r3, [sp, #3]
+                for (delayI = 6U; delayI > 0U; )
+     c74:	f89d 3003 	ldrb.w	r3, [sp, #3]
+     c78:	2b00      	cmp	r3, #0
+     c7a:	d1f5      	bne.n	c68 <EFLASH_OptionPageProgram.part.0+0x8c>
+     c7c:	e7e2      	b.n	c44 <EFLASH_OptionPageProgram.part.0+0x68>
+        statusRes = STATUS_BUSY;
+     c7e:	2002      	movs	r0, #2
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_OPTEN_Msk, EFLASH_CCR_OPTEN_Pos, enable);
+     c80:	4a13      	ldr	r2, [pc, #76]	; (cd0 <EFLASH_OptionPageProgram.part.0+0xf4>)
+     c82:	6913      	ldr	r3, [r2, #16]
+     c84:	f023 0304 	bic.w	r3, r3, #4
+     c88:	6113      	str	r3, [r2, #16]
+    }
+    /* Disable option byte area operation */
+    EFLASH_EnableOptionReg(DISABLE);
+
+    return statusRes;
+}
+     c8a:	b003      	add	sp, #12
+     c8c:	f85d 4b04 	ldr.w	r4, [sp], #4
+     c90:	4770      	bx	lr
+        statusRes = STATUS_ERROR;
+     c92:	2001      	movs	r0, #1
+     c94:	e7f4      	b.n	c80 <EFLASH_OptionPageProgram.part.0+0xa4>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     c96:	4a0e      	ldr	r2, [pc, #56]	; (cd0 <EFLASH_OptionPageProgram.part.0+0xf4>)
+     c98:	68d3      	ldr	r3, [r2, #12]
+        while ((0U != EFLASH_GetCmdBusyStatus()) && (0U == EFLASH_GetLVDWarningReg()))
+     c9a:	07d9      	lsls	r1, r3, #31
+     c9c:	d50f      	bpl.n	cbe <EFLASH_OptionPageProgram.part.0+0xe2>
+            tempDelay = FLASH_GET_BUSY_STATUS_DELAY;
+     c9e:	2103      	movs	r1, #3
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     ca0:	6e13      	ldr	r3, [r2, #96]	; 0x60
+        while ((0U != EFLASH_GetCmdBusyStatus()) && (0U == EFLASH_GetLVDWarningReg()))
+     ca2:	079b      	lsls	r3, r3, #30
+     ca4:	d40b      	bmi.n	cbe <EFLASH_OptionPageProgram.part.0+0xe2>
+            tempDelay = FLASH_GET_BUSY_STATUS_DELAY;
+     ca6:	9101      	str	r1, [sp, #4]
+            while (tempDelay > 0U)
+     ca8:	9b01      	ldr	r3, [sp, #4]
+     caa:	b12b      	cbz	r3, cb8 <EFLASH_OptionPageProgram.part.0+0xdc>
+                tempDelay--; /* for delay. */
+     cac:	9b01      	ldr	r3, [sp, #4]
+     cae:	3b01      	subs	r3, #1
+     cb0:	9301      	str	r3, [sp, #4]
+            while (tempDelay > 0U)
+     cb2:	9b01      	ldr	r3, [sp, #4]
+     cb4:	2b00      	cmp	r3, #0
+     cb6:	d1f9      	bne.n	cac <EFLASH_OptionPageProgram.part.0+0xd0>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     cb8:	68d3      	ldr	r3, [r2, #12]
+        while ((0U != EFLASH_GetCmdBusyStatus()) && (0U == EFLASH_GetLVDWarningReg()))
+     cba:	07dc      	lsls	r4, r3, #31
+     cbc:	d4f0      	bmi.n	ca0 <EFLASH_OptionPageProgram.part.0+0xc4>
+    return (EFLASH->CSR & EFLASH_MAIN_STAT_ERROR_BITS);
+     cbe:	4b04      	ldr	r3, [pc, #16]	; (cd0 <EFLASH_OptionPageProgram.part.0+0xf4>)
+     cc0:	68db      	ldr	r3, [r3, #12]
+        if (0U != EFLASH_GetStatusReg())
+     cc2:	f413 6f77 	tst.w	r3, #3952	; 0xf70
+     cc6:	bf14      	ite	ne
+     cc8:	2001      	movne	r0, #1
+     cca:	2000      	moveq	r0, #0
+     ccc:	e7d8      	b.n	c80 <EFLASH_OptionPageProgram.part.0+0xa4>
+     cce:	bf00      	nop
+     cd0:	40002000 	.word	0x40002000
+     cd4:	ff000fff 	.word	0xff000fff
+
+00000cd8 <EFLASH_PageProgramUnit.part.0>:
+static status_t EFLASH_PageProgramUnit(uint32_t addr, uint32_t *buffer, uint32_t len, uint32_t cntBase)
+     cd8:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+        EFLASH_CLEAR_STAT_ERROR_BITS();
+     cdc:	4c50      	ldr	r4, [pc, #320]	; (e20 <EFLASH_PageProgramUnit.part.0+0x148>)
+static status_t EFLASH_PageProgramUnit(uint32_t addr, uint32_t *buffer, uint32_t len, uint32_t cntBase)
+     cde:	b083      	sub	sp, #12
+     ce0:	460d      	mov	r5, r1
+        printf("len=%d\r\n", len);
+     ce2:	4611      	mov	r1, r2
+        EFLASH_CLEAR_STAT_ERROR_BITS();
+     ce4:	68e3      	ldr	r3, [r4, #12]
+static status_t EFLASH_PageProgramUnit(uint32_t addr, uint32_t *buffer, uint32_t len, uint32_t cntBase)
+     ce6:	4616      	mov	r6, r2
+        EFLASH_CLEAR_STAT_ERROR_BITS();
+     ce8:	f043 0370 	orr.w	r3, r3, #112	; 0x70
+     cec:	60e3      	str	r3, [r4, #12]
+    EFLASH->CAR = startAddress;
+     cee:	6160      	str	r0, [r4, #20]
+        printf("len=%d\r\n", len);
+     cf0:	484c      	ldr	r0, [pc, #304]	; (e24 <EFLASH_PageProgramUnit.part.0+0x14c>)
+     cf2:	f7ff fe13 	bl	91c <printf>
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_LEN_Msk, EFLASH_CCR_LEN_Pos, len);
+     cf6:	6921      	ldr	r1, [r4, #16]
+     cf8:	4b4b      	ldr	r3, [pc, #300]	; (e28 <EFLASH_PageProgramUnit.part.0+0x150>)
+        EFLASH_SetLengthReg(len / 2U);
+     cfa:	0872      	lsrs	r2, r6, #1
+        printf("cmd=0x%x\r\n", (uint32_t)EFLASH_CMD_PAGEPROGRAM);
+     cfc:	484b      	ldr	r0, [pc, #300]	; (e2c <EFLASH_PageProgramUnit.part.0+0x154>)
+     cfe:	400b      	ands	r3, r1
+     d00:	2111      	movs	r1, #17
+     d02:	ea43 3302 	orr.w	r3, r3, r2, lsl #12
+     d06:	6123      	str	r3, [r4, #16]
+     d08:	f7ff fe08 	bl	91c <printf>
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_CMD_Msk, EFLASH_CCR_CMD_Pos, cmd);
+     d0c:	6923      	ldr	r3, [r4, #16]
+        printf("data0=0x%x, data1=0x%x\r\n", buffer[0], buffer[1]);
+     d0e:	4848      	ldr	r0, [pc, #288]	; (e30 <EFLASH_PageProgramUnit.part.0+0x158>)
+     d10:	f423 637f 	bic.w	r3, r3, #4080	; 0xff0
+     d14:	f443 7388 	orr.w	r3, r3, #272	; 0x110
+     d18:	6123      	str	r3, [r4, #16]
+     d1a:	e9d5 1200 	ldrd	r1, r2, [r5]
+     d1e:	f7ff fdfd 	bl	91c <printf>
+        EFLASH_SetDataReg0(buffer[0]);
+     d22:	682b      	ldr	r3, [r5, #0]
+        printf("TrigCtrlCmdReg\r\n");
+     d24:	4843      	ldr	r0, [pc, #268]	; (e34 <EFLASH_PageProgramUnit.part.0+0x15c>)
+    EFLASH->CDR0 = data;
+     d26:	61a3      	str	r3, [r4, #24]
+        EFLASH_SetDataReg1(buffer[1]);
+     d28:	686b      	ldr	r3, [r5, #4]
+    EFLASH->CDR1 = data;
+     d2a:	61e3      	str	r3, [r4, #28]
+    EFLASH->GCR |= (EFLASH_GCR_PCACHECLR_Msk);
+     d2c:	68a3      	ldr	r3, [r4, #8]
+     d2e:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+     d32:	60a3      	str	r3, [r4, #8]
+    EFLASH->GCR |= (EFLASH_GCR_DCACHECLR_Msk);
+     d34:	68a3      	ldr	r3, [r4, #8]
+     d36:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+     d3a:	60a3      	str	r3, [r4, #8]
+        printf("TrigCtrlCmdReg\r\n");
+     d3c:	f7ff fde0 	bl	900 <puts>
+    EFLASH->CCR |= EFLASH_CCR_START_Msk;
+     d40:	6923      	ldr	r3, [r4, #16]
+        for (dataCount = 2U; dataCount < len; )
+     d42:	2e02      	cmp	r6, #2
+     d44:	f043 0301 	orr.w	r3, r3, #1
+     d48:	6123      	str	r3, [r4, #16]
+     d4a:	d939      	bls.n	dc0 <EFLASH_PageProgramUnit.part.0+0xe8>
+     d4c:	f04f 0902 	mov.w	r9, #2
+            printf("data buf status: 0x%x, status: 0x%x\r\n", EFLASH_GetDataBufferReg(), EFLASH_GetStatusReg());
+     d50:	4f39      	ldr	r7, [pc, #228]	; (e38 <EFLASH_PageProgramUnit.part.0+0x160>)
+                for (delayI = 6U; delayI > 0U; )
+     d52:	f04f 0806 	mov.w	r8, #6
+     d56:	e00e      	b.n	d76 <EFLASH_PageProgramUnit.part.0+0x9e>
+    return (EFLASH->CSR & EFLASH_MAIN_STAT_ERROR_BITS);
+     d58:	68e3      	ldr	r3, [r4, #12]
+            if ((EFLASH_GetDataBufferReg() != 0U) && (EFLASH_GetStatusReg() == 0U))
+     d5a:	f413 6f77 	tst.w	r3, #3952	; 0xf70
+     d5e:	d116      	bne.n	d8e <EFLASH_PageProgramUnit.part.0+0xb6>
+                EFLASH_SetDataReg0(buffer[dataCount]);
+     d60:	f855 2029 	ldr.w	r2, [r5, r9, lsl #2]
+                EFLASH_SetDataReg1(buffer[dataCount]);
+     d64:	eb05 0389 	add.w	r3, r5, r9, lsl #2
+     d68:	f109 0902 	add.w	r9, r9, #2
+    EFLASH->CDR0 = data;
+     d6c:	61a2      	str	r2, [r4, #24]
+     d6e:	685b      	ldr	r3, [r3, #4]
+    EFLASH->CDR1 = data;
+     d70:	61e3      	str	r3, [r4, #28]
+        for (dataCount = 2U; dataCount < len; )
+     d72:	454e      	cmp	r6, r9
+     d74:	d924      	bls.n	dc0 <EFLASH_PageProgramUnit.part.0+0xe8>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_DBUFRDY_Msk) >> EFLASH_CSR_DBUFRDY_Pos);
+     d76:	68e1      	ldr	r1, [r4, #12]
+            printf("data buf status: 0x%x, status: 0x%x\r\n", EFLASH_GetDataBufferReg(), EFLASH_GetStatusReg());
+     d78:	4638      	mov	r0, r7
+    return (EFLASH->CSR & EFLASH_MAIN_STAT_ERROR_BITS);
+     d7a:	68e2      	ldr	r2, [r4, #12]
+     d7c:	f3c1 0140 	ubfx	r1, r1, #1, #1
+     d80:	f402 6277 	and.w	r2, r2, #3952	; 0xf70
+     d84:	f7ff fdca 	bl	91c <printf>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_DBUFRDY_Msk) >> EFLASH_CSR_DBUFRDY_Pos);
+     d88:	68e3      	ldr	r3, [r4, #12]
+            if ((EFLASH_GetDataBufferReg() != 0U) && (EFLASH_GetStatusReg() == 0U))
+     d8a:	0798      	lsls	r0, r3, #30
+     d8c:	d4e4      	bmi.n	d58 <EFLASH_PageProgramUnit.part.0+0x80>
+    return (EFLASH->CSR & EFLASH_MAIN_STAT_ERROR_BITS);
+     d8e:	68e3      	ldr	r3, [r4, #12]
+            else if ((EFLASH_GetStatusReg() != 0U) || (EFLASH_GetLVDWarningReg() != 0U))
+     d90:	f413 6f77 	tst.w	r3, #3952	; 0xf70
+     d94:	d114      	bne.n	dc0 <EFLASH_PageProgramUnit.part.0+0xe8>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     d96:	6e23      	ldr	r3, [r4, #96]	; 0x60
+     d98:	0799      	lsls	r1, r3, #30
+     d9a:	d411      	bmi.n	dc0 <EFLASH_PageProgramUnit.part.0+0xe8>
+                for (delayI = 6U; delayI > 0U; )
+     d9c:	f88d 8003 	strb.w	r8, [sp, #3]
+     da0:	f89d 3003 	ldrb.w	r3, [sp, #3]
+     da4:	2b00      	cmp	r3, #0
+     da6:	d0e4      	beq.n	d72 <EFLASH_PageProgramUnit.part.0+0x9a>
+                    delayI--; /* for delay. */
+     da8:	f89d 3003 	ldrb.w	r3, [sp, #3]
+     dac:	3b01      	subs	r3, #1
+     dae:	b2db      	uxtb	r3, r3
+     db0:	f88d 3003 	strb.w	r3, [sp, #3]
+                for (delayI = 6U; delayI > 0U; )
+     db4:	f89d 3003 	ldrb.w	r3, [sp, #3]
+     db8:	2b00      	cmp	r3, #0
+     dba:	d1f5      	bne.n	da8 <EFLASH_PageProgramUnit.part.0+0xd0>
+        for (dataCount = 2U; dataCount < len; )
+     dbc:	454e      	cmp	r6, r9
+     dbe:	d8da      	bhi.n	d76 <EFLASH_PageProgramUnit.part.0+0x9e>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     dc0:	4c17      	ldr	r4, [pc, #92]	; (e20 <EFLASH_PageProgramUnit.part.0+0x148>)
+     dc2:	68e3      	ldr	r3, [r4, #12]
+        while ((0U != EFLASH_GetCmdBusyStatus()) && (0U == EFLASH_GetLVDWarningReg()))
+     dc4:	07dd      	lsls	r5, r3, #31
+     dc6:	d519      	bpl.n	dfc <EFLASH_PageProgramUnit.part.0+0x124>
+            printf("1111data buf status: 0x%x, status: 0x%x\r\n", EFLASH_GetCmdBusyStatus(), EFLASH_GetLVDWarningReg());
+     dc8:	4e1c      	ldr	r6, [pc, #112]	; (e3c <EFLASH_PageProgramUnit.part.0+0x164>)
+            tempDelay = FLASH_GET_BUSY_STATUS_DELAY;
+     dca:	2503      	movs	r5, #3
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     dcc:	6e23      	ldr	r3, [r4, #96]	; 0x60
+        while ((0U != EFLASH_GetCmdBusyStatus()) && (0U == EFLASH_GetLVDWarningReg()))
+     dce:	079b      	lsls	r3, r3, #30
+     dd0:	d414      	bmi.n	dfc <EFLASH_PageProgramUnit.part.0+0x124>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     dd2:	68e1      	ldr	r1, [r4, #12]
+            printf("1111data buf status: 0x%x, status: 0x%x\r\n", EFLASH_GetCmdBusyStatus(), EFLASH_GetLVDWarningReg());
+     dd4:	4630      	mov	r0, r6
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     dd6:	6e22      	ldr	r2, [r4, #96]	; 0x60
+     dd8:	f001 0101 	and.w	r1, r1, #1
+     ddc:	f3c2 0240 	ubfx	r2, r2, #1, #1
+     de0:	f7ff fd9c 	bl	91c <printf>
+            tempDelay = FLASH_GET_BUSY_STATUS_DELAY;
+     de4:	9501      	str	r5, [sp, #4]
+            while (tempDelay > 0U)
+     de6:	9b01      	ldr	r3, [sp, #4]
+     de8:	b12b      	cbz	r3, df6 <EFLASH_PageProgramUnit.part.0+0x11e>
+                tempDelay--; /* for delay. */
+     dea:	9b01      	ldr	r3, [sp, #4]
+     dec:	3b01      	subs	r3, #1
+     dee:	9301      	str	r3, [sp, #4]
+            while (tempDelay > 0U)
+     df0:	9b01      	ldr	r3, [sp, #4]
+     df2:	2b00      	cmp	r3, #0
+     df4:	d1f9      	bne.n	dea <EFLASH_PageProgramUnit.part.0+0x112>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     df6:	68e3      	ldr	r3, [r4, #12]
+        while ((0U != EFLASH_GetCmdBusyStatus()) && (0U == EFLASH_GetLVDWarningReg()))
+     df8:	07da      	lsls	r2, r3, #31
+     dfa:	d4e7      	bmi.n	dcc <EFLASH_PageProgramUnit.part.0+0xf4>
+    return (EFLASH->CSR & EFLASH_MAIN_STAT_ERROR_BITS);
+     dfc:	4a08      	ldr	r2, [pc, #32]	; (e20 <EFLASH_PageProgramUnit.part.0+0x148>)
+     dfe:	68d0      	ldr	r0, [r2, #12]
+        if (0U != EFLASH_GetStatusReg())
+     e00:	f410 6077 	ands.w	r0, r0, #3952	; 0xf70
+     e04:	d102      	bne.n	e0c <EFLASH_PageProgramUnit.part.0+0x134>
+}
+     e06:	b003      	add	sp, #12
+     e08:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+     e0c:	68d1      	ldr	r1, [r2, #12]
+            printf("status: 0x%x\r\n", EFLASH_GetStatusReg());
+     e0e:	480c      	ldr	r0, [pc, #48]	; (e40 <EFLASH_PageProgramUnit.part.0+0x168>)
+     e10:	f401 6177 	and.w	r1, r1, #3952	; 0xf70
+     e14:	f7ff fd82 	bl	91c <printf>
+            statusRes = STATUS_ERROR;
+     e18:	2001      	movs	r0, #1
+}
+     e1a:	b003      	add	sp, #12
+     e1c:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+     e20:	40002000 	.word	0x40002000
+     e24:	00001e88 	.word	0x00001e88
+     e28:	ff000fff 	.word	0xff000fff
+     e2c:	00001e94 	.word	0x00001e94
+     e30:	00001ea0 	.word	0x00001ea0
+     e34:	00001ebc 	.word	0x00001ebc
+     e38:	00001ed0 	.word	0x00001ed0
+     e3c:	00001ecc 	.word	0x00001ecc
+     e40:	00001ef8 	.word	0x00001ef8
+
+00000e44 <EFLASH_UnlockCtrl>:
+    return (uint8_t)(EFLASH->GSR & EFLASH_GSR_LOCK_Msk) >> EFLASH_GSR_LOCK_Pos;
+     e44:	4b11      	ldr	r3, [pc, #68]	; (e8c <EFLASH_UnlockCtrl+0x48>)
+     e46:	685a      	ldr	r2, [r3, #4]
+    while (0U != ctrlLockBit)
+     e48:	07d0      	lsls	r0, r2, #31
+     e4a:	d518      	bpl.n	e7e <EFLASH_UnlockCtrl+0x3a>
+    EFLASH->UKR = keyValue;
+     e4c:	4810      	ldr	r0, [pc, #64]	; (e90 <EFLASH_UnlockCtrl+0x4c>)
+     e4e:	2265      	movs	r2, #101	; 0x65
+{
+     e50:	b410      	push	{r4}
+     e52:	4c10      	ldr	r4, [pc, #64]	; (e94 <EFLASH_UnlockCtrl+0x50>)
+     e54:	601c      	str	r4, [r3, #0]
+     e56:	6018      	str	r0, [r3, #0]
+        if (100U < timeoutCount)
+     e58:	e003      	b.n	e62 <EFLASH_UnlockCtrl+0x1e>
+     e5a:	3a01      	subs	r2, #1
+     e5c:	601c      	str	r4, [r3, #0]
+     e5e:	6018      	str	r0, [r3, #0]
+     e60:	d00b      	beq.n	e7a <EFLASH_UnlockCtrl+0x36>
+    return (uint8_t)(EFLASH->GSR & EFLASH_GSR_LOCK_Msk) >> EFLASH_GSR_LOCK_Pos;
+     e62:	6859      	ldr	r1, [r3, #4]
+    while (0U != ctrlLockBit)
+     e64:	07c9      	lsls	r1, r1, #31
+     e66:	d4f8      	bmi.n	e5a <EFLASH_UnlockCtrl+0x16>
+    status_t statusRes = STATUS_SUCCESS;
+     e68:	2000      	movs	r0, #0
+    EFLASH->LVD |= (1UL << EFLASH_LVD_LVDEN_Pos);
+     e6a:	4a08      	ldr	r2, [pc, #32]	; (e8c <EFLASH_UnlockCtrl+0x48>)
+}
+     e6c:	f85d 4b04 	ldr.w	r4, [sp], #4
+     e70:	6e13      	ldr	r3, [r2, #96]	; 0x60
+     e72:	f043 0301 	orr.w	r3, r3, #1
+     e76:	6613      	str	r3, [r2, #96]	; 0x60
+     e78:	4770      	bx	lr
+            statusRes = STATUS_TIMEOUT;
+     e7a:	2003      	movs	r0, #3
+     e7c:	e7f5      	b.n	e6a <EFLASH_UnlockCtrl+0x26>
+     e7e:	4a03      	ldr	r2, [pc, #12]	; (e8c <EFLASH_UnlockCtrl+0x48>)
+    status_t statusRes = STATUS_SUCCESS;
+     e80:	2000      	movs	r0, #0
+     e82:	6e13      	ldr	r3, [r2, #96]	; 0x60
+     e84:	f043 0301 	orr.w	r3, r3, #1
+     e88:	6613      	str	r3, [r2, #96]	; 0x60
+}
+     e8a:	4770      	bx	lr
+     e8c:	40002000 	.word	0x40002000
+     e90:	01234567 	.word	0x01234567
+     e94:	00ac7805 	.word	0x00ac7805
+
+00000e98 <EFLASH_LockCtrl>:
+    EFLASH->LVD &= (~EFLASH_LVD_LVDEN_Msk);
+     e98:	4b04      	ldr	r3, [pc, #16]	; (eac <EFLASH_LockCtrl+0x14>)
+     e9a:	6e1a      	ldr	r2, [r3, #96]	; 0x60
+     e9c:	f022 0201 	bic.w	r2, r2, #1
+     ea0:	661a      	str	r2, [r3, #96]	; 0x60
+    EFLASH->GSR |= EFLASH_GSR_LOCK_Msk;
+     ea2:	685a      	ldr	r2, [r3, #4]
+     ea4:	f042 0201 	orr.w	r2, r2, #1
+     ea8:	605a      	str	r2, [r3, #4]
+}
+     eaa:	4770      	bx	lr
+     eac:	40002000 	.word	0x40002000
+
+00000eb0 <EFLASH_Read>:
+{
+     eb0:	b508      	push	{r3, lr}
+    DEVICE_ASSERT(((PFLASH_BASE_ADDRESS <= addr) && (PFLASH_END_ADDRESS > addr)) \
+     eb2:	f100 4378 	add.w	r3, r0, #4160749568	; 0xf8000000
+     eb6:	f5b3 2f80 	cmp.w	r3, #262144	; 0x40000
+     eba:	d309      	bcc.n	ed0 <EFLASH_Read+0x20>
+     ebc:	f1a0 6301 	sub.w	r3, r0, #135266304	; 0x8100000
+     ec0:	f5b3 3f00 	cmp.w	r3, #131072	; 0x20000
+     ec4:	d304      	bcc.n	ed0 <EFLASH_Read+0x20>
+     ec6:	f1a0 6302 	sub.w	r3, r0, #136314880	; 0x8200000
+     eca:	f5b3 5f00 	cmp.w	r3, #8192	; 0x2000
+     ece:	d20e      	bcs.n	eee <EFLASH_Read+0x3e>
+    DEVICE_ASSERT(NULL != buffer);
+     ed0:	b1c9      	cbz	r1, f06 <EFLASH_Read+0x56>
+    for (i = 0U; i < len; i++)
+     ed2:	b15a      	cbz	r2, eec <EFLASH_Read+0x3c>
+     ed4:	eb01 0c82 	add.w	ip, r1, r2, lsl #2
+     ed8:	1f0b      	subs	r3, r1, #4
+     eda:	1a42      	subs	r2, r0, r1
+     edc:	f1ac 0104 	sub.w	r1, ip, #4
+        buffer[i] = *(uint32_t*)tempAddr;
+     ee0:	1898      	adds	r0, r3, r2
+     ee2:	6840      	ldr	r0, [r0, #4]
+     ee4:	f843 0f04 	str.w	r0, [r3, #4]!
+    for (i = 0U; i < len; i++)
+     ee8:	428b      	cmp	r3, r1
+     eea:	d1f9      	bne.n	ee0 <EFLASH_Read+0x30>
+}
+     eec:	bd08      	pop	{r3, pc}
+    DEVICE_ASSERT(((PFLASH_BASE_ADDRESS <= addr) && (PFLASH_END_ADDRESS > addr)) \
+     eee:	f1a0 6303 	sub.w	r3, r0, #137363456	; 0x8300000
+     ef2:	f5b3 5fc0 	cmp.w	r3, #6144	; 0x1800
+     ef6:	d3eb      	bcc.n	ed0 <EFLASH_Read+0x20>
+     ef8:	2370      	movs	r3, #112	; 0x70
+     efa:	4a06      	ldr	r2, [pc, #24]	; (f14 <EFLASH_Read+0x64>)
+     efc:	4906      	ldr	r1, [pc, #24]	; (f18 <EFLASH_Read+0x68>)
+     efe:	4807      	ldr	r0, [pc, #28]	; (f1c <EFLASH_Read+0x6c>)
+     f00:	f7ff fd0c 	bl	91c <printf>
+     f04:	e7fe      	b.n	f04 <EFLASH_Read+0x54>
+    DEVICE_ASSERT(NULL != buffer);
+     f06:	2374      	movs	r3, #116	; 0x74
+     f08:	4a02      	ldr	r2, [pc, #8]	; (f14 <EFLASH_Read+0x64>)
+     f0a:	4905      	ldr	r1, [pc, #20]	; (f20 <EFLASH_Read+0x70>)
+     f0c:	4803      	ldr	r0, [pc, #12]	; (f1c <EFLASH_Read+0x6c>)
+     f0e:	f7ff fd05 	bl	91c <printf>
+     f12:	e7fe      	b.n	f12 <EFLASH_Read+0x62>
+     f14:	00001f08 	.word	0x00001f08
+     f18:	00001f20 	.word	0x00001f20
+     f1c:	00002004 	.word	0x00002004
+     f20:	0000202c 	.word	0x0000202c
+
+00000f24 <EFLASH_PageErase>:
+{
+     f24:	b508      	push	{r3, lr}
+    DEVICE_ASSERT(((PFLASH_BASE_ADDRESS <= addr) && (PFLASH_END_ADDRESS > addr)) \
+     f26:	f100 4378 	add.w	r3, r0, #4160749568	; 0xf8000000
+     f2a:	f5b3 2f80 	cmp.w	r3, #262144	; 0x40000
+     f2e:	d309      	bcc.n	f44 <EFLASH_PageErase+0x20>
+     f30:	f1a0 6301 	sub.w	r3, r0, #135266304	; 0x8100000
+     f34:	f5b3 3f00 	cmp.w	r3, #131072	; 0x20000
+     f38:	d304      	bcc.n	f44 <EFLASH_PageErase+0x20>
+     f3a:	f1a0 6303 	sub.w	r3, r0, #137363456	; 0x8300000
+     f3e:	f5b3 5fc0 	cmp.w	r3, #6144	; 0x1800
+     f42:	d219      	bcs.n	f78 <EFLASH_PageErase+0x54>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+     f44:	4b10      	ldr	r3, [pc, #64]	; (f88 <EFLASH_PageErase+0x64>)
+     f46:	68da      	ldr	r2, [r3, #12]
+    if (0U != EFLASH_GetCmdBusyStatus())
+     f48:	07d1      	lsls	r1, r2, #31
+     f4a:	d404      	bmi.n	f56 <EFLASH_PageErase+0x32>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+     f4c:	6e1a      	ldr	r2, [r3, #96]	; 0x60
+    else if (EFLASH_GetLVDWarningReg() != 0U)
+     f4e:	0792      	lsls	r2, r2, #30
+     f50:	d503      	bpl.n	f5a <EFLASH_PageErase+0x36>
+        statusRes = STATUS_ERROR;
+     f52:	2001      	movs	r0, #1
+}
+     f54:	bd08      	pop	{r3, pc}
+        statusRes = STATUS_BUSY;
+     f56:	2002      	movs	r0, #2
+}
+     f58:	bd08      	pop	{r3, pc}
+        EFLASH_CLEAR_STAT_ERROR_BITS();
+     f5a:	68da      	ldr	r2, [r3, #12]
+     f5c:	f042 0270 	orr.w	r2, r2, #112	; 0x70
+     f60:	60da      	str	r2, [r3, #12]
+    EFLASH->CAR = startAddress;
+     f62:	6158      	str	r0, [r3, #20]
+    MODIFY_REG32(EFLASH->CCR, EFLASH_CCR_CMD_Msk, EFLASH_CCR_CMD_Pos, cmd);
+     f64:	691a      	ldr	r2, [r3, #16]
+     f66:	f422 627f 	bic.w	r2, r2, #4080	; 0xff0
+     f6a:	f042 0210 	orr.w	r2, r2, #16
+     f6e:	611a      	str	r2, [r3, #16]
+}
+     f70:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+        statusRes = FLASH_StartCmdSequence();
+     f74:	f7ff bdde 	b.w	b34 <FLASH_StartCmdSequence>
+    DEVICE_ASSERT(((PFLASH_BASE_ADDRESS <= addr) && (PFLASH_END_ADDRESS > addr)) \
+     f78:	23b9      	movs	r3, #185	; 0xb9
+     f7a:	4a04      	ldr	r2, [pc, #16]	; (f8c <EFLASH_PageErase+0x68>)
+     f7c:	4904      	ldr	r1, [pc, #16]	; (f90 <EFLASH_PageErase+0x6c>)
+     f7e:	4805      	ldr	r0, [pc, #20]	; (f94 <EFLASH_PageErase+0x70>)
+     f80:	f7ff fccc 	bl	91c <printf>
+     f84:	e7fe      	b.n	f84 <EFLASH_PageErase+0x60>
+     f86:	bf00      	nop
+     f88:	40002000 	.word	0x40002000
+     f8c:	00001f08 	.word	0x00001f08
+     f90:	0000203c 	.word	0x0000203c
+     f94:	00002004 	.word	0x00002004
+
+00000f98 <EFLASH_PageProgram>:
+    DEVICE_ASSERT(((PFLASH_BASE_ADDRESS <= addr) && (PFLASH_END_ADDRESS > addr)) \
+     f98:	f100 4378 	add.w	r3, r0, #4160749568	; 0xf8000000
+     f9c:	f5b3 2f80 	cmp.w	r3, #262144	; 0x40000
+{
+     fa0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     fa4:	4615      	mov	r5, r2
+     fa6:	b083      	sub	sp, #12
+     fa8:	4604      	mov	r4, r0
+    DEVICE_ASSERT(((PFLASH_BASE_ADDRESS <= addr) && (PFLASH_END_ADDRESS > addr)) \
+     faa:	f1a0 6201 	sub.w	r2, r0, #135266304	; 0x8100000
+     fae:	d307      	bcc.n	fc0 <EFLASH_PageProgram+0x28>
+     fb0:	f5b2 3f00 	cmp.w	r2, #131072	; 0x20000
+     fb4:	d304      	bcc.n	fc0 <EFLASH_PageProgram+0x28>
+     fb6:	f1a0 6003 	sub.w	r0, r0, #137363456	; 0x8300000
+     fba:	f5b0 5fc0 	cmp.w	r0, #6144	; 0x1800
+     fbe:	d237      	bcs.n	1030 <EFLASH_PageProgram+0x98>
+    DEVICE_ASSERT((len != 0U) && (len % 2 == 0));
+     fc0:	b375      	cbz	r5, 1020 <EFLASH_PageProgram+0x88>
+     fc2:	07e8      	lsls	r0, r5, #31
+     fc4:	d42c      	bmi.n	1020 <EFLASH_PageProgram+0x88>
+    DEVICE_ASSERT(NULL != buffer);
+     fc6:	2900      	cmp	r1, #0
+     fc8:	f000 80a1 	beq.w	110e <EFLASH_PageProgram+0x176>
+    if((addr >= PFLASH_BASE_ADDRESS) && (addr < PFLASH_END_ADDRESS) && ((addr + (len * 4U)) <= PFLASH_END_ADDRESS))
+     fcc:	f5b3 2f80 	cmp.w	r3, #262144	; 0x40000
+     fd0:	d336      	bcc.n	1040 <EFLASH_PageProgram+0xa8>
+    else if((addr >= DFLASH_BASE_ADDRESS) && (addr < DFLASH_END_ADDRESS) && ((addr + (len * 4U)) <= DFLASH_END_ADDRESS))
+     fd2:	f5b2 3f00 	cmp.w	r2, #131072	; 0x20000
+     fd6:	f0c0 80a2 	bcc.w	111e <EFLASH_PageProgram+0x186>
+    else if((addr >= DINFO_BASE) && (addr < DINFO_END) && ((addr + (len * 4U)) <= DINFO_END))
+     fda:	f1a4 6303 	sub.w	r3, r4, #137363456	; 0x8300000
+     fde:	f5b3 5fc0 	cmp.w	r3, #6144	; 0x1800
+     fe2:	d219      	bcs.n	1018 <EFLASH_PageProgram+0x80>
+     fe4:	eb04 0785 	add.w	r7, r4, r5, lsl #2
+     fe8:	4a4f      	ldr	r2, [pc, #316]	; (1128 <EFLASH_PageProgram+0x190>)
+     fea:	00ab      	lsls	r3, r5, #2
+     fec:	4297      	cmp	r7, r2
+     fee:	d813      	bhi.n	1018 <EFLASH_PageProgram+0x80>
+     ff0:	f44f 6600 	mov.w	r6, #2048	; 0x800
+        pageSize = (uint16_t)DFLASH_PAGE_SIZE;
+     ff4:	46b1      	mov	r9, r6
+    if(((addr % pageSize) + (len * 4U)) > pageSize)
+     ff6:	fbb4 f2f6 	udiv	r2, r4, r6
+     ffa:	fb06 4212 	mls	r2, r6, r2, r4
+     ffe:	4413      	add	r3, r2
+    1000:	42b3      	cmp	r3, r6
+    1002:	d927      	bls.n	1054 <EFLASH_PageProgram+0xbc>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+    1004:	f8df 8138 	ldr.w	r8, [pc, #312]	; 1140 <EFLASH_PageProgram+0x1a8>
+    1008:	f8d8 300c 	ldr.w	r3, [r8, #12]
+    if (0U != EFLASH_GetCmdBusyStatus())
+    100c:	07db      	lsls	r3, r3, #31
+    100e:	d42f      	bmi.n	1070 <EFLASH_PageProgram+0xd8>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+    1010:	f8d8 3060 	ldr.w	r3, [r8, #96]	; 0x60
+    else if (EFLASH_GetLVDWarningReg() != 0U)
+    1014:	0798      	lsls	r0, r3, #30
+    1016:	d534      	bpl.n	1082 <EFLASH_PageProgram+0xea>
+        return statusRes;
+    1018:	2001      	movs	r0, #1
+}
+    101a:	b003      	add	sp, #12
+    101c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    DEVICE_ASSERT((len != 0U) && (len % 2 == 0));
+    1020:	f240 137f 	movw	r3, #383	; 0x17f
+    1024:	4a41      	ldr	r2, [pc, #260]	; (112c <EFLASH_PageProgram+0x194>)
+    1026:	4942      	ldr	r1, [pc, #264]	; (1130 <EFLASH_PageProgram+0x198>)
+    1028:	4842      	ldr	r0, [pc, #264]	; (1134 <EFLASH_PageProgram+0x19c>)
+    102a:	f7ff fc77 	bl	91c <printf>
+    102e:	e7fe      	b.n	102e <EFLASH_PageProgram+0x96>
+    DEVICE_ASSERT(((PFLASH_BASE_ADDRESS <= addr) && (PFLASH_END_ADDRESS > addr)) \
+    1030:	f44f 73be 	mov.w	r3, #380	; 0x17c
+    1034:	4a3d      	ldr	r2, [pc, #244]	; (112c <EFLASH_PageProgram+0x194>)
+    1036:	4940      	ldr	r1, [pc, #256]	; (1138 <EFLASH_PageProgram+0x1a0>)
+    1038:	483e      	ldr	r0, [pc, #248]	; (1134 <EFLASH_PageProgram+0x19c>)
+    103a:	f7ff fc6f 	bl	91c <printf>
+    103e:	e7fe      	b.n	103e <EFLASH_PageProgram+0xa6>
+    if((addr >= PFLASH_BASE_ADDRESS) && (addr < PFLASH_END_ADDRESS) && ((addr + (len * 4U)) <= PFLASH_END_ADDRESS))
+    1040:	eb04 0785 	add.w	r7, r4, r5, lsl #2
+    1044:	483d      	ldr	r0, [pc, #244]	; (113c <EFLASH_PageProgram+0x1a4>)
+    1046:	00ab      	lsls	r3, r5, #2
+    1048:	4287      	cmp	r7, r0
+    104a:	d813      	bhi.n	1074 <EFLASH_PageProgram+0xdc>
+    104c:	f44f 5680 	mov.w	r6, #4096	; 0x1000
+        pageSize = (uint16_t)PFLASH_PAGE_SIZE;
+    1050:	46b1      	mov	r9, r6
+    1052:	e7d0      	b.n	ff6 <EFLASH_PageProgram+0x5e>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+    1054:	4b3a      	ldr	r3, [pc, #232]	; (1140 <EFLASH_PageProgram+0x1a8>)
+    1056:	68da      	ldr	r2, [r3, #12]
+    if (0U != EFLASH_GetCmdBusyStatus())
+    1058:	07d2      	lsls	r2, r2, #31
+    105a:	d409      	bmi.n	1070 <EFLASH_PageProgram+0xd8>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+    105c:	6e1b      	ldr	r3, [r3, #96]	; 0x60
+    else if (EFLASH_GetLVDWarningReg() != 0U)
+    105e:	079b      	lsls	r3, r3, #30
+    1060:	d4da      	bmi.n	1018 <EFLASH_PageProgram+0x80>
+    1062:	462a      	mov	r2, r5
+    1064:	4620      	mov	r0, r4
+}
+    1066:	b003      	add	sp, #12
+    1068:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    106c:	f7ff be34 	b.w	cd8 <EFLASH_PageProgramUnit.part.0>
+        statusRes = STATUS_BUSY;
+    1070:	2002      	movs	r0, #2
+    1072:	e7d2      	b.n	101a <EFLASH_PageProgram+0x82>
+    else if((addr >= DFLASH_BASE_ADDRESS) && (addr < DFLASH_END_ADDRESS) && ((addr + (len * 4U)) <= DFLASH_END_ADDRESS))
+    1074:	f5b2 3f00 	cmp.w	r2, #131072	; 0x20000
+    1078:	d2ce      	bcs.n	1018 <EFLASH_PageProgram+0x80>
+    107a:	4a32      	ldr	r2, [pc, #200]	; (1144 <EFLASH_PageProgram+0x1ac>)
+    107c:	4297      	cmp	r7, r2
+    107e:	d9b7      	bls.n	ff0 <EFLASH_PageProgram+0x58>
+    1080:	e7ca      	b.n	1018 <EFLASH_PageProgram+0x80>
+        dataLength1 = (pageSize - (addr % pageSize)) / 4U;
+    1082:	eba6 0a02 	sub.w	sl, r6, r2
+    1086:	4620      	mov	r0, r4
+    1088:	9101      	str	r1, [sp, #4]
+    108a:	ea4f 0b9a 	mov.w	fp, sl, lsr #2
+    108e:	465a      	mov	r2, fp
+    1090:	f7ff fe22 	bl	cd8 <EFLASH_PageProgramUnit.part.0>
+        if (STATUS_SUCCESS == statusRes)
+    1094:	2800      	cmp	r0, #0
+    1096:	d1c0      	bne.n	101a <EFLASH_PageProgram+0x82>
+            pageNum = (uint16_t)((len - dataLength1) / pageLen);
+    1098:	eba5 030b 	sub.w	r3, r5, fp
+            addrTemp = addr +(pageSize - (addr % pageSize));
+    109c:	4454      	add	r4, sl
+            pageNum = (uint16_t)((len - dataLength1) / pageLen);
+    109e:	ea4f 0a99 	mov.w	sl, r9, lsr #2
+            for (i = 0U; i < pageNum; i++)
+    10a2:	9901      	ldr	r1, [sp, #4]
+    10a4:	4605      	mov	r5, r0
+            pageNum = (uint16_t)((len - dataLength1) / pageLen);
+    10a6:	fbb3 f3fa 	udiv	r3, r3, sl
+    10aa:	fa1f fb83 	uxth.w	fp, r3
+            for (i = 0U; i < pageNum; i++)
+    10ae:	f1bb 0f00 	cmp.w	fp, #0
+    10b2:	d009      	beq.n	10c8 <EFLASH_PageProgram+0x130>
+    10b4:	46a1      	mov	r9, r4
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+    10b6:	f8d8 000c 	ldr.w	r0, [r8, #12]
+    if (0U != EFLASH_GetCmdBusyStatus())
+    10ba:	07c2      	lsls	r2, r0, #31
+    10bc:	d415      	bmi.n	10ea <EFLASH_PageProgram+0x152>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+    10be:	f8d8 0060 	ldr.w	r0, [r8, #96]	; 0x60
+    else if (EFLASH_GetLVDWarningReg() != 0U)
+    10c2:	0783      	lsls	r3, r0, #30
+    10c4:	d513      	bpl.n	10ee <EFLASH_PageProgram+0x156>
+        statusRes = STATUS_ERROR;
+    10c6:	2001      	movs	r0, #1
+        dataLength2 = ((addr + (len * 4U)) % pageSize) / 4U;
+    10c8:	fbb7 f2f6 	udiv	r2, r7, r6
+    10cc:	fb06 7212 	mls	r2, r6, r2, r7
+            if (dataLength2 != 0U)
+    10d0:	2a03      	cmp	r2, #3
+    10d2:	d9a2      	bls.n	101a <EFLASH_PageProgram+0x82>
+    return (uint8_t)((EFLASH->CSR & EFLASH_CSR_CMDBUSY_Msk) >> EFLASH_CSR_CMDBUSY_Pos);
+    10d4:	4b1a      	ldr	r3, [pc, #104]	; (1140 <EFLASH_PageProgram+0x1a8>)
+    10d6:	68d8      	ldr	r0, [r3, #12]
+    if (0U != EFLASH_GetCmdBusyStatus())
+    10d8:	07c7      	lsls	r7, r0, #31
+    10da:	d4c9      	bmi.n	1070 <EFLASH_PageProgram+0xd8>
+    return (uint8_t)((EFLASH->LVD & EFLASH_LVD_LVDSTAT_Msk) >> EFLASH_LVD_LVDSTAT_Pos);
+    10dc:	6e1b      	ldr	r3, [r3, #96]	; 0x60
+    else if (EFLASH_GetLVDWarningReg() != 0U)
+    10de:	0798      	lsls	r0, r3, #30
+    10e0:	d49a      	bmi.n	1018 <EFLASH_PageProgram+0x80>
+    10e2:	0892      	lsrs	r2, r2, #2
+    10e4:	fb06 4005 	mla	r0, r6, r5, r4
+    10e8:	e7bd      	b.n	1066 <EFLASH_PageProgram+0xce>
+        statusRes = STATUS_BUSY;
+    10ea:	2002      	movs	r0, #2
+    10ec:	e7ec      	b.n	10c8 <EFLASH_PageProgram+0x130>
+    10ee:	4648      	mov	r0, r9
+    10f0:	4652      	mov	r2, sl
+    10f2:	9101      	str	r1, [sp, #4]
+            for (i = 0U; i < pageNum; i++)
+    10f4:	44b1      	add	r9, r6
+    10f6:	f7ff fdef 	bl	cd8 <EFLASH_PageProgramUnit.part.0>
+    10fa:	f105 0c01 	add.w	ip, r5, #1
+                if (STATUS_SUCCESS != statusRes)
+    10fe:	9901      	ldr	r1, [sp, #4]
+    1100:	2800      	cmp	r0, #0
+    1102:	d1e1      	bne.n	10c8 <EFLASH_PageProgram+0x130>
+            for (i = 0U; i < pageNum; i++)
+    1104:	fa1f f58c 	uxth.w	r5, ip
+    1108:	45ab      	cmp	fp, r5
+    110a:	d1d4      	bne.n	10b6 <EFLASH_PageProgram+0x11e>
+    110c:	e7dc      	b.n	10c8 <EFLASH_PageProgram+0x130>
+    DEVICE_ASSERT(NULL != buffer);
+    110e:	f44f 73c0 	mov.w	r3, #384	; 0x180
+    1112:	4a06      	ldr	r2, [pc, #24]	; (112c <EFLASH_PageProgram+0x194>)
+    1114:	490c      	ldr	r1, [pc, #48]	; (1148 <EFLASH_PageProgram+0x1b0>)
+    1116:	4807      	ldr	r0, [pc, #28]	; (1134 <EFLASH_PageProgram+0x19c>)
+    1118:	f7ff fc00 	bl	91c <printf>
+    111c:	e7fe      	b.n	111c <EFLASH_PageProgram+0x184>
+    if((addr >= PFLASH_BASE_ADDRESS) && (addr < PFLASH_END_ADDRESS) && ((addr + (len * 4U)) <= PFLASH_END_ADDRESS))
+    111e:	00ab      	lsls	r3, r5, #2
+    1120:	eb04 0785 	add.w	r7, r4, r5, lsl #2
+    1124:	e7a9      	b.n	107a <EFLASH_PageProgram+0xe2>
+    1126:	bf00      	nop
+    1128:	08301800 	.word	0x08301800
+    112c:	00001f08 	.word	0x00001f08
+    1130:	000020f0 	.word	0x000020f0
+    1134:	00002004 	.word	0x00002004
+    1138:	0000203c 	.word	0x0000203c
+    113c:	08040000 	.word	0x08040000
+    1140:	40002000 	.word	0x40002000
+    1144:	08120000 	.word	0x08120000
+    1148:	0000202c 	.word	0x0000202c
+
+0000114c <EFLASH_PFSetWriteProtection>:
+ *
+ * @param[in] protectStatus: write protection status value
+ * @return EFLASH STATUS: eflash operation status
+ */
+status_t EFLASH_PFSetWriteProtection(uint32_t *protectStatus)
+{
+    114c:	b530      	push	{r4, r5, lr}
+    114e:	b089      	sub	sp, #36	; 0x24
+    1150:	4605      	mov	r5, r0
+    status_t statusRes;
+    uint32_t optBuffer[OPT_PAGE1_VALID_NUM] = {0U};
+    1152:	2220      	movs	r2, #32
+    1154:	2100      	movs	r1, #0
+    1156:	4668      	mov	r0, sp
+    1158:	f7fe ffd8 	bl	10c <memset>
+
+    DEVICE_ASSERT(NULL != protectStatus);
+    115c:	b33d      	cbz	r5, 11ae <EFLASH_PFSetWriteProtection+0x62>
+    115e:	f1ad 0204 	sub.w	r2, sp, #4
+    1162:	4b17      	ldr	r3, [pc, #92]	; (11c0 <EFLASH_PFSetWriteProtection+0x74>)
+    for (i = 0U; i < len; i++)
+    1164:	4c17      	ldr	r4, [pc, #92]	; (11c4 <EFLASH_PFSetWriteProtection+0x78>)
+        buffer[i] = *(uint32_t*)tempAddr;
+    1166:	f853 1b04 	ldr.w	r1, [r3], #4
+    for (i = 0U; i < len; i++)
+    116a:	42a3      	cmp	r3, r4
+        buffer[i] = *(uint32_t*)tempAddr;
+    116c:	f842 1f04 	str.w	r1, [r2, #4]!
+    for (i = 0U; i < len; i++)
+    1170:	d1f9      	bne.n	1166 <EFLASH_PFSetWriteProtection+0x1a>
+
+    EFLASH_Read(PFLASH_WRITE_PROTECT_BASE, optBuffer, OPT_PAGE1_VALID_NUM);
+    EFLASH_CLEAR_STAT_ERROR_BITS();
+    1172:	4a15      	ldr	r2, [pc, #84]	; (11c8 <EFLASH_PFSetWriteProtection+0x7c>)
+    1174:	4812      	ldr	r0, [pc, #72]	; (11c0 <EFLASH_PFSetWriteProtection+0x74>)
+    1176:	68d3      	ldr	r3, [r2, #12]
+    1178:	f043 0370 	orr.w	r3, r3, #112	; 0x70
+    117c:	60d3      	str	r3, [r2, #12]
+    DEVICE_ASSERT(OPTION_END > addr);
+    117e:	f7ff fd07 	bl	b90 <EFLASH_OptionPageErase.part.0>
+    statusRes = EFLASH_OptionPageErase(PFLASH_WRITE_PROTECT_BASE);
+    if (STATUS_SUCCESS == statusRes)
+    1182:	b110      	cbz	r0, 118a <EFLASH_PFSetWriteProtection+0x3e>
+            statusRes = STATUS_ERROR;
+        }
+    }
+    else
+    {
+        statusRes = STATUS_ERROR;
+    1184:	2001      	movs	r0, #1
+    }
+
+    return statusRes;
+}
+    1186:	b009      	add	sp, #36	; 0x24
+    1188:	bd30      	pop	{r4, r5, pc}
+        optBuffer[2] = protectStatus[1];
+    118a:	e9d5 2300 	ldrd	r2, r3, [r5]
+    118e:	4669      	mov	r1, sp
+    1190:	480b      	ldr	r0, [pc, #44]	; (11c0 <EFLASH_PFSetWriteProtection+0x74>)
+        optBuffer[1] = ~protectStatus[0];
+    1192:	43d5      	mvns	r5, r2
+        optBuffer[3] = ~protectStatus[1];
+    1194:	43dc      	mvns	r4, r3
+        optBuffer[0] = protectStatus[0];
+    1196:	9200      	str	r2, [sp, #0]
+        optBuffer[1] = ~protectStatus[0];
+    1198:	2208      	movs	r2, #8
+        optBuffer[2] = protectStatus[1];
+    119a:	9302      	str	r3, [sp, #8]
+        optBuffer[1] = ~protectStatus[0];
+    119c:	9501      	str	r5, [sp, #4]
+        optBuffer[3] = ~protectStatus[1];
+    119e:	9403      	str	r4, [sp, #12]
+    DEVICE_ASSERT(OPTION_END > addr);
+    11a0:	f7ff fd1c 	bl	bdc <EFLASH_OptionPageProgram.part.0>
+        if (STATUS_SUCCESS != statusRes)
+    11a4:	2801      	cmp	r0, #1
+    11a6:	bf28      	it	cs
+    11a8:	2001      	movcs	r0, #1
+}
+    11aa:	b009      	add	sp, #36	; 0x24
+    11ac:	bd30      	pop	{r4, r5, pc}
+    DEVICE_ASSERT(NULL != protectStatus);
+    11ae:	f240 23cd 	movw	r3, #717	; 0x2cd
+    11b2:	4a06      	ldr	r2, [pc, #24]	; (11cc <EFLASH_PFSetWriteProtection+0x80>)
+    11b4:	4906      	ldr	r1, [pc, #24]	; (11d0 <EFLASH_PFSetWriteProtection+0x84>)
+    11b6:	4807      	ldr	r0, [pc, #28]	; (11d4 <EFLASH_PFSetWriteProtection+0x88>)
+    11b8:	f7ff fbb0 	bl	91c <printf>
+    11bc:	e7fe      	b.n	11bc <EFLASH_PFSetWriteProtection+0x70>
+    11be:	bf00      	nop
+    11c0:	08201000 	.word	0x08201000
+    11c4:	08201020 	.word	0x08201020
+    11c8:	40002000 	.word	0x40002000
+    11cc:	00001f08 	.word	0x00001f08
+    11d0:	00002110 	.word	0x00002110
+    11d4:	00002004 	.word	0x00002004
+
+000011d8 <EFLASH_DFSetWriteProtection>:
+ *
+ * @param[in] protectStatus: write protection status value
+ * @return EFLASH STATUS: eflash operation status
+ */
+status_t EFLASH_DFSetWriteProtection(uint32_t *protectStatus)
+{
+    11d8:	b530      	push	{r4, r5, lr}
+    11da:	b089      	sub	sp, #36	; 0x24
+    11dc:	4605      	mov	r5, r0
+    status_t statusRes;
+    uint32_t optBuffer[OPT_PAGE1_VALID_NUM] = {0U};
+    11de:	2220      	movs	r2, #32
+    11e0:	2100      	movs	r1, #0
+    11e2:	4668      	mov	r0, sp
+    11e4:	f7fe ff92 	bl	10c <memset>
+
+    DEVICE_ASSERT(NULL != protectStatus);
+    11e8:	b33d      	cbz	r5, 123a <EFLASH_DFSetWriteProtection+0x62>
+    11ea:	f1ad 0204 	sub.w	r2, sp, #4
+    11ee:	4b17      	ldr	r3, [pc, #92]	; (124c <EFLASH_DFSetWriteProtection+0x74>)
+    for (i = 0U; i < len; i++)
+    11f0:	4c17      	ldr	r4, [pc, #92]	; (1250 <EFLASH_DFSetWriteProtection+0x78>)
+        buffer[i] = *(uint32_t*)tempAddr;
+    11f2:	f853 1b04 	ldr.w	r1, [r3], #4
+    for (i = 0U; i < len; i++)
+    11f6:	42a3      	cmp	r3, r4
+        buffer[i] = *(uint32_t*)tempAddr;
+    11f8:	f842 1f04 	str.w	r1, [r2, #4]!
+    for (i = 0U; i < len; i++)
+    11fc:	d1f9      	bne.n	11f2 <EFLASH_DFSetWriteProtection+0x1a>
+
+    EFLASH_Read(DFLASH_WRITE_PROTECT_BASE, optBuffer, OPT_PAGE1_VALID_NUM);
+    EFLASH_CLEAR_STAT_ERROR_BITS();
+    11fe:	4a15      	ldr	r2, [pc, #84]	; (1254 <EFLASH_DFSetWriteProtection+0x7c>)
+    1200:	4812      	ldr	r0, [pc, #72]	; (124c <EFLASH_DFSetWriteProtection+0x74>)
+    1202:	68d3      	ldr	r3, [r2, #12]
+    1204:	f043 0370 	orr.w	r3, r3, #112	; 0x70
+    1208:	60d3      	str	r3, [r2, #12]
+    DEVICE_ASSERT(OPTION_END > addr);
+    120a:	f7ff fcc1 	bl	b90 <EFLASH_OptionPageErase.part.0>
+    statusRes = EFLASH_OptionPageErase(DFLASH_WRITE_PROTECT_BASE);
+    if (STATUS_SUCCESS == statusRes)
+    120e:	b110      	cbz	r0, 1216 <EFLASH_DFSetWriteProtection+0x3e>
+            statusRes = STATUS_ERROR;
+        }
+    }
+    else
+    {
+        statusRes = STATUS_ERROR;
+    1210:	2001      	movs	r0, #1
+    }
+
+    return statusRes;
+}
+    1212:	b009      	add	sp, #36	; 0x24
+    1214:	bd30      	pop	{r4, r5, pc}
+        optBuffer[6] = protectStatus[1];
+    1216:	e9d5 2300 	ldrd	r2, r3, [r5]
+    121a:	4669      	mov	r1, sp
+    121c:	480b      	ldr	r0, [pc, #44]	; (124c <EFLASH_DFSetWriteProtection+0x74>)
+        optBuffer[5] = ~protectStatus[0];
+    121e:	43d5      	mvns	r5, r2
+        optBuffer[7] = ~protectStatus[1];
+    1220:	43dc      	mvns	r4, r3
+        optBuffer[4] = protectStatus[0];
+    1222:	9204      	str	r2, [sp, #16]
+        optBuffer[5] = ~protectStatus[0];
+    1224:	2208      	movs	r2, #8
+        optBuffer[6] = protectStatus[1];
+    1226:	9306      	str	r3, [sp, #24]
+        optBuffer[5] = ~protectStatus[0];
+    1228:	9505      	str	r5, [sp, #20]
+        optBuffer[7] = ~protectStatus[1];
+    122a:	9407      	str	r4, [sp, #28]
+    DEVICE_ASSERT(OPTION_END > addr);
+    122c:	f7ff fcd6 	bl	bdc <EFLASH_OptionPageProgram.part.0>
+        if (STATUS_SUCCESS != statusRes)
+    1230:	2801      	cmp	r0, #1
+    1232:	bf28      	it	cs
+    1234:	2001      	movcs	r0, #1
+}
+    1236:	b009      	add	sp, #36	; 0x24
+    1238:	bd30      	pop	{r4, r5, pc}
+    DEVICE_ASSERT(NULL != protectStatus);
+    123a:	f240 23f1 	movw	r3, #753	; 0x2f1
+    123e:	4a06      	ldr	r2, [pc, #24]	; (1258 <EFLASH_DFSetWriteProtection+0x80>)
+    1240:	4906      	ldr	r1, [pc, #24]	; (125c <EFLASH_DFSetWriteProtection+0x84>)
+    1242:	4807      	ldr	r0, [pc, #28]	; (1260 <EFLASH_DFSetWriteProtection+0x88>)
+    1244:	f7ff fb6a 	bl	91c <printf>
+    1248:	e7fe      	b.n	1248 <EFLASH_DFSetWriteProtection+0x70>
+    124a:	bf00      	nop
+    124c:	08201010 	.word	0x08201010
+    1250:	08201030 	.word	0x08201030
+    1254:	40002000 	.word	0x40002000
+    1258:	00001f08 	.word	0x00001f08
+    125c:	00002110 	.word	0x00002110
+    1260:	00002004 	.word	0x00002004
+
+00001264 <EFLASH_SetWriteProtectionByReg>:
+    EFLASH->PWPR1 = protectStatus;
+    1264:	4b0b      	ldr	r3, [pc, #44]	; (1294 <EFLASH_SetWriteProtectionByReg+0x30>)
+status_t EFLASH_SetWriteProtectionByReg(uint8_t sel, uint32_t protectStatusLow, uint32_t protectStatusHigh)
+{
+    status_t statusRes = STATUS_SUCCESS;
+
+    /* Write to protection register */
+    if (0U == sel)
+    1266:	b930      	cbnz	r0, 1276 <EFLASH_SetWriteProtectionByReg+0x12>
+    1268:	625a      	str	r2, [r3, #36]	; 0x24
+    EFLASH->PWPR0 = protectStatus;
+    126a:	6219      	str	r1, [r3, #32]
+    return (EFLASH->PWPR0);
+    126c:	6a18      	ldr	r0, [r3, #32]
+    {
+        EFLASH_SetPWriteProRegHigh(protectStatusHigh);
+        EFLASH_SetPWriteProRegLow(protectStatusLow);
+        if ((protectStatusLow != EFLASH_GetPWriteProRegLow()) || (protectStatusHigh != EFLASH_GetPWriteProRegHigh()))
+    126e:	4281      	cmp	r1, r0
+    1270:	d00b      	beq.n	128a <EFLASH_SetWriteProtectionByReg+0x26>
+        {
+            statusRes = STATUS_ERROR;
+    1272:	2001      	movs	r0, #1
+    1274:	4770      	bx	lr
+    EFLASH->DWPR1 = protectStatus;
+    1276:	62da      	str	r2, [r3, #44]	; 0x2c
+    EFLASH->DWPR0 = protectStatus;
+    1278:	6299      	str	r1, [r3, #40]	; 0x28
+    return (EFLASH->DWPR0);
+    127a:	6a98      	ldr	r0, [r3, #40]	; 0x28
+    }
+    else
+    {
+        EFLASH_SetDWriteProRegHigh(protectStatusHigh);
+        EFLASH_SetDWriteProRegLow(protectStatusLow);
+        if ((protectStatusLow != EFLASH_GetDWriteProRegLow()) || (protectStatusHigh != EFLASH_GetDWriteProRegHigh()))
+    127c:	4281      	cmp	r1, r0
+    127e:	d1f8      	bne.n	1272 <EFLASH_SetWriteProtectionByReg+0xe>
+    return (EFLASH->DWPR1);
+    1280:	6ad8      	ldr	r0, [r3, #44]	; 0x2c
+    1282:	1a10      	subs	r0, r2, r0
+    1284:	bf18      	it	ne
+    1286:	2001      	movne	r0, #1
+            statusRes = STATUS_ERROR;
+        }
+    }
+
+    return statusRes;
+}
+    1288:	4770      	bx	lr
+    return (EFLASH->PWPR1);
+    128a:	6a58      	ldr	r0, [r3, #36]	; 0x24
+        if ((protectStatusLow != EFLASH_GetPWriteProRegLow()) || (protectStatusHigh != EFLASH_GetPWriteProRegHigh()))
+    128c:	1a10      	subs	r0, r2, r0
+    128e:	bf18      	it	ne
+    1290:	2001      	movne	r0, #1
+    1292:	4770      	bx	lr
+    1294:	40002000 	.word	0x40002000
+
+00001298 <FLASH_Stop>:
+            EFLASH_TEST_TASK[i].TaskFunc = 0U;
+            DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH]StopTask\r\n"));
+        }
+    }
+#endif
+}
+    1298:	4770      	bx	lr
+    129a:	bf00      	nop
+
+0000129c <FLASH_LogTest>:
+ * @param[in] argc: argument count
+ * @param[in] argv: argument value
+ * @return none
+ */
+void FLASH_LogTest(void *param, int argc, const char** argv)
+{
+    129c:	b510      	push	{r4, lr}
+    if ((uint32_t)atoi(argv[1]) > 1U)
+    129e:	6850      	ldr	r0, [r2, #4]
+{
+    12a0:	4614      	mov	r4, r2
+    if ((uint32_t)atoi(argv[1]) > 1U)
+    12a2:	f7fe ff15 	bl	d0 <atoi>
+    12a6:	2801      	cmp	r0, #1
+    12a8:	d810      	bhi.n	12cc <FLASH_LogTest+0x30>
+    {
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]FLASH_LogTest CLI parameter error,TEST_FAIL\r\n"));
+        return;
+    }
+    g_flashLogFreq = atoi(argv[0]);
+    12aa:	6820      	ldr	r0, [r4, #0]
+    12ac:	f7fe ff10 	bl	d0 <atoi>
+    12b0:	4b09      	ldr	r3, [pc, #36]	; (12d8 <FLASH_LogTest+0x3c>)
+    12b2:	4602      	mov	r2, r0
+    g_flashLogPrintFormat = atoi(argv[1]);
+    12b4:	6860      	ldr	r0, [r4, #4]
+    g_flashLogFreq = atoi(argv[0]);
+    12b6:	601a      	str	r2, [r3, #0]
+    g_flashLogPrintFormat = atoi(argv[1]);
+    12b8:	f7fe ff0a 	bl	d0 <atoi>
+    12bc:	4b07      	ldr	r3, [pc, #28]	; (12dc <FLASH_LogTest+0x40>)
+    12be:	4602      	mov	r2, r0
+
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]FLASH_LogTest setting TEST_PASS\r\n"));
+    12c0:	4807      	ldr	r0, [pc, #28]	; (12e0 <FLASH_LogTest+0x44>)
+    g_flashLogPrintFormat = atoi(argv[1]);
+    12c2:	701a      	strb	r2, [r3, #0]
+}
+    12c4:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]FLASH_LogTest setting TEST_PASS\r\n"));
+    12c8:	f7ff bb1a 	b.w	900 <puts>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]FLASH_LogTest CLI parameter error,TEST_FAIL\r\n"));
+    12cc:	4805      	ldr	r0, [pc, #20]	; (12e4 <FLASH_LogTest+0x48>)
+}
+    12ce:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]FLASH_LogTest CLI parameter error,TEST_FAIL\r\n"));
+    12d2:	f7ff bb15 	b.w	900 <puts>
+    12d6:	bf00      	nop
+    12d8:	00002ca8 	.word	0x00002ca8
+    12dc:	00002cac 	.word	0x00002cac
+    12e0:	00002164 	.word	0x00002164
+    12e4:	00002128 	.word	0x00002128
+
+000012e8 <FLASH_OTTest>:
+{
+    12e8:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    12ec:	460d      	mov	r5, r1
+    12ee:	b08f      	sub	sp, #60	; 0x3c
+    g_otTimes = atoi(argv[0]);
+    12f0:	6810      	ldr	r0, [r2, #0]
+{
+    12f2:	4614      	mov	r4, r2
+    g_otTimes = atoi(argv[0]);
+    12f4:	4f5f      	ldr	r7, [pc, #380]	; (1474 <FLASH_OTTest+0x18c>)
+    12f6:	f7fe feeb 	bl	d0 <atoi>
+    if (argc > 1 && argv)
+    12fa:	2d01      	cmp	r5, #1
+    g_otTimes = atoi(argv[0]);
+    12fc:	6038      	str	r0, [r7, #0]
+    if (argc > 1 && argv)
+    12fe:	dc4b      	bgt.n	1398 <FLASH_OTTest+0xb0>
+        g_onlyDFlash = 0;
+    1300:	2300      	movs	r3, #0
+    1302:	4a5d      	ldr	r2, [pc, #372]	; (1478 <FLASH_OTTest+0x190>)
+    1304:	9303      	str	r3, [sp, #12]
+    1306:	7013      	strb	r3, [r2, #0]
+    uint32_t dataSrc[2] = {0};
+    1308:	2200      	movs	r2, #0
+    uint32_t testRange[2][2] = {{PFLASH_BASE_ADDRESS + 0x30000U, PFLASH_END_ADDRESS}, {DFLASH_BASE_ADDRESS, DFLASH_END_ADDRESS}};
+    130a:	4b5c      	ldr	r3, [pc, #368]	; (147c <FLASH_OTTest+0x194>)
+    130c:	ac0a      	add	r4, sp, #40	; 0x28
+    while (looptCount < (g_otTimes + 1U))
+    130e:	f8df 9198 	ldr.w	r9, [pc, #408]	; 14a8 <FLASH_OTTest+0x1c0>
+    uint32_t dataSrc[2] = {0};
+    1312:	9206      	str	r2, [sp, #24]
+    uint32_t readData1[2] = {0};
+    1314:	9209      	str	r2, [sp, #36]	; 0x24
+    uint32_t dataSrc[2] = {0};
+    1316:	e9cd 2207 	strd	r2, r2, [sp, #28]
+    uint32_t testRange[2][2] = {{PFLASH_BASE_ADDRESS + 0x30000U, PFLASH_END_ADDRESS}, {DFLASH_BASE_ADDRESS, DFLASH_END_ADDRESS}};
+    131a:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
+    131c:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+    (void)EFLASH_UnlockCtrl();
+    1320:	f7ff fd90 	bl	e44 <EFLASH_UnlockCtrl>
+    while (looptCount < (g_otTimes + 1U))
+    1324:	683b      	ldr	r3, [r7, #0]
+    1326:	f8d9 2000 	ldr.w	r2, [r9]
+    132a:	3301      	adds	r3, #1
+    132c:	429a      	cmp	r2, r3
+    132e:	f080 8086 	bcs.w	143e <FLASH_OTTest+0x156>
+    1332:	9b03      	ldr	r3, [sp, #12]
+    1334:	eb04 03c3 	add.w	r3, r4, r3, lsl #3
+    1338:	9304      	str	r3, [sp, #16]
+        for (j = startIndex; j < 2U; j++)
+    133a:	9b03      	ldr	r3, [sp, #12]
+    133c:	2b01      	cmp	r3, #1
+    133e:	d86d      	bhi.n	141c <FLASH_OTTest+0x134>
+    1340:	f8dd 8010 	ldr.w	r8, [sp, #16]
+            for (pageAddr = testRange[j][0]; pageAddr < testRange[j][1];)
+    1344:	e9d8 6a00 	ldrd	r6, sl, [r8]
+    1348:	4556      	cmp	r6, sl
+    134a:	d262      	bcs.n	1412 <FLASH_OTTest+0x12a>
+                ret = EFLASH_PageErase(pageAddr);
+    134c:	4630      	mov	r0, r6
+    134e:	f7ff fde9 	bl	f24 <EFLASH_PageErase>
+                if (ret != STATUS_SUCCESS)
+    1352:	4605      	mov	r5, r0
+    1354:	2800      	cmp	r0, #0
+    1356:	d17f      	bne.n	1458 <FLASH_OTTest+0x170>
+                for (i = pageAddr; i < (pageAddr + DFLASH_PAGE_SIZE); i += 4U)
+    1358:	f506 6400 	add.w	r4, r6, #2048	; 0x800
+    135c:	42a6      	cmp	r6, r4
+    135e:	d223      	bcs.n	13a8 <FLASH_OTTest+0xc0>
+    1360:	46b3      	mov	fp, r6
+    1362:	e003      	b.n	136c <FLASH_OTTest+0x84>
+    1364:	f10b 0b04 	add.w	fp, fp, #4
+    1368:	45a3      	cmp	fp, r4
+    136a:	d21d      	bcs.n	13a8 <FLASH_OTTest+0xc0>
+                    (void)EFLASH_Read(i, (uint32_t *)readData1, 1U);
+    136c:	4658      	mov	r0, fp
+    136e:	2201      	movs	r2, #1
+    1370:	a908      	add	r1, sp, #32
+    1372:	f7ff fd9d 	bl	eb0 <EFLASH_Read>
+                    if (readData1[0] != 0xFFFFFFFFU)
+    1376:	9b08      	ldr	r3, [sp, #32]
+    1378:	3301      	adds	r3, #1
+    137a:	d0f3      	beq.n	1364 <FLASH_OTTest+0x7c>
+                        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]FLASH OT TEST_FAIL to Compare with 0xff for test Erase!\
+    137c:	f8db 2000 	ldr.w	r2, [fp]
+    1380:	4659      	mov	r1, fp
+    1382:	483f      	ldr	r0, [pc, #252]	; (1480 <FLASH_OTTest+0x198>)
+    1384:	f7ff faca 	bl	91c <printf>
+    g_flashAddr = 0U;
+    1388:	2300      	movs	r3, #0
+    138a:	493e      	ldr	r1, [pc, #248]	; (1484 <FLASH_OTTest+0x19c>)
+    g_flashSize = 0U;
+    138c:	4a3e      	ldr	r2, [pc, #248]	; (1488 <FLASH_OTTest+0x1a0>)
+    g_flashAddr = 0U;
+    138e:	600b      	str	r3, [r1, #0]
+    g_flashSize = 0U;
+    1390:	6013      	str	r3, [r2, #0]
+}
+    1392:	b00f      	add	sp, #60	; 0x3c
+    1394:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+        g_onlyDFlash = atoi(argv[1]);
+    1398:	6860      	ldr	r0, [r4, #4]
+    139a:	f7fe fe99 	bl	d0 <atoi>
+    139e:	4b36      	ldr	r3, [pc, #216]	; (1478 <FLASH_OTTest+0x190>)
+    uint32_t startIndex = g_onlyDFlash;
+    13a0:	b2c2      	uxtb	r2, r0
+        g_onlyDFlash = atoi(argv[1]);
+    13a2:	7018      	strb	r0, [r3, #0]
+    uint32_t startIndex = g_onlyDFlash;
+    13a4:	9203      	str	r2, [sp, #12]
+    13a6:	e7af      	b.n	1308 <FLASH_OTTest+0x20>
+    13a8:	9405      	str	r4, [sp, #20]
+    13aa:	e007      	b.n	13bc <FLASH_OTTest+0xd4>
+                    if ((STATUS_SUCCESS != ret) || (dataSrc[0] != readData1[0]) || (dataSrc[1] != readData1[1]))
+    13ac:	4282      	cmp	r2, r0
+    13ae:	d11f      	bne.n	13f0 <FLASH_OTTest+0x108>
+    13b0:	428b      	cmp	r3, r1
+    13b2:	d11d      	bne.n	13f0 <FLASH_OTTest+0x108>
+                for (i = 0U; i < DFLASH_PAGE_SIZE; i += 8U)
+    13b4:	3508      	adds	r5, #8
+    13b6:	f5b5 6f00 	cmp.w	r5, #2048	; 0x800
+    13ba:	d025      	beq.n	1408 <FLASH_OTTest+0x120>
+                    ret = EFLASH_PageProgram(pageAddr + i, dataSrc, 2U);
+    13bc:	eb06 0b05 	add.w	fp, r6, r5
+                    dataSrc[0] = (uint32_t)rand();
+    13c0:	f7fe fefe 	bl	1c0 <rand>
+    13c4:	9006      	str	r0, [sp, #24]
+                    dataSrc[1] = (uint32_t)rand();
+    13c6:	f7fe fefb 	bl	1c0 <rand>
+    13ca:	4603      	mov	r3, r0
+                    ret = EFLASH_PageProgram(pageAddr + i, dataSrc, 2U);
+    13cc:	2202      	movs	r2, #2
+    13ce:	a906      	add	r1, sp, #24
+    13d0:	4658      	mov	r0, fp
+                    dataSrc[1] = (uint32_t)rand();
+    13d2:	9307      	str	r3, [sp, #28]
+                    ret = EFLASH_PageProgram(pageAddr + i, dataSrc, 2U);
+    13d4:	f7ff fde0 	bl	f98 <EFLASH_PageProgram>
+    13d8:	4604      	mov	r4, r0
+                    (void)EFLASH_Read(pageAddr + i , readData1, 2U);
+    13da:	2202      	movs	r2, #2
+    13dc:	a908      	add	r1, sp, #32
+    13de:	4658      	mov	r0, fp
+    13e0:	f7ff fd66 	bl	eb0 <EFLASH_Read>
+                    if ((STATUS_SUCCESS != ret) || (dataSrc[0] != readData1[0]) || (dataSrc[1] != readData1[1]))
+    13e4:	9a06      	ldr	r2, [sp, #24]
+    13e6:	9909      	ldr	r1, [sp, #36]	; 0x24
+    13e8:	e9dd 3007 	ldrd	r3, r0, [sp, #28]
+    13ec:	2c00      	cmp	r4, #0
+    13ee:	d0dd      	beq.n	13ac <FLASH_OTTest+0xc4>
+                        printf("Flash fail[%d] expect:0x%x, 0x%x, read:0x%x, 0x%x\r\n", i, dataSrc[0], dataSrc[1], readData1[0], readData1[1]);
+    13f0:	9101      	str	r1, [sp, #4]
+    13f2:	4629      	mov	r1, r5
+    13f4:	9000      	str	r0, [sp, #0]
+    13f6:	4825      	ldr	r0, [pc, #148]	; (148c <FLASH_OTTest+0x1a4>)
+    13f8:	f7ff fa90 	bl	91c <printf>
+                    DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]FLASH OT TEST_FAIL times:%d\r\n", looptCount));
+    13fc:	f8d9 1000 	ldr.w	r1, [r9]
+    1400:	4823      	ldr	r0, [pc, #140]	; (1490 <FLASH_OTTest+0x1a8>)
+    1402:	f7ff fa8b 	bl	91c <printf>
+    1406:	e7bf      	b.n	1388 <FLASH_OTTest+0xa0>
+            for (pageAddr = testRange[j][0]; pageAddr < testRange[j][1];)
+    1408:	9c05      	ldr	r4, [sp, #20]
+    140a:	4554      	cmp	r4, sl
+    140c:	d201      	bcs.n	1412 <FLASH_OTTest+0x12a>
+    140e:	4626      	mov	r6, r4
+    1410:	e79c      	b.n	134c <FLASH_OTTest+0x64>
+        for (j = startIndex; j < 2U; j++)
+    1412:	f108 0808 	add.w	r8, r8, #8
+    1416:	ab0e      	add	r3, sp, #56	; 0x38
+    1418:	4598      	cmp	r8, r3
+    141a:	d193      	bne.n	1344 <FLASH_OTTest+0x5c>
+        if (!(looptCount % g_flashLogFreq))
+    141c:	4b1d      	ldr	r3, [pc, #116]	; (1494 <FLASH_OTTest+0x1ac>)
+    141e:	f8d9 1000 	ldr.w	r1, [r9]
+    1422:	681a      	ldr	r2, [r3, #0]
+    1424:	fbb1 f3f2 	udiv	r3, r1, r2
+    1428:	fb02 1313 	mls	r3, r2, r3, r1
+    142c:	b1db      	cbz	r3, 1466 <FLASH_OTTest+0x17e>
+    while (looptCount < (g_otTimes + 1U))
+    142e:	683b      	ldr	r3, [r7, #0]
+        looptCount++;
+    1430:	3101      	adds	r1, #1
+    while (looptCount < (g_otTimes + 1U))
+    1432:	3301      	adds	r3, #1
+        looptCount++;
+    1434:	f8c9 1000 	str.w	r1, [r9]
+    while (looptCount < (g_otTimes + 1U))
+    1438:	4299      	cmp	r1, r3
+    143a:	f4ff af7e 	bcc.w	133a <FLASH_OTTest+0x52>
+    EFLASH_LockCtrl();
+    143e:	f7ff fd2b 	bl	e98 <EFLASH_LockCtrl>
+    g_flashAddr = 0U;
+    1442:	2300      	movs	r3, #0
+    1444:	490f      	ldr	r1, [pc, #60]	; (1484 <FLASH_OTTest+0x19c>)
+    g_flashSize = 0U;
+    1446:	4a10      	ldr	r2, [pc, #64]	; (1488 <FLASH_OTTest+0x1a0>)
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]Exit StartFOTTask, TEST_PASS\r\n"));
+    1448:	4813      	ldr	r0, [pc, #76]	; (1498 <FLASH_OTTest+0x1b0>)
+    looptCount = 0U;
+    144a:	f8c9 3000 	str.w	r3, [r9]
+    g_flashAddr = 0U;
+    144e:	600b      	str	r3, [r1, #0]
+    g_flashSize = 0U;
+    1450:	6013      	str	r3, [r2, #0]
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]Exit StartFOTTask, TEST_PASS\r\n"));
+    1452:	f7ff fa55 	bl	900 <puts>
+}
+    1456:	e79c      	b.n	1392 <FLASH_OTTest+0xaa>
+                    DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]:FLASH OT test Erase sector TEST_FAIL pageAddr:"
+    1458:	4b10      	ldr	r3, [pc, #64]	; (149c <FLASH_OTTest+0x1b4>)
+    145a:	4631      	mov	r1, r6
+    145c:	4810      	ldr	r0, [pc, #64]	; (14a0 <FLASH_OTTest+0x1b8>)
+    145e:	68da      	ldr	r2, [r3, #12]
+    1460:	f7ff fa5c 	bl	91c <printf>
+    g_flashAddr = 0U;
+    1464:	e790      	b.n	1388 <FLASH_OTTest+0xa0>
+            DEBUGMSG(DEBUG_ZONE_INFO, ("\r\n[FLASH]FLASH OT OK times:%d\r\n", looptCount));
+    1466:	480f      	ldr	r0, [pc, #60]	; (14a4 <FLASH_OTTest+0x1bc>)
+    1468:	f7ff fa58 	bl	91c <printf>
+        looptCount++;
+    146c:	f8d9 1000 	ldr.w	r1, [r9]
+    1470:	e7dd      	b.n	142e <FLASH_OTTest+0x146>
+    1472:	bf00      	nop
+    1474:	00002e9c 	.word	0x00002e9c
+    1478:	00002e98 	.word	0x00002e98
+    147c:	00001d68 	.word	0x00001d68
+    1480:	000021dc 	.word	0x000021dc
+    1484:	00002e70 	.word	0x00002e70
+    1488:	00002e94 	.word	0x00002e94
+    148c:	00002268 	.word	0x00002268
+    1490:	0000229c 	.word	0x0000229c
+    1494:	00002ca8 	.word	0x00002ca8
+    1498:	000022e8 	.word	0x000022e8
+    149c:	40002000 	.word	0x40002000
+    14a0:	0000218c 	.word	0x0000218c
+    14a4:	000022c8 	.word	0x000022c8
+    14a8:	00002d50 	.word	0x00002d50
+
+000014ac <Str2Hex.isra.0>:
+static uint32_t *Str2Hex(const char *inStr, uint32_t *hexValue)
+    14ac:	b538      	push	{r3, r4, r5, lr}
+    14ae:	460c      	mov	r4, r1
+    14b0:	4605      	mov	r5, r0
+    uint32_t tmpStrLength = strlen(inStr);
+    14b2:	f7ff f885 	bl	5c0 <strlen>
+    *hexValue = 0U;
+    14b6:	2300      	movs	r3, #0
+    14b8:	6023      	str	r3, [r4, #0]
+    for (i = 0U; i < tmpStrLength; i++)
+    14ba:	b1f8      	cbz	r0, 14fc <Str2Hex.isra.0+0x50>
+    14bc:	1e6a      	subs	r2, r5, #1
+    14be:	eb02 0c00 	add.w	ip, r2, r0
+    14c2:	e005      	b.n	14d0 <Str2Hex.isra.0+0x24>
+            *hexValue = (*hexValue) * 16U + inStr[i] - '0';
+    14c4:	6823      	ldr	r3, [r4, #0]
+    14c6:	eb00 1003 	add.w	r0, r0, r3, lsl #4
+    14ca:	6020      	str	r0, [r4, #0]
+    for (i = 0U; i < tmpStrLength; i++)
+    14cc:	4562      	cmp	r2, ip
+    14ce:	d015      	beq.n	14fc <Str2Hex.isra.0+0x50>
+        if (inStr[i] >= '0' && inStr[i] <= '9')
+    14d0:	f812 3f01 	ldrb.w	r3, [r2, #1]!
+    14d4:	f1a3 0030 	sub.w	r0, r3, #48	; 0x30
+        else if (inStr[i] <= 'f' && inStr[i] >= 'a')
+    14d8:	f1a3 0e61 	sub.w	lr, r3, #97	; 0x61
+        if (inStr[i] >= '0' && inStr[i] <= '9')
+    14dc:	b2c1      	uxtb	r1, r0
+    14de:	2909      	cmp	r1, #9
+    14e0:	d9f0      	bls.n	14c4 <Str2Hex.isra.0+0x18>
+        else if (inStr[i] <= 'f' && inStr[i] >= 'a')
+    14e2:	f1be 0f05 	cmp.w	lr, #5
+            *hexValue = (*hexValue) * 16U + inStr[i] - 'a' + 10U;
+    14e6:	f1a3 0157 	sub.w	r1, r3, #87	; 0x57
+        else if (inStr[i] <= 'F' && inStr[i] >= 'A')
+    14ea:	f1a3 0041 	sub.w	r0, r3, #65	; 0x41
+        else if (inStr[i] <= 'f' && inStr[i] >= 'a')
+    14ee:	d806      	bhi.n	14fe <Str2Hex.isra.0+0x52>
+            *hexValue = (*hexValue) * 16U + inStr[i] - 'a' + 10U;
+    14f0:	6823      	ldr	r3, [r4, #0]
+    for (i = 0U; i < tmpStrLength; i++)
+    14f2:	4562      	cmp	r2, ip
+            *hexValue = (*hexValue) * 16U + inStr[i] - 'a' + 10U;
+    14f4:	eb01 1103 	add.w	r1, r1, r3, lsl #4
+    14f8:	6021      	str	r1, [r4, #0]
+    for (i = 0U; i < tmpStrLength; i++)
+    14fa:	d1e9      	bne.n	14d0 <Str2Hex.isra.0+0x24>
+}
+    14fc:	bd38      	pop	{r3, r4, r5, pc}
+        else if (inStr[i] <= 'F' && inStr[i] >= 'A')
+    14fe:	2805      	cmp	r0, #5
+            *hexValue = (*hexValue) * 16U + inStr[i] - 'A' + 10U;
+    1500:	f1a3 0337 	sub.w	r3, r3, #55	; 0x37
+        else if (inStr[i] <= 'F' && inStr[i] >= 'A')
+    1504:	d8e2      	bhi.n	14cc <Str2Hex.isra.0+0x20>
+            *hexValue = (*hexValue) * 16U + inStr[i] - 'A' + 10U;
+    1506:	6821      	ldr	r1, [r4, #0]
+    1508:	eb03 1301 	add.w	r3, r3, r1, lsl #4
+    150c:	6023      	str	r3, [r4, #0]
+    150e:	e7dd      	b.n	14cc <Str2Hex.isra.0+0x20>
+
+00001510 <FLASH_WriteProtectTest>:
+{
+    1510:	b530      	push	{r4, r5, lr}
+    uint32_t protectValue[2] = {0};
+    1512:	2300      	movs	r3, #0
+{
+    1514:	4614      	mov	r4, r2
+    1516:	b083      	sub	sp, #12
+    index = strtol(argv[0], 0, 0);
+    1518:	4619      	mov	r1, r3
+    151a:	461a      	mov	r2, r3
+    151c:	6820      	ldr	r0, [r4, #0]
+    uint32_t protectValue[2] = {0};
+    151e:	e9cd 3300 	strd	r3, r3, [sp]
+    index = strtol(argv[0], 0, 0);
+    1522:	f7ff f96b 	bl	7fc <strtol>
+    Str2Hex(argv[1], &protectValue[0]);
+    1526:	4669      	mov	r1, sp
+    index = strtol(argv[0], 0, 0);
+    1528:	4605      	mov	r5, r0
+    Str2Hex(argv[1], &protectValue[0]);
+    152a:	6860      	ldr	r0, [r4, #4]
+    152c:	f7ff ffbe 	bl	14ac <Str2Hex.isra.0>
+    Str2Hex(argv[2], &protectValue[1]);
+    1530:	a901      	add	r1, sp, #4
+    1532:	68a0      	ldr	r0, [r4, #8]
+    1534:	f7ff ffba 	bl	14ac <Str2Hex.isra.0>
+    wrtProtMode = atoi(argv[3]);
+    1538:	68e0      	ldr	r0, [r4, #12]
+    153a:	f7fe fdc9 	bl	d0 <atoi>
+    153e:	4604      	mov	r4, r0
+    printf("[EFLASH]:TestWriteProtect:index:0x%x,protectValue[0]:0x%x,protectValue[1]:0x%x\r\n", index, protectValue[0], protectValue[1]);
+    1540:	4629      	mov	r1, r5
+    1542:	4810      	ldr	r0, [pc, #64]	; (1584 <FLASH_WriteProtectTest+0x74>)
+    if(!wrtProtMode)
+    1544:	b2e4      	uxtb	r4, r4
+    printf("[EFLASH]:TestWriteProtect:index:0x%x,protectValue[0]:0x%x,protectValue[1]:0x%x\r\n", index, protectValue[0], protectValue[1]);
+    1546:	e9dd 2300 	ldrd	r2, r3, [sp]
+    154a:	f7ff f9e7 	bl	91c <printf>
+    EFLASH_UnlockCtrl();
+    154e:	f7ff fc79 	bl	e44 <EFLASH_UnlockCtrl>
+    if(!wrtProtMode)
+    1552:	b96c      	cbnz	r4, 1570 <FLASH_WriteProtectTest+0x60>
+            EFLASH_PFSetWriteProtection(protectValue);
+    1554:	4668      	mov	r0, sp
+        if (index == 0)
+    1556:	b12d      	cbz	r5, 1564 <FLASH_WriteProtectTest+0x54>
+            EFLASH_DFSetWriteProtection(protectValue);
+    1558:	f7ff fe3e 	bl	11d8 <EFLASH_DFSetWriteProtection>
+    EFLASH_LockCtrl();
+    155c:	f7ff fc9c 	bl	e98 <EFLASH_LockCtrl>
+}
+    1560:	b003      	add	sp, #12
+    1562:	bd30      	pop	{r4, r5, pc}
+            EFLASH_PFSetWriteProtection(protectValue);
+    1564:	f7ff fdf2 	bl	114c <EFLASH_PFSetWriteProtection>
+    EFLASH_LockCtrl();
+    1568:	f7ff fc96 	bl	e98 <EFLASH_LockCtrl>
+}
+    156c:	b003      	add	sp, #12
+    156e:	bd30      	pop	{r4, r5, pc}
+        EFLASH_SetWriteProtectionByReg(index,protectValue[0], protectValue[1]);
+    1570:	e9dd 1200 	ldrd	r1, r2, [sp]
+    1574:	b2e8      	uxtb	r0, r5
+    1576:	f7ff fe75 	bl	1264 <EFLASH_SetWriteProtectionByReg>
+    EFLASH_LockCtrl();
+    157a:	f7ff fc8d 	bl	e98 <EFLASH_LockCtrl>
+}
+    157e:	b003      	add	sp, #12
+    1580:	bd30      	pop	{r4, r5, pc}
+    1582:	bf00      	nop
+    1584:	00002310 	.word	0x00002310
+
+00001588 <FLASH_ProgramTest>:
+{
+    1588:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+    158c:	4614      	mov	r4, r2
+    (void)Str2Hex(argv[0], &g_flashAddr);
+    158e:	6810      	ldr	r0, [r2, #0]
+    1590:	4943      	ldr	r1, [pc, #268]	; (16a0 <FLASH_ProgramTest+0x118>)
+    1592:	f7ff ff8b 	bl	14ac <Str2Hex.isra.0>
+    g_flashSize = atoi(argv[1]); /* program byte amount */
+    1596:	6860      	ldr	r0, [r4, #4]
+    1598:	f7fe fd9a 	bl	d0 <atoi>
+    159c:	4f41      	ldr	r7, [pc, #260]	; (16a4 <FLASH_ProgramTest+0x11c>)
+    if (g_flashSize % 8)
+    159e:	f010 0607 	ands.w	r6, r0, #7
+    g_flashSize = atoi(argv[1]); /* program byte amount */
+    15a2:	6038      	str	r0, [r7, #0]
+    if (g_flashSize % 8)
+    15a4:	d172      	bne.n	168c <FLASH_ProgramTest+0x104>
+    (void)EFLASH_UnlockCtrl();
+    15a6:	f7ff fc4d 	bl	e44 <EFLASH_UnlockCtrl>
+    while (g_flashSize >= TEST_BUFFER_SIZE)
+    15aa:	683b      	ldr	r3, [r7, #0]
+    15ac:	2bff      	cmp	r3, #255	; 0xff
+    15ae:	d972      	bls.n	1696 <FLASH_ProgramTest+0x10e>
+    15b0:	4d3d      	ldr	r5, [pc, #244]	; (16a8 <FLASH_ProgramTest+0x120>)
+    15b2:	4c3b      	ldr	r4, [pc, #236]	; (16a0 <FLASH_ProgramTest+0x118>)
+            printf("Program at 0x%x\r\n", g_flashAddr);
+    15b4:	f8df 8108 	ldr.w	r8, [pc, #264]	; 16c0 <FLASH_ProgramTest+0x138>
+    15b8:	6821      	ldr	r1, [r4, #0]
+        for (j = 0U; j < TEST_BUFFER_SIZE; j += 32U)
+    15ba:	f04f 0900 	mov.w	r9, #0
+            for (i = j; i < j + 32U; i++)
+    15be:	f109 0220 	add.w	r2, r9, #32
+    15c2:	464b      	mov	r3, r9
+    15c4:	fa1f f982 	uxth.w	r9, r2
+    15c8:	f1b9 0f1e 	cmp.w	r9, #30
+    15cc:	bf94      	ite	ls
+    15ce:	2201      	movls	r2, #1
+    15d0:	2220      	movhi	r2, #32
+    15d2:	441a      	add	r2, r3
+    15d4:	b292      	uxth	r2, r2
+                g_flashBuffer[i % 32U] = i;
+    15d6:	f003 0c1f 	and.w	ip, r3, #31
+            for (i = j; i < j + 32U; i++)
+    15da:	1c58      	adds	r0, r3, #1
+                g_flashBuffer[i % 32U] = i;
+    15dc:	f805 300c 	strb.w	r3, [r5, ip]
+            for (i = j; i < j + 32U; i++)
+    15e0:	b283      	uxth	r3, r0
+    15e2:	4293      	cmp	r3, r2
+    15e4:	d1f7      	bne.n	15d6 <FLASH_ProgramTest+0x4e>
+            printf("Program at 0x%x\r\n", g_flashAddr);
+    15e6:	4640      	mov	r0, r8
+    15e8:	f7ff f998 	bl	91c <printf>
+            ret = EFLASH_PageProgram(g_flashAddr, (uint32_t *)g_flashBuffer, 8);
+    15ec:	2208      	movs	r2, #8
+    15ee:	4629      	mov	r1, r5
+    15f0:	6820      	ldr	r0, [r4, #0]
+    15f2:	f7ff fcd1 	bl	f98 <EFLASH_PageProgram>
+            if (STATUS_SUCCESS != ret)
+    15f6:	b930      	cbnz	r0, 1606 <FLASH_ProgramTest+0x7e>
+            g_flashAddr += 32U;
+    15f8:	6821      	ldr	r1, [r4, #0]
+        for (j = 0U; j < TEST_BUFFER_SIZE; j += 32U)
+    15fa:	f5b9 7f80 	cmp.w	r9, #256	; 0x100
+            g_flashAddr += 32U;
+    15fe:	f101 0120 	add.w	r1, r1, #32
+    1602:	6021      	str	r1, [r4, #0]
+        for (j = 0U; j < TEST_BUFFER_SIZE; j += 32U)
+    1604:	d1db      	bne.n	15be <FLASH_ProgramTest+0x36>
+        g_flashSize -= TEST_BUFFER_SIZE;
+    1606:	683b      	ldr	r3, [r7, #0]
+    1608:	f5a3 7380 	sub.w	r3, r3, #256	; 0x100
+    while (g_flashSize >= TEST_BUFFER_SIZE)
+    160c:	2bff      	cmp	r3, #255	; 0xff
+        g_flashSize -= TEST_BUFFER_SIZE;
+    160e:	603b      	str	r3, [r7, #0]
+    while (g_flashSize >= TEST_BUFFER_SIZE)
+    1610:	d8d2      	bhi.n	15b8 <FLASH_ProgramTest+0x30>
+        for (j = 0U; j < g_flashSize; j += 32U)
+    1612:	b38b      	cbz	r3, 1678 <FLASH_ProgramTest+0xf0>
+            printf("Program remain at 0x%x\r\n", g_flashAddr);
+    1614:	6821      	ldr	r1, [r4, #0]
+        for (j = 0U; j < g_flashSize; j += 32U)
+    1616:	f04f 0900 	mov.w	r9, #0
+    161a:	4d23      	ldr	r5, [pc, #140]	; (16a8 <FLASH_ProgramTest+0x120>)
+            printf("Program remain at 0x%x\r\n", g_flashAddr);
+    161c:	f8df 80a4 	ldr.w	r8, [pc, #164]	; 16c4 <FLASH_ProgramTest+0x13c>
+            for (i = j; i < j + 32U; i++)
+    1620:	3620      	adds	r6, #32
+    1622:	45b1      	cmp	r9, r6
+    1624:	d207      	bcs.n	1636 <FLASH_ProgramTest+0xae>
+    1626:	464b      	mov	r3, r9
+                g_flashBuffer[i % 32U] = i;
+    1628:	f003 001f 	and.w	r0, r3, #31
+            for (i = j; i < j + 32U; i++)
+    162c:	1c5a      	adds	r2, r3, #1
+                g_flashBuffer[i % 32U] = i;
+    162e:	542b      	strb	r3, [r5, r0]
+            for (i = j; i < j + 32U; i++)
+    1630:	b293      	uxth	r3, r2
+    1632:	42b3      	cmp	r3, r6
+    1634:	d3f8      	bcc.n	1628 <FLASH_ProgramTest+0xa0>
+            printf("Program remain at 0x%x\r\n", g_flashAddr);
+    1636:	4640      	mov	r0, r8
+    1638:	f7ff f970 	bl	91c <printf>
+            ret = EFLASH_PageProgram(g_flashAddr, (uint32_t *)g_flashBuffer, 8);
+    163c:	2208      	movs	r2, #8
+    163e:	4629      	mov	r1, r5
+    1640:	6820      	ldr	r0, [r4, #0]
+    1642:	f7ff fca9 	bl	f98 <EFLASH_PageProgram>
+            if (STATUS_SUCCESS != ret)
+    1646:	b9c8      	cbnz	r0, 167c <FLASH_ProgramTest+0xf4>
+        for (j = 0U; j < g_flashSize; j += 32U)
+    1648:	f109 0920 	add.w	r9, r9, #32
+            g_flashAddr += 32U;
+    164c:	6821      	ldr	r1, [r4, #0]
+        for (j = 0U; j < g_flashSize; j += 32U)
+    164e:	683b      	ldr	r3, [r7, #0]
+    1650:	fa1f f989 	uxth.w	r9, r9
+            g_flashAddr += 32U;
+    1654:	3120      	adds	r1, #32
+        for (j = 0U; j < g_flashSize; j += 32U)
+    1656:	4599      	cmp	r9, r3
+    1658:	464e      	mov	r6, r9
+            g_flashAddr += 32U;
+    165a:	6021      	str	r1, [r4, #0]
+        for (j = 0U; j < g_flashSize; j += 32U)
+    165c:	d3e0      	bcc.n	1620 <FLASH_ProgramTest+0x98>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH]Program task TEST_PASS\r\n"));
+    165e:	4813      	ldr	r0, [pc, #76]	; (16ac <FLASH_ProgramTest+0x124>)
+    1660:	f7ff f94e 	bl	900 <puts>
+    EFLASH_LockCtrl();
+    1664:	f7ff fc18 	bl	e98 <EFLASH_LockCtrl>
+    g_flashAddr = 0U;
+    1668:	2300      	movs	r3, #0
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]:Exit StartProgramTask\r\n"));
+    166a:	4811      	ldr	r0, [pc, #68]	; (16b0 <FLASH_ProgramTest+0x128>)
+    g_flashAddr = 0U;
+    166c:	6023      	str	r3, [r4, #0]
+    g_flashSize = 0U;
+    166e:	603b      	str	r3, [r7, #0]
+}
+    1670:	e8bd 43f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]:Exit StartProgramTask\r\n"));
+    1674:	f7ff b944 	b.w	900 <puts>
+    if (STATUS_SUCCESS != ret)
+    1678:	2800      	cmp	r0, #0
+    167a:	d0f0      	beq.n	165e <FLASH_ProgramTest+0xd6>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]Program task TEST_FAIL in address: 0x%x, state: 0x%x, ret=%d\r\n",
+    167c:	4a0d      	ldr	r2, [pc, #52]	; (16b4 <FLASH_ProgramTest+0x12c>)
+    167e:	4603      	mov	r3, r0
+    1680:	6821      	ldr	r1, [r4, #0]
+    1682:	68d2      	ldr	r2, [r2, #12]
+    1684:	480c      	ldr	r0, [pc, #48]	; (16b8 <FLASH_ProgramTest+0x130>)
+    1686:	f7ff f949 	bl	91c <printf>
+    168a:	e7eb      	b.n	1664 <FLASH_ProgramTest+0xdc>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]CLI parameter not 8-align,TEST_FAIL\r\n"));
+    168c:	480b      	ldr	r0, [pc, #44]	; (16bc <FLASH_ProgramTest+0x134>)
+}
+    168e:	e8bd 43f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]CLI parameter not 8-align,TEST_FAIL\r\n"));
+    1692:	f7ff b935 	b.w	900 <puts>
+        for (j = 0U; j < g_flashSize; j += 32U)
+    1696:	4c02      	ldr	r4, [pc, #8]	; (16a0 <FLASH_ProgramTest+0x118>)
+    1698:	2b00      	cmp	r3, #0
+    169a:	d1bb      	bne.n	1614 <FLASH_ProgramTest+0x8c>
+    169c:	e7df      	b.n	165e <FLASH_ProgramTest+0xd6>
+    169e:	bf00      	nop
+    16a0:	00002e70 	.word	0x00002e70
+    16a4:	00002e94 	.word	0x00002e94
+    16a8:	00002e74 	.word	0x00002e74
+    16ac:	00002414 	.word	0x00002414
+    16b0:	00002434 	.word	0x00002434
+    16b4:	40002000 	.word	0x40002000
+    16b8:	000023c8 	.word	0x000023c8
+    16bc:	00002364 	.word	0x00002364
+    16c0:	00002398 	.word	0x00002398
+    16c4:	000023ac 	.word	0x000023ac
+
+000016c8 <FLASH_EraseTask>:
+{
+    16c8:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    (void)Str2Hex(argv[0], &g_flashAddr);
+    16ca:	4d1e      	ldr	r5, [pc, #120]	; (1744 <FLASH_EraseTask+0x7c>)
+{
+    16cc:	4614      	mov	r4, r2
+    (void)Str2Hex(argv[0], &g_flashAddr);
+    16ce:	6810      	ldr	r0, [r2, #0]
+    16d0:	4629      	mov	r1, r5
+    g_flashSize = atoi(argv[1]);/* erase page amount */
+    16d2:	4e1d      	ldr	r6, [pc, #116]	; (1748 <FLASH_EraseTask+0x80>)
+    (void)Str2Hex(argv[0], &g_flashAddr);
+    16d4:	f7ff feea 	bl	14ac <Str2Hex.isra.0>
+    g_flashSize = atoi(argv[1]);/* erase page amount */
+    16d8:	6860      	ldr	r0, [r4, #4]
+    16da:	f7fe fcf9 	bl	d0 <atoi>
+    if (g_flashAddr % 8)
+    16de:	682c      	ldr	r4, [r5, #0]
+    g_flashSize = atoi(argv[1]);/* erase page amount */
+    16e0:	6030      	str	r0, [r6, #0]
+    if (g_flashAddr % 8)
+    16e2:	f014 0407 	ands.w	r4, r4, #7
+    16e6:	d124      	bne.n	1732 <FLASH_EraseTask+0x6a>
+    (void)EFLASH_UnlockCtrl();
+    16e8:	f7ff fbac 	bl	e44 <EFLASH_UnlockCtrl>
+    for (i = 0U; i < g_flashSize; i++)
+    16ec:	6833      	ldr	r3, [r6, #0]
+    16ee:	b923      	cbnz	r3, 16fa <FLASH_EraseTask+0x32>
+    16f0:	e024      	b.n	173c <FLASH_EraseTask+0x74>
+    16f2:	3401      	adds	r4, #1
+    16f4:	6833      	ldr	r3, [r6, #0]
+    16f6:	429c      	cmp	r4, r3
+    16f8:	d220      	bcs.n	173c <FLASH_EraseTask+0x74>
+        ret = EFLASH_PageErase(g_flashAddr + i * DFLASH_PAGE_SIZE);
+    16fa:	6828      	ldr	r0, [r5, #0]
+    16fc:	02e7      	lsls	r7, r4, #11
+    16fe:	eb00 20c4 	add.w	r0, r0, r4, lsl #11
+    1702:	f7ff fc0f 	bl	f24 <EFLASH_PageErase>
+        if (STATUS_SUCCESS != ret)
+    1706:	2800      	cmp	r0, #0
+    1708:	d0f3      	beq.n	16f2 <FLASH_EraseTask+0x2a>
+    if (i < g_flashSize)
+    170a:	6833      	ldr	r3, [r6, #0]
+    170c:	42a3      	cmp	r3, r4
+    170e:	d915      	bls.n	173c <FLASH_EraseTask+0x74>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]Erase task TEST_FAIL in address: \
+    1710:	4b0e      	ldr	r3, [pc, #56]	; (174c <FLASH_EraseTask+0x84>)
+    1712:	6829      	ldr	r1, [r5, #0]
+    1714:	68da      	ldr	r2, [r3, #12]
+    1716:	4439      	add	r1, r7
+    1718:	480d      	ldr	r0, [pc, #52]	; (1750 <FLASH_EraseTask+0x88>)
+    171a:	f7ff f8ff 	bl	91c <printf>
+    EFLASH_LockCtrl();
+    171e:	f7ff fbbb 	bl	e98 <EFLASH_LockCtrl>
+    g_flashAddr = 0U;
+    1722:	2300      	movs	r3, #0
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]:Exit StartEraseTask\r\n"));
+    1724:	480b      	ldr	r0, [pc, #44]	; (1754 <FLASH_EraseTask+0x8c>)
+    g_flashAddr = 0U;
+    1726:	602b      	str	r3, [r5, #0]
+    g_flashSize = 0U;
+    1728:	6033      	str	r3, [r6, #0]
+}
+    172a:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]:Exit StartEraseTask\r\n"));
+    172e:	f7ff b8e7 	b.w	900 <puts>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]CLI parameter not 4-align,TEST_FAIL\r\n"));
+    1732:	4809      	ldr	r0, [pc, #36]	; (1758 <FLASH_EraseTask+0x90>)
+}
+    1734:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]CLI parameter not 4-align,TEST_FAIL\r\n"));
+    1738:	f7ff b8e2 	b.w	900 <puts>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH]Erase task TEST_PASS\r\n"));
+    173c:	4807      	ldr	r0, [pc, #28]	; (175c <FLASH_EraseTask+0x94>)
+    173e:	f7ff f8df 	bl	900 <puts>
+    1742:	e7ec      	b.n	171e <FLASH_EraseTask+0x56>
+    1744:	00002e70 	.word	0x00002e70
+    1748:	00002e94 	.word	0x00002e94
+    174c:	40002000 	.word	0x40002000
+    1750:	00002488 	.word	0x00002488
+    1754:	000024f0 	.word	0x000024f0
+    1758:	00002454 	.word	0x00002454
+    175c:	00002510 	.word	0x00002510
+
+00001760 <FLASH_ReadTest>:
+{
+    1760:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    g_flashSize = 64U;
+    1764:	2340      	movs	r3, #64	; 0x40
+{
+    1766:	4614      	mov	r4, r2
+    g_flashSize = 64U;
+    1768:	4e32      	ldr	r6, [pc, #200]	; (1834 <FLASH_ReadTest+0xd4>)
+    (void)Str2Hex(argv[0], &g_flashAddr);
+    176a:	6810      	ldr	r0, [r2, #0]
+    176c:	4932      	ldr	r1, [pc, #200]	; (1838 <FLASH_ReadTest+0xd8>)
+    g_flashSize = 64U;
+    176e:	6033      	str	r3, [r6, #0]
+    (void)Str2Hex(argv[0], &g_flashAddr);
+    1770:	f7ff fe9c 	bl	14ac <Str2Hex.isra.0>
+    if ((uint32_t)atoi(argv[1]) > 0U)
+    1774:	6860      	ldr	r0, [r4, #4]
+    1776:	f7fe fcab 	bl	d0 <atoi>
+    177a:	2800      	cmp	r0, #0
+    177c:	d154      	bne.n	1828 <FLASH_ReadTest+0xc8>
+            || ((g_flashAddr >= PFLASH_BASE_ADDRESS)     &&  (g_flashAddr < DFLASH_END_ADDRESS)) \
+    177e:	4f2e      	ldr	r7, [pc, #184]	; (1838 <FLASH_ReadTest+0xd8>)
+    1780:	6839      	ldr	r1, [r7, #0]
+    1782:	f1a1 6302 	sub.w	r3, r1, #136314880	; 0x8200000
+    if (   ((g_flashAddr >= OPTION_BASE)  &&  (g_flashAddr < OPTION_END)) \
+    1786:	f5b3 5f00 	cmp.w	r3, #8192	; 0x2000
+    178a:	d309      	bcc.n	17a0 <FLASH_ReadTest+0x40>
+            || ((g_flashAddr >= PFLASH_BASE_ADDRESS)     &&  (g_flashAddr < DFLASH_END_ADDRESS)) \
+    178c:	f101 4378 	add.w	r3, r1, #4160749568	; 0xf8000000
+    if (   ((g_flashAddr >= OPTION_BASE)  &&  (g_flashAddr < OPTION_END)) \
+    1790:	f5b3 1f90 	cmp.w	r3, #1179648	; 0x120000
+    1794:	d304      	bcc.n	17a0 <FLASH_ReadTest+0x40>
+            || ((g_flashAddr >= SRAM_START_ADDRESS)      &&  (g_flashAddr < SRAM_END_ADDRESS)) \
+    1796:	f101 4360 	add.w	r3, r1, #3758096384	; 0xe0000000
+    179a:	f5b3 3f80 	cmp.w	r3, #65536	; 0x10000
+    179e:	d239      	bcs.n	1814 <FLASH_ReadTest+0xb4>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH]address:0x%x, length:0x%x\r\n", g_flashAddr, g_flashSize));
+    17a0:	6832      	ldr	r2, [r6, #0]
+    17a2:	4826      	ldr	r0, [pc, #152]	; (183c <FLASH_ReadTest+0xdc>)
+    17a4:	f7ff f8ba 	bl	91c <printf>
+    for (i = 0U; i < g_flashSize;)
+    17a8:	6833      	ldr	r3, [r6, #0]
+    17aa:	b35b      	cbz	r3, 1804 <FLASH_ReadTest+0xa4>
+    17ac:	2400      	movs	r4, #0
+    17ae:	4d24      	ldr	r5, [pc, #144]	; (1840 <FLASH_ReadTest+0xe0>)
+            DEBUGMSG(DEBUG_ZONE_INFO, ("0x%02x  ", *(uint8_t *)(g_flashAddr + i)));
+    17b0:	f8df 809c 	ldr.w	r8, [pc, #156]	; 1850 <FLASH_ReadTest+0xf0>
+            DEBUGMSG(DEBUG_ZONE_INFO, ("0x%08x  ", *(uint32_t *)(g_flashAddr + i)));
+    17b4:	f8df 909c 	ldr.w	r9, [pc, #156]	; 1854 <FLASH_ReadTest+0xf4>
+            DEBUGMSG(DEBUG_ZONE_ERROR, ("\r\n"));
+    17b8:	f8df a09c 	ldr.w	sl, [pc, #156]	; 1858 <FLASH_ReadTest+0xf8>
+    17bc:	e011      	b.n	17e2 <FLASH_ReadTest+0x82>
+            DEBUGMSG(DEBUG_ZONE_INFO, ("0x%02x  ", *(uint8_t *)(g_flashAddr + i)));
+    17be:	5d19      	ldrb	r1, [r3, r4]
+            i += 1U;
+    17c0:	3401      	adds	r4, #1
+            DEBUGMSG(DEBUG_ZONE_INFO, ("0x%02x  ", *(uint8_t *)(g_flashAddr + i)));
+    17c2:	f7ff f8ab 	bl	91c <printf>
+        if (!(i % (16U / (2U - g_flashLogPrintFormat))))
+    17c6:	782a      	ldrb	r2, [r5, #0]
+    17c8:	2310      	movs	r3, #16
+    17ca:	f1c2 0202 	rsb	r2, r2, #2
+    17ce:	fbb3 f3f2 	udiv	r3, r3, r2
+    17d2:	fbb4 f2f3 	udiv	r2, r4, r3
+    17d6:	fb03 4312 	mls	r3, r3, r2, r4
+    17da:	b16b      	cbz	r3, 17f8 <FLASH_ReadTest+0x98>
+    for (i = 0U; i < g_flashSize;)
+    17dc:	6833      	ldr	r3, [r6, #0]
+    17de:	429c      	cmp	r4, r3
+    17e0:	d210      	bcs.n	1804 <FLASH_ReadTest+0xa4>
+        if (1U == g_flashLogPrintFormat)
+    17e2:	782b      	ldrb	r3, [r5, #0]
+            DEBUGMSG(DEBUG_ZONE_INFO, ("0x%02x  ", *(uint8_t *)(g_flashAddr + i)));
+    17e4:	4640      	mov	r0, r8
+        if (1U == g_flashLogPrintFormat)
+    17e6:	2b01      	cmp	r3, #1
+            DEBUGMSG(DEBUG_ZONE_INFO, ("0x%08x  ", *(uint32_t *)(g_flashAddr + i)));
+    17e8:	683b      	ldr	r3, [r7, #0]
+        if (1U == g_flashLogPrintFormat)
+    17ea:	d1e8      	bne.n	17be <FLASH_ReadTest+0x5e>
+            DEBUGMSG(DEBUG_ZONE_INFO, ("0x%08x  ", *(uint32_t *)(g_flashAddr + i)));
+    17ec:	5919      	ldr	r1, [r3, r4]
+    17ee:	4648      	mov	r0, r9
+            i += 4U;
+    17f0:	3404      	adds	r4, #4
+            DEBUGMSG(DEBUG_ZONE_INFO, ("0x%08x  ", *(uint32_t *)(g_flashAddr + i)));
+    17f2:	f7ff f893 	bl	91c <printf>
+            i += 4U;
+    17f6:	e7e6      	b.n	17c6 <FLASH_ReadTest+0x66>
+            DEBUGMSG(DEBUG_ZONE_ERROR, ("\r\n"));
+    17f8:	4650      	mov	r0, sl
+    17fa:	f7ff f881 	bl	900 <puts>
+    for (i = 0U; i < g_flashSize;)
+    17fe:	6833      	ldr	r3, [r6, #0]
+    1800:	429c      	cmp	r4, r3
+    1802:	d3ee      	bcc.n	17e2 <FLASH_ReadTest+0x82>
+    DEBUGMSG(DEBUG_ZONE_INFO, ("\r\n[FLASH]Read task TEST_PASS\r\n"));
+    1804:	480f      	ldr	r0, [pc, #60]	; (1844 <FLASH_ReadTest+0xe4>)
+    1806:	f7ff f87b 	bl	900 <puts>
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]:Exit StartReadTask\r\n"));
+    180a:	480f      	ldr	r0, [pc, #60]	; (1848 <FLASH_ReadTest+0xe8>)
+}
+    180c:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    DEBUGMSG(DEBUG_ZONE_INFO, ("[FLASH]:Exit StartReadTask\r\n"));
+    1810:	f7ff b876 	b.w	900 <puts>
+            || ((g_flashAddr >= REGISTER_START_ADDRESS)  &&  (g_flashAddr < 0x60000000U))
+    1814:	f101 4340 	add.w	r3, r1, #3221225472	; 0xc0000000
+    1818:	f1b3 5f00 	cmp.w	r3, #536870912	; 0x20000000
+    181c:	d3c0      	bcc.n	17a0 <FLASH_ReadTest+0x40>
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]Cli address parameters error,TEST_FAIL\r\n\r\n"));
+    181e:	480b      	ldr	r0, [pc, #44]	; (184c <FLASH_ReadTest+0xec>)
+}
+    1820:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+        DEBUGMSG(DEBUG_ZONE_ERROR, ("[FLASH][Err]Cli address parameters error,TEST_FAIL\r\n\r\n"));
+    1824:	f7ff b86c 	b.w	900 <puts>
+        g_flashSize = atoi(argv[1]);
+    1828:	6860      	ldr	r0, [r4, #4]
+    182a:	f7fe fc51 	bl	d0 <atoi>
+    182e:	6030      	str	r0, [r6, #0]
+    1830:	e7a5      	b.n	177e <FLASH_ReadTest+0x1e>
+    1832:	bf00      	nop
+    1834:	00002e94 	.word	0x00002e94
+    1838:	00002e70 	.word	0x00002e70
+    183c:	00002530 	.word	0x00002530
+    1840:	00002cac 	.word	0x00002cac
+    1844:	0000256c 	.word	0x0000256c
+    1848:	0000258c 	.word	0x0000258c
+    184c:	000025a8 	.word	0x000025a8
+    1850:	00002560 	.word	0x00002560
+    1854:	00002554 	.word	0x00002554
+    1858:	000025dc 	.word	0x000025dc
+
+0000185c <main>:
+    },
+#endif
+};
+
+int main(void)
+{
+    185c:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    1860:	4e1f      	ldr	r6, [pc, #124]	; (18e0 <main+0x84>)
+    unsigned int i, j;
+    const EMUL_MENUITEM *item;
+    struct test_env *p_env;
+
+    printf("=====================================\r\n");
+    1862:	4820      	ldr	r0, [pc, #128]	; (18e4 <main+0x88>)
+    1864:	f7ff f84c 	bl	900 <puts>
+    DEBUGMSG(DEBUG_ZONE_INFO, ("AC780x Eflash Driver Test Starting...\r\n"));
+    1868:	f106 08a0 	add.w	r8, r6, #160	; 0xa0
+    186c:	481e      	ldr	r0, [pc, #120]	; (18e8 <main+0x8c>)
+        for (i = 0; g_eflashTestMenu[i].name != 0; i++)
+        {
+            item = &g_eflashTestMenu[i];
+            if (strcmp(p_env->argv[1], item->name) == 0)
+            {
+                printf("Eflash test:%s start with param:%s.\n", item->name, p_env->argv[2]);
+    186e:	f8df a084 	ldr.w	sl, [pc, #132]	; 18f4 <main+0x98>
+    DEBUGMSG(DEBUG_ZONE_INFO, ("AC780x Eflash Driver Test Starting...\r\n"));
+    1872:	f7ff f845 	bl	900 <puts>
+                item->handler(item->param, p_env->argc - 2, &p_env->argv[2]);
+                printf("finished: %s\n", p_env->argv[1]);
+    1876:	f8df 9080 	ldr.w	r9, [pc, #128]	; 18f8 <main+0x9c>
+    DEBUGMSG(DEBUG_ZONE_INFO, ("=====================================\r\n"));
+    187a:	481a      	ldr	r0, [pc, #104]	; (18e4 <main+0x88>)
+    187c:	f7ff f840 	bl	900 <puts>
+            if (strcmp(p_env->argv[1], item->name) == 0)
+    1880:	f856 5c04 	ldr.w	r5, [r6, #-4]
+        for (i = 0; g_eflashTestMenu[i].name != 0; i++)
+    1884:	f04f 0b00 	mov.w	fp, #0
+    1888:	4f18      	ldr	r7, [pc, #96]	; (18ec <main+0x90>)
+    188a:	4c19      	ldr	r4, [pc, #100]	; (18f0 <main+0x94>)
+    188c:	e004      	b.n	1898 <main+0x3c>
+    188e:	f857 4f14 	ldr.w	r4, [r7, #20]!
+    1892:	f10b 0b01 	add.w	fp, fp, #1
+    1896:	b1dc      	cbz	r4, 18d0 <main+0x74>
+            if (strcmp(p_env->argv[1], item->name) == 0)
+    1898:	4621      	mov	r1, r4
+    189a:	4628      	mov	r0, r5
+    189c:	f7fe fcb4 	bl	208 <strcmp>
+    18a0:	2800      	cmp	r0, #0
+    18a2:	d1f4      	bne.n	188e <main+0x32>
+                printf("Eflash test:%s start with param:%s.\n", item->name, p_env->argv[2]);
+    18a4:	4621      	mov	r1, r4
+    18a6:	6832      	ldr	r2, [r6, #0]
+    18a8:	4650      	mov	r0, sl
+    18aa:	f7ff f837 	bl	91c <printf>
+                item->handler(item->param, p_env->argc - 2, &p_env->argv[2]);
+    18ae:	4a0f      	ldr	r2, [pc, #60]	; (18ec <main+0x90>)
+    18b0:	eb0b 038b 	add.w	r3, fp, fp, lsl #2
+    18b4:	f856 1c10 	ldr.w	r1, [r6, #-16]
+    18b8:	eb02 0383 	add.w	r3, r2, r3, lsl #2
+    18bc:	3902      	subs	r1, #2
+    18be:	4632      	mov	r2, r6
+    18c0:	e9d3 4003 	ldrd	r4, r0, [r3, #12]
+    18c4:	47a0      	blx	r4
+                printf("finished: %s\n", p_env->argv[1]);
+    18c6:	f856 1c04 	ldr.w	r1, [r6, #-4]
+    18ca:	4648      	mov	r0, r9
+    18cc:	f7ff f826 	bl	91c <printf>
+    for (j = 0; j < TEST_PARAMS; j++)
+    18d0:	3628      	adds	r6, #40	; 0x28
+    18d2:	4546      	cmp	r6, r8
+    18d4:	d1d4      	bne.n	1880 <main+0x24>
+                break;
+            }
+        }
+    }
+
+    UNICORN_STOP();
+    18d6:	be00      	bkpt	0x0000
+    return 0;
+}
+    18d8:	2000      	movs	r0, #0
+    18da:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    18de:	bf00      	nop
+    18e0:	00002cc0 	.word	0x00002cc0
+    18e4:	000025e4 	.word	0x000025e4
+    18e8:	0000260c 	.word	0x0000260c
+    18ec:	000027c8 	.word	0x000027c8
+    18f0:	000025e0 	.word	0x000025e0
+    18f4:	00002634 	.word	0x00002634
+    18f8:	0000265c 	.word	0x0000265c
+
+000018fc <register_fini>:
+    18fc:	4b02      	ldr	r3, [pc, #8]	; (1908 <register_fini+0xc>)
+    18fe:	b113      	cbz	r3, 1906 <register_fini+0xa>
+    1900:	4802      	ldr	r0, [pc, #8]	; (190c <register_fini+0x10>)
+    1902:	f7fe bbdf 	b.w	c4 <atexit>
+    1906:	4770      	bx	lr
+    1908:	00000000 	.word	0x00000000
+    190c:	000000e1 	.word	0x000000e1
+
+00001910 <_init>:
+    1910:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    1912:	bf00      	nop
+    1914:	bcf8      	pop	{r3, r4, r5, r6, r7}
+    1916:	bc08      	pop	{r3}
+    1918:	469e      	mov	lr, r3
+    191a:	4770      	bx	lr
+
+0000191c <_fini>:
+    191c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    191e:	bf00      	nop
+    1920:	bcf8      	pop	{r3, r4, r5, r6, r7}
+    1922:	bc08      	pop	{r3}
+    1924:	469e      	mov	lr, r3
+    1926:	4770      	bx	lr

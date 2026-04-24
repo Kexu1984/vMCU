@@ -1,0 +1,73 @@
+Compiling: driver/ac780x_timer.c
+gcc -Wall -Wextra -std=c99 -O2 -g -Ihal -Idriver -I. -I../../ -c driver/ac780x_timer.c -o driver/ac780x_timer.o
+In file included from hal/ac780x_timer_reg.h:49,
+                 from driver/ac780x_timer.c:42:
+driver/ac780x_timer.c: In function ‘TIMER_Init’:
+driver/ac780x_timer.h:55:55: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   55 | #define TIMER_CHANNEL_INDEX(TIMERCHx)    ((uint8_t)((((uint32_t)&(TIMERCHx)->LDVAL) - TIMER_CHANNEL0_BASE) >> 4U))
+      |                                                       ^
+driver/ac780x_timer.c:75:16: note: in expansion of macro ‘TIMER_CHANNEL_INDEX’
+   75 |     instance = TIMER_CHANNEL_INDEX(TIMERCHx);
+      |                ^~~~~~~~~~~~~~~~~~~
+driver/ac780x_timer.c:77:5: warning: implicit declaration of function ‘DEVICE_ASSERT’ [-Wimplicit-function-declaration]
+   77 |     DEVICE_ASSERT(TIMER_CHANNEL_MAX > instance);
+      |     ^~~~~~~~~~~~~
+driver/ac780x_timer.c:102:9: warning: implicit declaration of function ‘NVIC_EnableIRQ’ [-Wimplicit-function-declaration]
+  102 |         NVIC_EnableIRQ(TIMER_CHANNEL_IRQn);
+      |         ^~~~~~~~~~~~~~
+driver/ac780x_timer.c:106:9: warning: implicit declaration of function ‘NVIC_DisableIRQ’ [-Wimplicit-function-declaration]
+  106 |         NVIC_DisableIRQ(TIMER_CHANNEL_IRQn);
+      |         ^~~~~~~~~~~~~~~
+driver/ac780x_timer.c: In function ‘TIMER_DeInit’:
+driver/ac780x_timer.c:136:5: warning: implicit declaration of function ‘register_interrupt_handler’ [-Wimplicit-function-declaration]
+  136 |     register_interrupt_handler(TIMER_CHANNEL_IRQn, NULL);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from hal/ac780x_timer_reg.h:49,
+                 from driver/ac780x_timer.c:42:
+driver/ac780x_timer.c: In function ‘TIMER_DeInitChannel’:
+driver/ac780x_timer.h:55:55: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   55 | #define TIMER_CHANNEL_INDEX(TIMERCHx)    ((uint8_t)((((uint32_t)&(TIMERCHx)->LDVAL) - TIMER_CHANNEL0_BASE) >> 4U))
+      |                                                       ^
+driver/ac780x_timer.c:156:16: note: in expansion of macro ‘TIMER_CHANNEL_INDEX’
+  156 |     instance = TIMER_CHANNEL_INDEX(TIMERCHx);
+      |                ^~~~~~~~~~~~~~~~~~~
+driver/ac780x_timer.c:161:5: warning: implicit declaration of function ‘NVIC_ClearPendingIRQ’ [-Wimplicit-function-declaration]
+  161 |     NVIC_ClearPendingIRQ(TIMER_CHANNEL_IRQn);
+      |     ^~~~~~~~~~~~~~~~~~~~
+In file included from hal/ac780x_timer_reg.h:49,
+                 from driver/ac780x_timer.c:42:
+driver/ac780x_timer.c: In function ‘TIMER_SetCallback’:
+driver/ac780x_timer.h:55:55: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   55 | #define TIMER_CHANNEL_INDEX(TIMERCHx)    ((uint8_t)((((uint32_t)&(TIMERCHx)->LDVAL) - TIMER_CHANNEL0_BASE) >> 4U))
+      |                                                       ^
+driver/ac780x_timer.c:183:16: note: in expansion of macro ‘TIMER_CHANNEL_INDEX’
+  183 |     instance = TIMER_CHANNEL_INDEX(TIMERCHx);
+      |                ^~~~~~~~~~~~~~~~~~~
+Creating TIMER Driver library: libac780x_timer.a
+ar rcs libac780x_timer.a driver/ac780x_timer.o
+Compiling: hal/ac780x_timer_hal.c
+gcc -Wall -Wextra -std=c99 -O2 -g -Ihal -Idriver -I. -I../../ -c hal/ac780x_timer_hal.c -o hal/ac780x_timer_hal.o
+hal/ac780x_timer_hal.c: In function ‘TIMER_HAL_ReadReg’:
+hal/ac780x_timer_hal.c:94:12: warning: implicit declaration of function ‘RegReadEx’ [-Wimplicit-function-declaration]
+   94 |     return RegReadEx(address);
+      |            ^~~~~~~~~
+hal/ac780x_timer_hal.c: In function ‘TIMER_HAL_WriteReg’:
+hal/ac780x_timer_hal.c:112:5: warning: implicit declaration of function ‘RegWriteEx’ [-Wimplicit-function-declaration]
+  112 |     RegWriteEx(address, value);
+      |     ^~~~~~~~~~
+Creating TIMER HAL library: libac780x_timer_hal.a
+ar rcs libac780x_timer_hal.a hal/ac780x_timer_hal.o
+Linking test executable: ac780x_timer_test
+gcc -Wall -Wextra -std=c99 -O2 -g -Ihal -Idriver -I. -I../../ -o ac780x_timer_test test/timer_test_wrapper.o libac780x_timer.a libac780x_timer_hal.a libdrvintf.a 
+/usr/bin/ld: test/timer_test_wrapper.o: in function `main':
+/mnt/e/AI Issues/DeviceModel_v1.1/DeviceModel_V1.1/timer/output/c_driver/test/timer_test_wrapper.c:204: undefined reference to `timer_multitask_test_main'
+/usr/bin/ld: libac780x_timer_hal.a(ac780x_timer_hal.o): in function `TIMER_HAL_ModifyReg':
+/mnt/e/AI Issues/DeviceModel_v1.1/DeviceModel_V1.1/timer/output/c_driver/hal/ac780x_timer_hal.c:132: undefined reference to `RegReadEx'
+/usr/bin/ld: libac780x_timer_hal.a(ac780x_timer_hal.o): in function `TIMER_HAL_ReadReg':
+/mnt/e/AI Issues/DeviceModel_v1.1/DeviceModel_V1.1/timer/output/c_driver/hal/ac780x_timer_hal.c:94: undefined reference to `RegReadEx'
+/usr/bin/ld: libac780x_timer_hal.a(ac780x_timer_hal.o): in function `TIMER_HAL_WriteReg':
+/mnt/e/AI Issues/DeviceModel_v1.1/DeviceModel_V1.1/timer/output/c_driver/hal/ac780x_timer_hal.c:112: undefined reference to `RegWriteEx'
+/usr/bin/ld: libac780x_timer_hal.a(ac780x_timer_hal.o): in function `TIMER_HAL_ModifyReg':
+/mnt/e/AI Issues/DeviceModel_v1.1/DeviceModel_V1.1/timer/output/c_driver/hal/ac780x_timer_hal.c:134: undefined reference to `RegWriteEx'
+collect2: error: ld returned 1 exit status
+make: *** [Makefile:90: ac780x_timer_test] Error 1

@@ -1,0 +1,23 @@
+# Build artifacts
+build/
+*.o
+*.a
+dmav2_test
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Debug files
+*.gdb
+core
+
+# Documentation
+docs/
+html/
+latex/
+
+# Temporary files
+*.tmp
+*.bak

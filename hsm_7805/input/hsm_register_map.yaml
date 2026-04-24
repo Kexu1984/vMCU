@@ -1,0 +1,416 @@
+registers:
+- name: UID0
+  address: '0x000'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: UID0
+    access: RO
+    description: UID[127:96], value read from OTP, can't be changed
+- name: UID1
+  address: '0x004'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: UID1
+    access: RO
+    description: UID[95:64], value read from OTP, can't be changed
+- name: UID2
+  address: '0x008'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: UID2
+    access: RO
+    description: UID[63:32], value read from OTP, can't be changed
+- name: UID3
+  address: '0x00C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: UID3
+    access: RO
+    description: UID[31:0], value read from OTP, can't be changed
+- name: CMD
+  address: '0x010'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '30:28'
+    name: cipher mode
+    access: RW
+    description: '3''b000: ecb mode
+
+      3''b001: cbc mode
+
+      3''b010: cmac mode
+
+      3''b011: authentication mode
+
+      3''b1xx: random generate mode'
+  - bit_range: '27'
+    name: decrypt_en
+    access: RW
+    description: '1: decrypt, 0: encrypt, only valid in ecb mode and cbc mode'
+  - bit_range: '26:22'
+    name: key_idx
+    access: RW
+    description: Key index, valid from 0~17
+  - bit_range: '18:0'
+    name: txt_len
+    access: RW
+    description: Content length, unit is byte.
+      When CIPMODE == CMAC, the length should align with 1byte;
+      When CIPMODE == RANDOM, the length should align with 4bytes;
+      When CIPMODE == Others, the length should align with 16bytes;
+- name: CST
+  address: '0x14'
+  default: '0x0001_0000'
+  fields:
+  - bit_range: '16'
+    name: unlock
+    access: RO
+    description: '1''b0: hsm is busy, we can not set new command;
+      1''b1: hsm is idle, we can setup new command;'
+  - bit_range: '0'
+    name: start
+    access: RW
+    description: '1''b1: set bit to 1 to notify hsm start process command;
+      This bit do not need to set to 0 by user, the HSM will automatically set to zero'
+- name: SYS_CTRL
+  address: '0x18'
+  default: '0x002D_0000'
+  fields:
+  - bit_range: '21'
+    name: TE
+    access: RO
+    description: '1''b1: the sending FIFO is not empty;1''b0: the sending FIFO is empty'
+  - bit_range: '20'
+    name: TF
+    access: RO
+    description: '1''b0: the sending FIFO is not full;1''b1: the sending FIFO is full,
+        when sending FIFO full, hsm will stop to process command until user read out the data'
+  - bit_range: '19'
+    name: RE
+    access: RO
+    description: '1''b1: the receiving FIFO is not empty;1''b0: the receiving FIFO is empty'
+  - bit_range: '18'
+    name: RF
+    access: RO
+    description: '1''b0: the receiving FIFO is not full;1''b1: the receiving FIFO is full,
+        when receiving FIFO full, hsm will stop to process command until user read out the data'
+  - bit_range: '17'
+    name: BSY
+    access: RO
+    description: '1''b0: hsm is idle; 1''b1: hsm is processing command'
+  - bit_range: '16'
+    name: IDLE
+    access: RO
+    description: '1''b0: hsm is not idle; 1''b1: hsm is busy status'
+  - bit_range: '1'
+    name: IRQEN
+    access: RW
+    description: '1''b0: HSM interrupt is not enable; 1''b1: HSM interrupt is enable'
+  - bit_range: '0'
+    name: DMAEN
+    access: RW
+    description: '1''b0: DMA is not processing hsm command; 1''b1: DMA is processing hsm command'
+- name: VRY_STAT
+  address: '0x1C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '3'
+    name: fw_vfy_pass
+    access: RO
+    description: '1''b1: firmware MAC verify pass; 1''b0: firmware MAC verify failed'
+  - bit_range: '2'
+    name: fw_vfy_done
+    access: Write 1 to clear
+    description: '1''b1: firmware MAC is verified finished; 1''b0: firmware MAC is not verified finished'
+  - bit_range: '1'
+    name: bl_vfy_pass
+    access: RO
+    description: '1''b1: bootloader MAC verify pass; 1''b0: bootloader MAC verify failed'
+  - bit_range: '0'
+    name: bl_vfy_done
+    access: Write 1 to clear
+    description: '1''b1: bootloader MAC is verified finished; 1''b0: bootloader MAC is not verified finished'
+- name: AUTH_STAT
+  address: '0x20'
+  default: '0x0008_0078'
+  fields:
+  - bit_range: '19'
+    name: debug_auth_pass
+    access: RO
+    description: '1''b0: debug auth failed; 1''b1: debug auth pass'
+  - bit_range: '18'
+    name: debug_auth_fail
+    access: RO
+    description: '1''b0: debug auth not timeout; 1''b1: debug auth failed by timeout'
+  - bit_range: '17'
+    name: debug_auth_finish
+    access: RO
+    description: '1''b0: debug auth not finished; 1''b1: debug auth finished'
+  - bit_range: '16'
+    name: auth_chan_verify
+    access: RO
+    description: '1''b0: challenge auth invalid; 1''b1: challenge auth valid'
+  - bit_range: '6'
+    name: chip_lock_auth
+    access: RO
+    description: '1''b0: auth failed in lock stat; 1''b1: auth pass in lock stat'
+  - bit_range: '5'
+    name: install_key
+    access: RO
+    description: '1''b0: install auth-key failed; 1''b1: install auth-key pass'
+  - bit_range: '4'
+    name: read_key
+    access: RO
+    description: '1''b0: read auth-key failed; 1''b1: read auth-key pass'
+  - bit_range: '3'
+    name: install_fw_auth
+    access: RO
+    description: '1''b0: install auth of the firmware failed; 1''b1: install auth of the firmware pass'
+  - bit_range: '2'
+    name: IAT
+    access: RO
+    description: '1''b0: internall authentication not timeout; 1''b1: internall authentication timeout'
+  - bit_range: '1'
+    name: INTER_AUTH_DEBUG
+    access: RO
+    description: '1''b0: the hsm execute authentication failed; 1''b1: the hsm execute authentication pass'
+  - bit_range: '0'
+    name: AUTH_REG_V
+    access: RW
+    description: '1''b0: write to 1 to notify hsm that the response is setup ok'
+- name: CIPIN
+  address: '0x24'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: IN
+    access: RW
+    description: '32''b00000000: input message when request cipher operation'
+- name: CIPOUT
+  address: '0x28'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: OUT
+    access: RW
+    description: '32''b00000000: outputput message when request cipher operation'
+- name: IV0
+  address: '0x2C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: IV
+    access: RW
+    description: '32''b00000000: initial value of the AES mode'
+- name: IV1
+  address: '0x30'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: IV
+    access: RW
+    description: '32''b00000000: initial value of the AES mode'
+- name: IV2
+  address: '0x34'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: IV
+    access: RW
+    description: '32''b00000000: initial value of the AES mode'
+- name: IV3
+  address: '0x38'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: IV
+    access: RW
+    description: '32''b00000000: initial value of the AES mode'
+- name: RAM_KEY0
+  address: '0x3C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: ram_key
+    access: Write only and read all zero
+    description: '32''b00000000: used to store ram_key for hsm
+- name: RAM_KEY1
+  address: '0x40'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: ram_key
+    access: Write only and read all zero
+    description: '32''b00000000: used to store ram_key for hsm
+- name: RAM_KEY2
+  address: '0x44'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: ram_key
+    access: Write only and read all zero
+    description: '32''b00000000: used to store ram_key for hsm
+- name: RAM_KEY3
+  address: '0x48'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: ram_key
+    access: Write only and read all zero
+    description: '32''b00000000: used to store ram_key for hsm
+- name: CHA0
+  address: '0x4C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: challenge
+    access: RW
+    description: '32''b00000000: used to input the challenge value for CMAC verification
+- name: CHA1
+  address: '0x50'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: challenge
+    access: RW
+    description: '32''b00000000: used to input the challenge value for CMAC verification
+- name: CHA2
+  address: '0x54'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: challenge
+    access: RW
+    description: '32''b00000000: used to input the challenge value for CMAC verification
+- name: CHA3
+  address: '0x58'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: challenge
+    access: RW
+    description: '32''b00000000: used to input the challenge value for CMAC verification
+- name: RSP0
+  address: '0x5C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: response
+    access: RW
+    description: '32''b00000000: used to input the challenge value for authentication
+- name: RSP1
+  address: '0x60'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: response
+    access: RW
+    description: '32''b00000000: used to input the challenge value for authentication
+- name: RSP2
+  address: '0x64'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: response
+    access: RW
+    description: '32''b00000000: used to input the challenge value for authentication
+- name: RSP3
+  address: '0x68'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: response
+    access: RW
+    description: '32''b00000000: used to input the challenge value for authentication
+- name: MAC0
+  address: '0x6C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: response
+    access: RW
+    description: '32''b00000000: used to input the mac value for CMAC verification
+- name: MAC1
+  address: '0x70'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: response
+    access: RW
+    description: '32''b00000000: used to input the mac value for CMAC verification
+- name: MAC2
+  address: '0x74'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: response
+    access: RW
+    description: '32''b00000000: used to input the mac value for CMAC verification
+- name: MAC3
+  address: '0x78'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: response
+    access: RW
+    description: '32''b00000000: used to input the mac value for CMAC verification
+- name: STAT
+  address: '0x7C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '16'
+    name: clear
+    access: WO
+    description: 'write to 1 to clear global STAT register(reset to 0x0000_0000)'
+  - bit_range: '10'
+    name: err10
+    access: RO
+    description: '1''b1: if we set the length to zero when request random get service, than this bit will be set in HSM'
+  - bit_range: '9'
+    name: err9
+    access: RO
+    description: '1''b1: if we set the length not align with 4bytes when request random get service, than this bit will be set in HSM'
+  - bit_range: '8'
+    name: err8
+    access: RO
+    description: '1''b1: if the key specified by the input keyindex is not used for authentication when request authentication service,
+        than this bit will be set in HSM'
+  - bit_range: '7'
+    name: err7
+    access: RO
+    description: '1''b1: if the input keyindex > 18 when request CMAC service, than this bit will be set in HSM'
+  - bit_range: '6'
+    name: err6
+    access: RO
+    description: '1''b1: if the key specified by the input keyindex is not used for CMAC when request CMAC service,
+        than this bit will be set in HSM'
+  - bit_range: '5'
+    name: err5
+    access: RO
+    description: '1''b1: if the input keyindex > 18 when request ECB or CBC service, than this bit will be set in HSM'
+  - bit_range: '4'
+    name: err4
+    access: RO
+    description: '1''b1: if the key specified by the input keyindex is used for authentication when request ECB or CBC service,
+        than this bit will be set in HSM'
+  - bit_range: '3'
+    name: err3
+    access: RO
+    description: '1''b1: if the key specified by the input keyindex is used for CMAC when request ECB or CBC service,
+        than this bit will be set in HSM'
+  - bit_range: '2'
+    name: err2
+    access: RO
+    description: '1''b1: if the input length is set to 0 when request ECB or CBC service, than this bit will be set in HSM'
+  - bit_range: '1'
+    name: err1
+    access: RO
+    description: '1''b1: if the input length is not align to 16bytes when request ECB or CBC service, than this bit will be set in HSM'
+  - bit_range: '0'
+    name: err0
+    access: RO
+    description: '1''b1: Reserved'

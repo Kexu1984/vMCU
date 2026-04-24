@@ -1,0 +1,702 @@
+registers:
+- name: UID0
+  address: '0x000'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: UID0
+    access: RO
+    description: UID[127:96], value read from OTP, can't be changed
+- name: UID1
+  address: '0x004'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: UID1
+    access: RO
+    description: UID[95:64], value read from OTP, can't be changed
+- name: UID2
+  address: '0x008'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: UID2
+    access: RO
+    description: UID[63:32], value read from OTP, can't be changed
+- name: UID3
+  address: '0x00C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: UID3
+    access: RO
+    description: UID[31:0], value read from OTP, can't be changed
+- name: CMD
+  address: '0x010'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:28'
+    name: cipher mode
+    access: RW
+    description: '4''b0000: ecb mode
+
+      4''b0001: cbc mode
+
+      4''b0010: cfb8 mode
+
+      4''b0011: cfb128 mode
+
+      4''b0100: ofb mode
+
+      4''b0101: ctr mode
+
+      4''b0110: cmac mode
+
+      4''b0111: authentication mode
+
+      4''b1xxx: get random number mode'
+  - bit_range: '27'
+    name: decrypt_en
+    access: RW
+    description: '1: decrypt, 0: encrypt, only valid in ecb mode and cbc mode'
+  - bit_range: '26:22'
+    name: key_idx
+    access: RW
+    description: Key index, valid from 0~22
+  - bit_range: '20'
+    name: aes256_en
+    access: RW
+    description: '1''b1: enable aes-256'
+  - bit_range: '19:0'
+    name: txt_len
+    access: RW
+    description: Content length, unit is byte. ECB mode, CBC mode, CFB128 mode length
+      should align to 128bit (can't be zero). Get random data mode, length should
+      align to 32bit (can't be zero). CFB8 mode, OFB mode, CTR mode length can be
+      any value (can't be zero). CMAC mode length can be any value (can be zero).
+- name: CMD_VALID
+  address: '0x14'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '0'
+    name: cmd_valid
+    access: RO
+    description: '1''b1: a new command is ready, this bit should be written after
+      all of the command configuration has been done, this bit will be cleared when
+      the command is being executing automatically'
+- name: SYS_CTRL
+  address: '0x18'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '1'
+    name: irq_en
+    access: RW
+    description: '1''b1: enable interrupt'
+  - bit_range: '0'
+    name: dma_en
+    access: RW
+    description: '1''b1: enable dma'
+- name: SYS_STATUS
+  address: '0x1C'
+  default: '0x0000_00A6'
+  fields:
+  - bit_range: '8'
+    name: tx_fifo_empty
+    access: RO
+    description: '1''b1: TX fifo empty, CPU can read cipher result when TX fifo not
+      empty'
+  - bit_range: '7'
+    name: tx_fifo_full
+    access: RO
+    description: '1''b1: TX fifo full'
+  - bit_range: '6'
+    name: rx_fifo_empty
+    access: RO
+    description: '1''b1: RX fifo empty'
+  - bit_range: '5'
+    name: rx_fifo_full
+    access: RO
+    description: '1''b1: RX fifo full, CPU can write data into HSM RX fifo when RX
+      fifo not full'
+  - bit_range: '4'
+    name: cpu_cmd_on_going
+    access: RO
+    description: '1''b1: there is a CPU command being executed'
+  - bit_range: '3'
+    name: cmd_rg_unlock
+    access: RO
+    description: '1''b1: command register in un-lock state, can write new command
+      into HSM'
+  - bit_range: '2'
+    name: hsm_idle
+    access: RO
+    description: '1''b1: HSM in idle state'
+  - bit_range: '1:0'
+    name: hsm_cmd_done
+    access: R1C
+    description: '2''b11: command done without error
+
+      2''b01: command done with value
+
+      This bit will be cleared after read or a new command start'
+- name: VFY_STATUS
+  address: '0x20'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '1'
+    name: bl_vfy_pass
+    access: RO
+    description: '1''b1: bootloader verify pass'
+  - bit_range: '0'
+    name: bl_vfy_done
+    access: RO
+    description: '1''b1: bootloader verify done (key_index = 1 means verify bootloader
+      )'
+- name: VFY_STATUS_CLR
+  address: '0x24'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '0'
+    name: bl_vfy_clr
+    access: WO
+    description: clear bootloader verify done flag and passs flag
+- name: AUTH_CTRL
+  address: '0x28'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '0'
+    name: ext_auth_resp_valid
+    access: RO
+    description: when external authentication response has been written into HSM,
+      CPU/DEBUGGER should write this bit to indicate the response is valid. This bit
+      will be cleared when response is latched by HSM or a new command start
+- name: AUTH_STATUS
+  address: '0x2C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '16'
+    name: auth_challenge_valid
+    access: RO
+    description: '1''b1: authentication challenge is valid, CPU can read challenge
+      after this bit is been asserted'
+  - bit_range: '11'
+    name: debug_unlock_auth_pass
+    access: RO
+    description: '1''b1: debug port will be open if the debug port unlock mode is
+      authentication mode'
+  - bit_range: '10'
+    name: debug_unlock_auth_tmo_fail
+    access: RO
+    description: '1''b1: debug unlock authentication failed because of timeout'
+  - bit_range: '9'
+    name: debug_unlock_auth_done
+    access: RO
+    description: '1''b1: the debug unlock authentication is done'
+  - bit_range: '8'
+    name: swap_flag_unlock_auth_pass
+    access: RO
+    description: '1''b1: the programming/erase of swap flag area is open'
+  - bit_range: '7'
+    name: asym_key_up_unlock_auth_pass
+    access: RO
+    description: '1''b1: the programming/erase of asymmetric area is open'
+  - bit_range: '6'
+    name: sym_key_up_unlock_auth_pass
+    access: RO
+    description: '1''b1: the programming/erase of symmetric area is open'
+  - bit_range: '5'
+    name: sym_key_rd_unlock_auth_pass
+    access: RO
+    description: '1''b1: the read permission of symmetric key area is open'
+  - bit_range: '4'
+    name: s_fw_unlock_auth_pass
+    access: RO
+    description: '1''b1: the programming/erase permission of security FW area is open'
+  - bit_range: '3'
+    name: bl_unlock_auth_pass
+    access: RO
+    description: '1''b1: the programming/erase permission of bootloader area is open'
+  - bit_range: '2'
+    name: chip_status_unlock_auth_pass
+    access: RO
+    description: '1''b1: the programming permission of chip status area is open'
+  - bit_range: '1'
+    name: int_auth_tmo_fail
+    access: RO
+    description: '1''b1: internal authentication failed because of timeout'
+  - bit_range: '0'
+    name: int_auth_done
+    access: RO
+    description: '1''b1: internal authentication (all of the authentication except
+      debug unlock authentication) is done'
+- name: AUTH_STATUS_CLR
+  address: '0x30'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '8'
+    name: swap_flag_unlock_auth_pass_clr
+    access: RO
+    description: '1''b1: close the programming/erase of swap flag area'
+  - bit_range: '7'
+    name: asym_key_up_unlock_auth_pass_clr
+    access: RO
+    description: '1''b1: close the programming/erase of asymmetric area'
+  - bit_range: '6'
+    name: sym_key_up_unlock_auth_pass_clr
+    access: RO
+    description: '1''b1: close the programming/erase of symmetric area'
+  - bit_range: '5'
+    name: sym_key_rd_unlock_auth_pass_clr
+    access: RO
+    description: '1''b1: close the read permission of symmetric key area'
+  - bit_range: '4'
+    name: s_fw_unlock_auth_pass_clr
+    access: RO
+    description: '1''b1: close the programming/erase permission of security FW area'
+  - bit_range: '3'
+    name: bl_unlock_auth_pass_clr
+    access: RO
+    description: '1''b1: close the programming/erase permission of bootloader area'
+  - bit_range: '2'
+    name: chip_status_unlock_auth_pass_clr
+    access: RO
+    description: '1''b1: close the programming permission of chip status area'
+  - bit_range: '1'
+    name: int_auth_tmo_fail_clr
+    access: RO
+    description: '1''b1: clear internal authentication timeout failed flag'
+  - bit_range: '0'
+    name: int_auth_done_clr
+    access: RO
+    description: '1''b1: clear internal authentication (all of the authentication
+      except debug unlock authentication) done flag'
+- name: CIPHER_IN
+  address: '0x034'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: Cipher_in
+    access: WO
+    description: After command write into HSM, if rx fifo not full, cpu or DMA can
+      write source data into this register, then HSM will start encryption/decryption
+      or MAC calculation automatically
+- name: CIPHER_OUT
+  address: '0x038'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: Cipher_out
+    access: RO
+    description: If tx fifo not empty, cpu or DMA can read this register to get HSM
+      result
+- name: IV0
+  address: '0x03C'
+  default: '0x0000_0000'
+  fields: []
+- name: IV1
+  address: '0x040'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: IV1
+    access: RW
+    description: IV[95:64], if cipher mode is CBC/CFB8/CFB128/OFB, SW should write
+      IV into this register before trig cmd_valid, if cipher mode is CTR, SW should
+      write initial counter value into this register before trig cmd_valid
+- name: IV2
+  address: '0x044'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: IV2
+    access: RW
+    description: IV[63:32], if cipher mode is CBC/CFB8/CFB128/OFB, SW should write
+      IV into this register before trig cmd_valid, if cipher mode is CTR, SW should
+      write initial counter value into this register before trig cmd_valid
+- name: IV3
+  address: '0x048'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: IV3
+    access: RW
+    description: IV[31:0], if cipher mode is CBC/CFB8/CFB128/OFB, SW should write
+      IV into this register before trig cmd_valid, if cipher mode is CTR, SW should
+      write initial counter value into this register before trig cmd_valid
+- name: RAM_KEY0
+  address: '0x04C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: RAM_KEY0
+    access: RW
+    description: RAM_KEY[255:224], if key index is 22, SW should write ram key into
+      this register before trig cmd_valid
+- name: RAM_KEY1
+  address: '0x050'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: RAM_KEY1
+    access: RW
+    description: RAM_KEY[223:192], if key index is 22, SW should write ram key into
+      this register before trig cmd_valid
+- name: RAM_KEY2
+  address: '0x054'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: RAM_KEY2
+    access: RW
+    description: RAM_KEY[191:160], if key index is 22, SW should write ram key into
+      this register before trig cmd_valid
+- name: RAM_KEY3
+  address: '0x058'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: RAM_KEY3
+    access: RW
+    description: RAM_KEY[159:128], if key index is 22, the SW should write ram key
+      into this register before trig cmd_valid
+- name: RAM_KEY4
+  address: '0x05C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: RAM_KEY4
+    access: RW
+    description: RAM_KEY[127:96], if key index is 22, the SW should write ram key
+      into this register before trig cmd_valid, if aes256_en (CMD register bit20)
+      = 0, then RAM_KEY4 is not used.
+- name: RAM_KEY5
+  address: '0x060'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: RAM_KEY5
+    access: RW
+    description: RAM_KEY[95:64], if key index is 22, the SW should write ram key into
+      this register before trig cmd_valid, if aes256_en (CMD register bit20) = 0,
+      then RAM_KEY5 is not used.
+- name: RAM_KEY6
+  address: '0x064'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: RAM_KEY6
+    access: RW
+    description: RAM_KEY[63:32], if key index is 22, the SW should write ram key into
+      this register before trig cmd_valid, if aes256_en (CMD register bit20) = 0,
+      then RAM_KEY6 is not used.
+- name: RAM_KEY7
+  address: '0x068'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: RAM_KEY7
+    access: RW
+    description: RAM_KEY[31:0], if key index is 22, the SW should write ram key into
+      this register before trig cmd_valid, if aes256_en (CMD register bit20) = 0,
+      then RAM_KEY7 is not used.
+- name: AUTH_CAHLLENGE0
+  address: '0x06C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: auth_challenge0
+    access: RO
+    description: Authentication challenge[127:96], after auth_challenge_valid is asserted,
+      read this register to get authentication challenge
+- name: AUTH_CAHLLENGE1
+  address: '0x070'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: auth_challenge1
+    access: RO
+    description: Authentication challenge[95:64], after auth_challenge_valid is asserted,
+      read this register to get authentication challenge
+- name: AUTH_CAHLLENGE2
+  address: '0x074'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: auth_challenge2
+    access: RO
+    description: Authentication challenge[63:32], after auth_challenge_valid is asserted,
+      read this register to get authentication challenge
+- name: AUTH_CAHLLENGE3
+  address: '0x078'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: auth_challenge3
+    access: RO
+    description: Authentication challenge[31:0], after auth_challenge_valid is asserted,
+      read this register to get authentication challenge
+- name: AUTH_RESP0
+  address: '0x07C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: auth_resp0
+    access: RW
+    description: Authentication response[127:96], if cipher mode is auth_mode, SW
+      should write authentication response into this register before trig auth_resp_valid
+- name: AUTH_RESP1
+  address: '0x080'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: auth_resp1
+    access: RW
+    description: Authentication response[95:64], if cipher mode is auth_mode, SW should
+      write authentication response into this register before trig auth_resp_valid
+- name: AUTH_RESP2
+  address: '0x084'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: auth_resp2
+    access: RW
+    description: Authentication response[63:32], if cipher mode is auth_mode, SW should
+      write authentication response into this register before trig auth_resp_valid
+- name: AUTH_RESP3
+  address: '0x088'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: auth_resp3
+    access: RW
+    description: Authentication response[31:0], if cipher mode is auth_mode, SW should
+      write authentication response into this register before trig auth_resp_valid
+- name: GOLDEN_MAC0
+  address: '0x08C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: golden_mac0
+    access: RW
+    description: Golden MAC[127:96], if cipher mode is cmac_mode and key index is
+      1, then HSM will veify MAC automatically, SW should write golden MAC into this
+      register before trig cmd_valid
+- name: GOLDEN_MAC1
+  address: '0x090'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: golden_mac1
+    access: RW
+    description: Golden MAC[95:64], if cipher mode is cmac_mode and key index is 1,
+      then HSM will veify MAC automatically, SW should write golden MAC into this
+      register before trig cmd valid
+- name: GOLDEN_MAC2
+  address: '0x094'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: golden_mac2
+    access: RW
+    description: Golden MAC[63:32], if cipher mode is cmac_mode and key index is 1,
+      then HSM will veify MAC automatically, SW should write golden MAC into this
+      register before trig cmd valid
+- name: GOLDEN_MAC3
+  address: '0x098'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: golden_mac3
+    access: RW
+    description: Golden MAC[31:0], if cipher mode is cmac_mode and key index is 1,
+      then HSM will veify MAC automatically, SW should write golden MAC into this
+      register before trig cmd valid
+- name: KEK_AUTH_CODE0
+  address: '0x09C'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEK_AUTH_CODE0
+    access: RW
+    description: KEK_AUTH_CODE[255:224], if key_index = 10, SW should write KEK authorization
+      code into this register before trig cmd valid, HSM will compare this code with
+      the code store in NVM, the command will only be executed when the comparison
+      is successful
+- name: KEK_AUTH_CODE1
+  address: '0x0A0'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEK_AUTH_CODE1
+    access: RW
+    description: KEK_AUTH_CODE[223:192], if key_index = 10, SW should write KEK authorization
+      code into this register before trig cmd valid, HSM will compare this code with
+      the code store in NVM, the command will only be executed when the comparison
+      is successful
+- name: KEK_AUTH_CODE2
+  address: '0x0A4'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEK_AUTH_CODE3
+    access: RW
+    description: KEK_AUTH_CODE[191:160], if key_index = 10, SW should write KEK authorization
+      code into this register before trig cmd valid, HSM will compare this code with
+      the code store in NVM, the command will only be executed when the comparison
+      is successful
+- name: KEK_AUTH_CODE3
+  address: '0x0A8'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEK_AUTH_CODE3
+    access: RW
+    description: KEK_AUTH_CODE[159:128], if key_index = 10, SW should write KEK authorization
+      code into this register before trig cmd valid, HSM will compare this code with
+      the code store in NVM, the command will only be executed when the comparison
+      is successful
+- name: KEK_AUTH_CODE4
+  address: '0x0AC'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEK_AUTH_CODE4
+    access: RW
+    description: KEK_AUTH_CODE[127:96], if key_index = 10, SW should write KEK authorization
+      code into this register before trig cmd valid, HSM will compare this code with
+      the code store in NVM, the command will only be executed when the comparison
+      is successful. if aes256_en (CMD register bit20) = 0, then KEK_AUTH_CODE4 is
+      not used.
+- name: KEK_AUTH_CODE5
+  address: '0x0B0'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEK_AUTH_CODE5
+    access: RW
+    description: KEK_AUTH_CODE[95:64], if key_index = 10, SW should write KEK authorization
+      code into this register before trig cmd valid, HSM will compare this code with
+      the code store in NVM, the command will only be executed when the comparison
+      is successful. if aes256_en (CMD register bit20) = 0, then KEK_AUTH_CODE5 is
+      not used.
+- name: KEK_AUTH_CODE6
+  address: '0x0B4'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEK_AUTH_CODE6
+    access: RW
+    description: KEK_AUTH_CODE[63:32], if key_index = 10, SW should write KEK authorization
+      code into this register before trig cmd valid, HSM will compare this code with
+      the code store in NVM, the command will only be executed when the comparison
+      is successful. if aes256_en (CMD register bit20) = 0, then KEK_AUTH_CODE6 is
+      not used.
+- name: KEK_AUTH_CODE7
+  address: '0x0B8'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '31:0'
+    name: KEK_AUTH_CODE7
+    access: RW
+    description: KEK_AUTH_CODE[31:0], if key_index = 10, SW should write KEK authorization
+      code into this register before trig cmd valid, HSM will compare this code with
+      the code store in NVM, the command will only be executed when the comparison
+      is successful. if aes256_en (CMD register bit20) = 0, then KEK_AUTH_CODE7 is
+      not used.
+- name: IRQ_STATUS
+  address: '0x0BC'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '18'
+    name: irq_status[18]
+    access: RO
+    description: data length is zero when get random number
+  - bit_range: '17'
+    name: irq_status[17]
+    access: RO
+    description: data length not align to 32 when get random number
+  - bit_range: '16'
+    name: irq_status[16]
+    access: RO
+    description: not select authentication key (<2 or >9) when cipher mode is authentication
+  - bit_range: '15'
+    name: irq_status[15]
+    access: RO
+    description: select key has been disabled (key 4/5 can be disabled with OTP configuration)
+      when cipher mode is authentication
+  - bit_range: '14'
+    name: irq_status[14]
+    access: RO
+    description: key index invalid (>22 or =11) when cipher mode is cmac
+  - bit_range: '13'
+    name: irq_status[13]
+    access: RO
+    description: select authentication key (key 2-9) when cipher mode is cmac
+  - bit_range: '12'
+    name: irq_status[12]
+    access: RO
+    description: select key 10 when cipher mode is cmac
+  - bit_range: '11'
+    name: irq_status[11]
+    access: RO
+    description: key index invalid (>22 or =11) when cipher mode is cfb8/ofb/ctr
+  - bit_range: '10'
+    name: irq_status[10]
+    access: RO
+    description: select authentication key (key 2-9) when cipher mode is cfb8/ofb/ctr
+  - bit_range: '9'
+    name: irq_status[9]
+    access: RO
+    description: select key 1 when cipher mode is cfb8/ofb/ctr
+  - bit_range: '8'
+    name: irq_status[8]
+    access: RO
+    description: data length is zero when cipher mode is cfb8/ofb/ctr
+  - bit_range: '7'
+    name: irq_status[7]
+    access: RO
+    description: key index invalid (>22 or =11) when cipher mode is ecb/cbc/cfb128
+  - bit_range: '6'
+    name: irq_status[6]
+    access: RO
+    description: select authentication key (key 2-9) when cipher mode is ecb/cbc/cfb128
+  - bit_range: '5'
+    name: irq_status[5]
+    access: RO
+    description: select key 1 when cipher mode is ecb/cbc/cfb128
+  - bit_range: '4'
+    name: irq_status[4]
+    access: RO
+    description: data length is zero when cipher mode is ecb/cbc/cfb128
+  - bit_range: '3'
+    name: irq_status[3]
+    access: RO
+    description: data length not align to 128bit when cipher mode is ecb/cbc/cfb128
+  - bit_range: '2'
+    name: irq_status[2]
+    access: RO
+    description: select flash key, but key invalid
+  - bit_range: '1'
+    name: irq_status[1]
+    access: RO
+    description: select KEK, but KEK authorization code invalid
+  - bit_range: '0'
+    name: irq_status[0]
+    access: RO
+    description: select KEK, but KEK authorization code not correct
+- name: IRQ_CLR
+  address: '0x0C0'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '0'
+    name: irq_clr
+    access: WO
+    description: clear irq status
+- name: CHIP_STATE
+  address: '0x0C4'
+  default: '0x0000_0000'
+  fields:
+  - bit_range: '0'
+    name: chip_state
+    access: RO
+    description: '1''b1: chip unlock'
